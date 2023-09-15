@@ -1,0 +1,569 @@
+<!--<template #header>
+</template>-->
+
+<link rel="stylesheet" [href]="sanitizer.bypassSecurityTrustResourceUrl(css)">
+
+<div class="container">
+
+  <div class="container-pay">
+
+    <!-- Inicio Cargando -->
+    <div *ngIf="loading.load" class="loading"
+      [ngStyle]="{'background-color': dtsAplicacion.FondoPrimario, 'color': dtsAplicacion.ColorPrimario}">
+      <div class="loading-content">
+        <div class="loading-detail">
+          <img src="assets/images/loading.svg" width="150"><br>
+          Obteniendo Información...
+        </div>
+      </div>
+    </div>
+    <!-- Fin Cargando -->
+
+    <div *ngIf="loading.form" class="row">
+      <div class="col-md-4 container-detail-1"
+        [ngStyle]="{'background-color': dtsAplicacion.FondoPrimario, 'color': dtsAplicacion.ColorPrimario}">
+
+        <br>
+        <img src="{{ dtsAplicacion.LogoPrimario }}" width="{{ dtsAplicacion.LogoPrimarioTamano }}" />
+
+        <hr class="line" [ngStyle]="{'background-color': dtsAplicacion.ColorPrimario + '40'}">
+        <div class="row">
+          <div class="col-2 spacing-label">
+            <i class="fas fa-id-card-alt icon-size"></i>
+          </div>
+          <div class="col-10 spacing-label">
+            <span class="label-size">Cliente:</span>
+          </div>
+          <div class="col-2">
+          </div>
+          <div class="col-10">
+            <b>
+              {{ dtsClienteFactura.Cliente.PrimerNombre }} {{ dtsClienteFactura.Cliente.SegundoNombre }}
+              {{ dtsClienteFactura.Cliente.Apellido }}
+            </b>
+          </div>
+        </div>
+        <hr class="line" [ngStyle]="{'background-color': dtsAplicacion.ColorPrimario + '40'}">
+        <div class="row">
+          <div class="col-2 spacing-label">
+            <i class="fas fa-wallet icon-size"></i>
+          </div>
+          <div class="col-10 spacing-label">
+            <span class="label-size">Monto:</span>
+          </div>
+          <div class="col-2">
+          </div>
+          <div class="col-10">
+            <b>$ {{ redondearDecimales(dtsClienteFactura.Total) }} USD</b>
+          </div>
+        </div>
+        <hr class="line" [ngStyle]="{'background-color': dtsAplicacion.ColorPrimario + '40'}">
+        <div class="row">
+          <div class="col-2 spacing-label">
+            <i class="fas fa-calendar-alt icon-size"></i>
+          </div>
+          <div class="col-10 spacing-label">
+            <span class="label-size">Fecha:</span>
+          </div>
+          <div class="col-2">
+          </div>
+          <div class="col-10">
+            <b>{{ globales.transformarFecha(globales.obtenerFechaCompleta("-")).mes }}
+              &nbsp;{{ globales.transformarFecha(globales.obtenerFechaCompleta("-")).dia }}</b>
+          </div>
+        </div>
+        <hr class="line" [ngStyle]="{'background-color': dtsAplicacion.ColorPrimario + '40'}">
+        <div class="row">
+          <div class="col-2 spacing-label">
+            <i class="fas fa-star icon-size"></i>
+          </div>
+          <div class="col-10 spacing-label">
+            <span class="label-size">Descripción:</span>
+          </div>
+          <div class="col-2">
+          </div>
+          <div class="col-10">
+            <b>
+              {{ dtsAplicacion.Nombre }}<br>
+              {{ dtsClienteFactura.Comercio }}
+            </b>
+          </div>
+        </div>
+        <hr class="line" [ngStyle]="{'background-color': dtsAplicacion.ColorPrimario + '40'}">
+        <div class="row">
+          <div class="col-2 spacing-label">
+            <i class="fas fa-receipt icon-size"></i>
+          </div>
+          <div class="col-10 spacing-label">
+            <span class="label-size">N° Confirmación:</span>
+          </div>
+          <div class="col-2">
+          </div>
+          <div class="col-10">
+            <b>{{ dtsClienteFactura.Numero }}</b>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Inicio Movil -->
+      <div class="col-md-12 phone-logo"
+        [ngStyle]="{'background-color': dtsAplicacion.FondoSecundario, 'color': dtsAplicacion.ColorSecundario}">
+
+        <img src="{{ dtsAplicacion.LogoSecundario }}" width="{{ dtsAplicacion.LogoSecundarioTamano }}" />
+
+      </div>
+
+      <div class="col-md-12 phone-detail"
+        [ngStyle]="{'background-color': dtsAplicacion.FondoPrimario, 'color': dtsAplicacion.ColorPrimario}">
+
+        <div class="row" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false"
+          aria-controls="collapseExample">
+          <div class="col-2 spacing-label">
+            <i class="fas fa-wallet icon-size"></i>
+          </div>
+          <div class="col-10 spacing-label">
+            <span class="label-size">Monto:</span>
+          </div>
+          <div class="col-2">
+          </div>
+          <div class="col-10">
+            <b>$ {{ redondearDecimales(dtsClienteFactura.Total) }} USD</b>
+          </div>
+          <div class="col-12">
+            <div style="padding-top: 8px !important; text-align: center !important;">
+              <i class="fas fa-chevron-down"></i>
+            </div>
+          </div>
+        </div>
+
+        <div class="collapse" id="collapseExample">
+          <hr class="line" [ngStyle]="{'background-color': dtsAplicacion.ColorPrimario + '40'}">
+          <div class="row">
+            <div class="col-2 spacing-label">
+              <i class="fas fa-id-card-alt icon-size"></i>
+            </div>
+            <div class="col-10 spacing-label">
+              <span class="label-size">Cliente:</span>
+            </div>
+            <div class="col-2">
+            </div>
+            <div class="col-10">
+              <b>
+                {{ dtsClienteFactura.Cliente.PrimerNombre }} {{ dtsClienteFactura.Cliente.SegundoNombre }}
+                {{ dtsClienteFactura.Cliente.Apellido }}
+              </b>
+            </div>
+          </div>
+          <hr class="line" [ngStyle]="{'background-color': dtsAplicacion.ColorPrimario + '40'}">
+          <div class="row">
+            <div class="col-2 spacing-label">
+              <i class="fas fa-calendar-alt icon-size"></i>
+            </div>
+            <div class="col-10 spacing-label">
+              <span class="label-size">Fecha:</span>
+            </div>
+            <div class="col-2">
+            </div>
+            <div class="col-10">
+              <b>{{ globales.transformarFecha(globales.obtenerFechaCompleta("-")).mes }}
+                &nbsp;{{ globales.transformarFecha(globales.obtenerFechaCompleta("-")).dia }}</b>
+            </div>
+          </div>
+          <hr class="line" [ngStyle]="{'background-color': dtsAplicacion.ColorPrimario + '40'}">
+          <div class="row">
+            <div class="col-2 spacing-label">
+              <i class="fas fa-star icon-size"></i>
+            </div>
+            <div class="col-10 spacing-label">
+              <span class="label-size">Descripción:</span>
+            </div>
+            <div class="col-2">
+            </div>
+            <div class="col-10">
+              <b>
+                {{ dtsAplicacion.Nombre }}<br>
+                {{ dtsClienteFactura.Comercio }}
+              </b>
+            </div>
+          </div>
+          <hr class="line" [ngStyle]="{'background-color': dtsAplicacion.ColorPrimario + '40'}">
+          <div class="row">
+            <div class="col-2 spacing-label">
+              <i class="fas fa-receipt icon-size"></i>
+            </div>
+            <div class="col-10 spacing-label">
+              <span class="label-size">N° Confirmación:</span>
+            </div>
+            <div class="col-2">
+            </div>
+            <div class="col-10">
+              <b>{{ dtsClienteFactura.Numero }}</b>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <!-- Fin Movil -->
+
+      <div class="col-md-8 container-form-1"
+        [ngStyle]="{'background-color': dtsAplicacion.FondoSecundario, 'color': dtsAplicacion.ColorSecundario}">
+
+        <br class="heading">
+        <div class="row heading">
+          <div class="col-4"><img src="{{ dtsAplicacion.LogoSecundario }}"
+              width="{{ dtsAplicacion.LogoSecundarioTamano }}" /></div>
+          <div class="col-8 text-right" style="line-height: 42px !important;">
+            {{ globales.obtenerFechaLetras() }}
+          </div>
+        </div>
+        <hr class="line heading" [ngStyle]="{'background-color': dtsAplicacion.ColorPrimario + '40'}">
+
+        <div *ngIf="dtsAplicacion.Recurrencia != 1" class="row">
+          <div class="col-md-12">
+            <div class="labels">Bin Tarjeta</div>
+          </div>
+          <div class="col-md-10">
+            <div class="input-group input-group-sm mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text">
+                  <img src="{{imgBanco}}" width="22">
+                </span>
+              </div>
+              <input type="text" class="form-control" id="inputBin" mask='000000'
+                placeholder="Ingrese los 6 primeros dígitos de su tarjeta" [(ngModel)]="binTarjeta"
+                (keyup)="marcaTarjeta()">
+              <div class="input-group-append">
+                <span class="input-group-text">
+                  <i [ngClass]="imagenTarjeta"
+                    [ngStyle]="{'color': dtsAplicacion.FondoPrimario, 'font-size': '23px'}"></i>
+                </span>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-2">
+            <button (click)="consultarBin()" class="btn-search"
+              [ngStyle]="{'background-color': dtsAplicacion.FondoPrimario, 'color': dtsAplicacion.ColorPrimario}">
+              <i class="fas fa-search"></i>
+            </button>
+          </div>
+        </div>
+
+        <div *ngIf="cbxEntidadFinanciera" class="row">
+          <div class="spacing"></div>
+          <div class="col-md-12">
+            <div class="form-group">
+              <div class="labels">Selecciona tu Entidad Financiera</div>
+              <kendo-dropdownlist [data]="dataEntidadFinanciera" [(ngModel)]="entidadFinanciera" [filterable]="true"
+                textField="banco" valueField="banco" (filterChange)="filtrarEntidadFinanciera($event)"
+                (ngModelChange)="selBanco($event)"
+                style="font-size: 13.5px !important; height: 40px !important; width: 100%">
+                <ng-template kendoDropDownListItemTemplate let-dataItem>
+                  <img src="assets/brand-banks/{{dataItem.imagen}}" width="37">&nbsp;&nbsp;&nbsp;
+                  <span style="font-size: 13.5px !important">{{ dataItem.banco }}</span>
+                </ng-template>
+              </kendo-dropdownlist>
+            </div>
+          </div>
+        </div>
+
+        <div *ngIf="vistaGracia" class="col-md-12" style="padding-left: 0px !important;">
+          <div style="text-align: left !important;">
+            <div class="labels">¿Desea diferir su pago con meses de gracia?</div>
+            <div style="display: inline-flex;">
+              <div class="form-check form-check-inline">
+                <input [(ngModel)]="gracia" class="form-check-input" type="radio" id="ConGracia" value="1"
+                  (ngModelChange)="obtenertChekoutid()">
+                <span>Si</span>
+              </div>
+              <div class="form-check form-check-inline">
+                <input [(ngModel)]="gracia" class="form-check-input" type="radio" id="SinGracia" value="2"
+                  (ngModelChange)="obtenertChekoutid()">
+                <span>No</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div *ngIf="dtsAplicacion.Recurrencia != 1" class="row">
+          <div class="col-md-12">
+            <div *ngIf="(binTarjeta == '' || binTarjeta == null)" id="ayuda">
+              <div class="spacing"></div>
+              <div class="container-help">
+                <div class="row">
+                  <div class="col-1" style="text-align: center !important; font-size: 25px; padding: 0px !important;">
+                    <i class="fas fa-exclamation-circle heading"></i>
+                  </div>
+                  <div class="col-11" style="padding: 0px !important; padding-right: 15px !important;">
+                    Recuerde que los 6 primeros dígitos de la tarjeta sirven para identificar la entidad financiera y la
+                    marca de su
+                    tarjeta.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="spacing"></div>
+          <div class="col-md-12">
+            <!-- INICIO FORMULARIO DE PAGO DATAFAST -->
+            <div *ngIf="plataforma == 'DATAFAST' " [ngClass]="interfaz">
+              <template #botonDatafast>
+              </template>
+            </div>
+            <!-- FIN FORMULARIO DE PAGO DATAFAST -->
+            <!-- INICIO FORMULARIO DE PAGO PAYPHONE -->
+            <div *ngIf="plataforma == 'PAYPHONE'">
+              <template #botonPayphone>
+              </template>
+            </div>
+            <!-- FIN FORMULARIO DE PAGO PAYPHONE -->
+          </div>
+        </div>
+
+      </div>
+      <div class="col-md-4 container-detail-2"
+        [ngStyle]="{'background-color': dtsAplicacion.FondoPrimario, 'color': dtsAplicacion.ColorPrimario}">
+        <div class="row">
+          <div class="col-md-12 text-center" style="font-size: 9px !important;">
+            Revisa nuestra política de privacidad de datos<br>
+            <a href="{{ documentoDatos }}" target="_blank" style="color: white !important">
+              <u>Click Aquí</u>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-8 container-form-2"
+        [ngStyle]="{'background-color': dtsAplicacion.FondoSecundario, 'color': dtsAplicacion.ColorSecundario}">
+        <div class="row">
+          <div class="col-md-6">
+            <div class="row">
+              <div class="col-6">
+                <small>Certificado TLS</small>
+                <img src="assets/images/items/ssl-site.png" alt="" width="20">
+              </div>
+              <div class="col-6">
+                <small>Protección de Datos</small>
+                <img src="assets/images/items/proteccion-datos.png" alt="" width="20">
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 text-right">
+            <small>Aceptamos: </small>
+            <span [ngStyle]="{'color': dtsAplicacion.ColorSecundario, 'font-size': '27px'}"><i
+                class="fab fa-cc-mastercard"></i></span>
+            <span [ngStyle]="{'color': dtsAplicacion.ColorSecundario, 'font-size': '27px'}"><i
+                class="fab fa-cc-visa"></i></span>
+            <span [ngStyle]="{'color': dtsAplicacion.ColorSecundario, 'font-size': '27px'}"><i
+                class="fab fa-cc-diners-club"></i></span>
+            <span [ngStyle]="{'color': dtsAplicacion.ColorSecundario, 'font-size': '27px'}"><i
+                class="fab fa-cc-discover"></i></span>
+            <span [ngStyle]="{'color': dtsAplicacion.ColorSecundario, 'font-size': '27px'}"><i
+                class="fab fa-cc-amex"></i></span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <!--
+  <div class="row detalles-movil" style="padding-left: 5px !important; padding-right: 5px !important">
+    <div class="col-md-12">
+      <br>
+      <div class="tarjeta-detalles"
+        [ngStyle]="{'background-color': dtsAplicacion.FondoPrimario, 'color': dtsAplicacion.ColorPrimario}">
+        <b style="font-size: 16px !important">Total a Pagar</b><br>
+        <div style="padding-top: 5px !important; font-size: 17px !important">
+          <b>USD $ {{ redondearDecimales(dtsClienteFactura.Total) }}</b>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row" style="padding: 20px !important;">
+
+    <div class="col-md-8">
+      <div class="row pay-container">
+        <div class="col-md-1">
+        </div>
+        <div class="col-md-10">
+          <div class="row">
+            <div class="col-12">
+              <br>
+              <label><b [ngStyle]="{'font-size': '16px', 'font-weight': 'bold'}">Formulario
+                  de Pago</b></label>
+            </div>
+            <div class="col-md-10">
+              <div class="form-group">
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text espaciado">
+                      <img src="{{imgBanco}}" width="30">
+                    </span>
+                  </div>
+                  <input type="text" class="form-control form-control-sm"
+                    placeholder="Ingrese los 6 primeros dígitos de su tarjeta" mask="000000">
+                  <div class="input-group-append">
+                    <span class="input-group-text espaciado">
+                      <i [ngClass]="imagenTarjeta"
+                        [ngStyle]="{'color': dtsAplicacion.FondoPrimario, 'font-size': '30px'}"></i>
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-2">
+              <div class="form-group">
+                <popover-content #resultadoBIN placement="top" [animation]="true" [closeOnClickOutside]="true">
+                  <div style="padding: 15px !important; font-size: 13.5px; width: 300px !important; color: #000">
+                    <div *ngIf="dtsBin.IdCatalagoBines == 0">
+                      <span>
+                        No se logró encontrar una entidad financiera asociada a su tarjeta, por favor selecciona
+                        manualmente en la lista desplegable.
+                      </span>
+                    </div>
+                    <div *ngIf="dtsBin.IdCatalagoBines != 0">
+                      <b>Nombre:</b> {{ dtsBin.Nombre }} <br>
+                      <b>Descripción:</b> {{ dtsBin.Descripcion }}
+                    </div>
+                  </div>
+                </popover-content>
+
+              </div>
+            </div>
+
+
+          </div>
+
+          <div class="row" *ngIf="cbxEntidadFinanciera">
+            <div class="col-md-12">
+              <div class="form-group">
+                <label><b>Selecciona tu Entidad Financiera</b></label>
+                <kendo-dropdownlist [data]="dataEntidadFinanciera" [(ngModel)]="entidadFinanciera" [filterable]="true"
+                  textField="banco" valueField="banco" (filterChange)="filtrarEntidadFinanciera($event)"
+                  (ngModelChange)="selBanco($event)"
+                  style="font-size: 13.5px !important; height: 40px !important; width: 100%">
+                  <ng-template kendoDropDownListItemTemplate let-dataItem>
+                    <img src="assets/brand-banks/{{dataItem.imagen}}" width="37">&nbsp;&nbsp;&nbsp;
+                    <span style="font-size: 13.5px !important">{{ dataItem.banco }}</span>
+                  </ng-template>
+                </kendo-dropdownlist>
+              </div>
+            </div>
+          </div>
+
+
+
+          <div class="detalles-web" style="padding: 0px; padding-bottom: 30px !important; background-color: white">
+
+          </div>
+        </div>
+        <div class="col-md-1">
+        </div>
+      </div>
+      <br>
+    </div>
+    <div class="col-md-4 contenedor-detalles">
+
+
+      <div class="tarjeta-detalles detalles-web"
+        [ngStyle]="{'background-color': dtsAplicacion.FondoPrimario, 'color': dtsAplicacion.ColorPrimario}">
+        <b style="font-size: 16px !important">Datos Facturación</b>
+        <div style="padding-top: 10px !important">
+          <b>Nombre: </b>
+          <span>
+            {{ dtsClienteFactura.Cliente.PrimerNombre }}
+            {{ dtsClienteFactura.Cliente.SegundoNombre }}
+            {{ dtsClienteFactura.Cliente.Apellido }}
+          </span>
+        </div>
+        <div style="padding-top: 5px !important">
+          <b>Cédula o Ruc: </b>
+          <span>
+            {{ dtsClienteFactura.Cliente.Identificacion }}
+          </span>
+        </div>
+        <div style="padding-top: 5px !important">
+          <b>Correo: </b>
+          <span>
+            {{ globales.gestionEmail(dtsClienteFactura.Cliente.Email)[0] }}
+          </span>
+        </div>
+      </div>
+
+      <br class="detalles-web">
+
+      <div class="tarjeta-detalles-top"
+        [ngStyle]="{'background-color': dtsAplicacion.FondoPrimario, 'color': dtsAplicacion.ColorPrimario}">
+
+        <div class="detalles-movil">
+          <b style="font-size: 16px !important">Datos Facturación</b>
+          <div style="padding-top: 10px !important">
+            <b>Nombre: </b>
+            <span>
+              {{ dtsClienteFactura.Cliente.PrimerNombre }}
+              {{ dtsClienteFactura.Cliente.SegundoNombre }}
+              {{ dtsClienteFactura.Cliente.Apellido }}
+            </span>
+          </div>
+          <div style="padding-top: 5px !important">
+            <b>Cédula o Ruc: </b>
+            <span>
+              {{ dtsClienteFactura.Cliente.Identificacion }}
+            </span>
+          </div>
+          <div style="padding-top: 5px !important">
+            <b>Correo: </b>
+            <span>
+              {{ globales.gestionEmail(dtsClienteFactura.Cliente.Email)[0] }}
+            </span>
+          </div>
+        </div>
+
+        <div class="detalles-web">
+          <b style="font-size: 16px !important">Total a Pagar</b><br>
+          <div style="padding-top: 5px !important; font-size: 17px !important">
+            <b>USD $ {{ redondearDecimales(dtsClienteFactura.Total) }}</b>
+          </div>
+        </div>
+      </div>
+
+      <div [ngStyle]="{'background-color': dtsAplicacion.FondoPrimario, 'color': dtsAplicacion.ColorPrimario}">
+        <div class="tarjeta-detalle-tiempo">
+          &nbsp;
+        </div>
+      </div>
+
+      <div class="tarjeta-detalles-bottom"
+        [ngStyle]="{'background-color': dtsAplicacion.FondoPrimario, 'color': dtsAplicacion.ColorPrimario}">
+        <div class="form-group">
+          <b>Transacción</b><br>
+          <span>{{ dtsClienteFactura.Numero }}</span>
+        </div>
+        <div class="form-group">
+          <b>Descripción</b><br>
+          <span>{{ dtsAplicacion.Nombre }}</span> <br>
+          <span>{{ dtsClienteFactura.Comercio }}</span>
+        </div>
+        <div class="form-group">
+          <b>Fecha</b><br>
+          <span>{{ globales.obtenerFechaCompleta("-") }}</span>
+        </div>
+        <br>
+        <div style="padding-bottom: 6px !important;">
+
+        </div>
+
+        <div style="text-align: center !important; font-size: 10px !important">
+          REVISA NUESTRA POLÍTICA DE PRIVACIDAD DE DATOS <br>
+          <a href="{{ documentoDatos }}" target="_blank" style="color: white !important">
+            <u>CLICK AQUÍ</u>
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </div>-->
+</div>

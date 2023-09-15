@@ -1,0 +1,78 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{8B5D3F39-80E7-418D-A008-A51BD55FA91D}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SegurosEquinoccial.Pagos.Controlador</RootNamespace>
+    <AssemblyName>SegurosEquinoccial.Pagos.Controlador</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Administracion\CAdmAplicacion.cs" />
+    <Compile Include="Administracion\CAdmCatalogoBancos.cs" />
+    <Compile Include="Administracion\CAdmCatalogoBines.cs" />
+    <Compile Include="Administracion\CAdmCliente.cs" />
+    <Compile Include="Administracion\CAdmCredenciales.cs" />
+    <Compile Include="Administracion\CAdmError.cs" />
+    <Compile Include="Administracion\CAdmFactura.cs" />
+    <Compile Include="Administracion\CAdmGestion.cs" />
+    <Compile Include="Administracion\CAdmHistorialTransacciones.cs" />
+    <Compile Include="Administracion\CAdmMasivos.cs" />
+    <Compile Include="Administracion\CAdmMensajes.cs" />
+    <Compile Include="Administracion\CAdmPago.cs" />
+    <Compile Include="Administracion\CAdmPagoDiferidos.cs" />
+    <Compile Include="Administracion\CAdmPagoPayphone.cs" />
+    <Compile Include="Administracion\CAdmPagoReverso.cs" />
+    <Compile Include="Administracion\CAdmPagoWidget.cs" />
+    <Compile Include="Administracion\CAdmRecurrencia.cs" />
+    <Compile Include="Administracion\CAdmToken.cs" />
+    <Compile Include="Administracion\CAdmUsuario.cs" />
+    <Compile Include="Gestion\CAdmEmail.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\SegurosEquinoccial.Pagos.Datos\SegurosEquinoccial.Pagos.Datos.csproj">
+      <Project>{B542CFC5-A373-4EAA-8289-6AA27813071A}</Project>
+      <Name>SegurosEquinoccial.Pagos.Datos</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SegurosEquinoccial.Pagos.Entidad\SegurosEquinoccial.Pagos.Entidad.csproj">
+      <Project>{04CFB2BC-03DD-46F2-B48E-8009BCC64762}</Project>
+      <Name>SegurosEquinoccial.Pagos.Entidad</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

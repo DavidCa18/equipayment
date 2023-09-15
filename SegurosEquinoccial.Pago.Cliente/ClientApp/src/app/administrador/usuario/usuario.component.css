@@ -1,0 +1,44 @@
+label{
+  font-size: 13.5px !important;
+  font-weight: bold;
+}
+
+.profile {
+  background-color: #ffffff;
+  width: 100% !important;
+  height: 226px !important;
+  text-align: center;
+  padding: 30px !important;
+  border-radius: 7px 7px 7px 7px;
+  -moz-border-radius: 7px 7px 7px 7px;
+  -webkit-border-radius: 7px 7px 7px 7px;
+}
+
+.image-profile {
+  width: 100px;
+  height: 100px;
+  margin: auto;
+  border-radius: 50%;
+}
+
+.image-edit {
+  width: 34%;
+  height: 34%;
+  background: white;
+  border-radius: 50%;
+  position: relative;
+  bottom: 40px;
+  left: 75px;
+  background: rgba(177, 65, 64, 1);
+  cursor: pointer;
+}
+
+.container-modal-left-adc{
+  line-height: 380px !important;
+}
+
+@media screen and (max-width: 768px) {
+  .image-profile {
+    display: none !important;
+  }
+}

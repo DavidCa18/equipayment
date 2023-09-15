@@ -1,0 +1,29 @@
+<div id="notfound" [ngStyle]="{'background-color': aplicacion.FondoPrimario}">
+  <div class="notfound">
+    <div style="text-align: right;">
+      <div class="logo">
+        <img src="{{ aplicacion.LogoPrimario }}" alt="" width="180">
+        <span *ngIf="idAplicacion != 0" style="padding-left: 10px"></span>
+        <img *ngIf="idAplicacion != 0" src="assets/images/separador.png" alt="" height="65" width="2">
+        <span *ngIf="idAplicacion != 0" style="padding-right: 5px"></span>
+        <img *ngIf="idAplicacion != 0" src="{{ aplicacion.LogoSecundario }}" alt="" width="180">
+      </div>
+      <br><br><br>
+    </div>
+    <div [ngStyle]="{'color': aplicacion.ColorPrimario, 'font-family': 'Montserrat', 'font-size': '17px'}">
+      <img src="{{ errores.Imagen }}" alt="IMAGEN" width="120"><br><br>
+      <span>{{ errores.Texto }}</span>
+    </div>
+    <hr>
+    <div [ngStyle]="{'color': aplicacion.ColorPrimario, 'font-family': 'Montserrat', 'text-align': 'justify'}">
+      <small>{{ errores.Descripcion }}</small>
+    </div>
+    <br><br><br>
+    <div style="color: #FFFFFF; font-family: 'Montserrat', sans-serif; text-align: right;">
+      <span>1 - 800 EQUINOCCIAL</span>&nbsp;&nbsp;<br>
+      <span style="letter-spacing: 9.5px">378466</span><br>
+      <a href="https://segurosequinoccial.com/" target="_blank"
+        [ngStyle]="{'color': aplicacion.ColorPrimario}">www.segurosequinoccial.com&nbsp;&nbsp;</a>
+    </div>
+  </div>
+</div>

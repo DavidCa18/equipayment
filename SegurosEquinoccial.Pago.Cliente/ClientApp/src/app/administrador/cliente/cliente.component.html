@@ -1,0 +1,247 @@
+<app-navbar></app-navbar>
+<ngx-spinner bdColor="rgba(51,51,51,0.8)" size="medium" color="#fff" loadingText="Procesando Datos..." type="ball-atom">
+</ngx-spinner>
+<div class="container-admin">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="panel panel-default">
+        <div class="panel-body">
+          <h4><b>Gestión Cliente</b></h4>
+          <hr style="margin: 0; margin-bottom: 8px">
+          <kendo-grid [data]="tablaCliente" [pageSize]="tablaGestion.take" [skip]="tablaGestion.skip"
+            [sort]="tablaGestion.sort" [filter]="tablaGestion.filter" [height]="600" [resizable]="true"
+            [groupable]="true" [sortable]="true" [pageable]="true" filterable="menu"
+            (dataStateChange)="cambioEstadoCliente($event)" [group]="gruposCliente"
+            (groupChange)="cambioEstadoGrupoCliente($event)"
+            style="font-size: 13px !important; text-align: right !important;">
+
+            <ng-template kendoGridToolbarTemplate>
+              <button class="btn-dark" style="width: 180px !important" (click)="abrirModalAgregarCliente()">
+                <i class="fa fa-save"></i> Agregar Cliente
+              </button>
+            </ng-template>
+            <kendo-grid-column field="IdCliente" title="Código" width="80"
+              [headerStyle]="{'background-color': '#2C2C2C','color': '#fff'}">
+            </kendo-grid-column>
+            <kendo-grid-column field="Identificacion" title="Identificación" width="90"
+              [headerStyle]="{'background-color': '#2C2C2C','color': '#fff'}">
+            </kendo-grid-column>
+            <kendo-grid-column field="NombreCompleto" title="Nombre" width="150"
+              [headerStyle]="{'background-color': '#2C2C2C','color': '#fff'}">
+            </kendo-grid-column>
+            <kendo-grid-column field="Email" title="Correo Electrónico" width="150"
+              [headerStyle]="{'background-color': '#2C2C2C','color': '#fff'}">
+            </kendo-grid-column>
+            <kendo-grid-column field="Telefono" title="Teléfono" width="80"
+              [headerStyle]="{'background-color': '#2C2C2C','color': '#fff'}" [filterable]="false">
+            </kendo-grid-column>
+
+            <kendo-grid-column field="IdCliente" title="" width="33"
+              [headerStyle]="{'background-color': '#2C2C2C','color': '#fff'}" [filterable]="false">
+              <ng-template kendoGridCellTemplate let-dataItem>
+                <button class="btn-dark" (click)="abrirModalDetalleCliente(dataItem)">
+                  <i class="fa fa-eye"></i>
+                </button>
+              </ng-template>
+            </kendo-grid-column>
+            <kendo-grid-column field="IdCliente" title="" width="33"
+              [headerStyle]="{'background-color': '#2C2C2C','color': '#fff'}" [filterable]="false">
+              <ng-template kendoGridCellTemplate let-dataItem>
+                <button class="btn-yellow" (click)="abrirModalModificarCliente(dataItem)">
+                  <i class="fa fa-pencil"></i>
+                </button>
+              </ng-template>
+            </kendo-grid-column>
+
+            <kendo-grid-column field="Aplicacion.Nombre" title="Aplicación" width="1"
+              [headerStyle]="{'background-color': '#2C2C2C','color': '#fff'}">
+            </kendo-grid-column>
+
+            <kendo-grid-messages groupPanelEmpty="Arrastra aquí para agrupar" noRecords="No hay elementos que mostrar."
+              pagerPage="Página" pagerOf="de" pagerItems="ítems" pagerItemsPerPage="ítems por página"
+              filterClearButton="Limpiar" filterFilterButton="Buscar" filterAndLogic="Y" filterOrLogic="O"
+              filterEqOperator="Es igual a" filterNotEqOperator="No es igual a" filterContainsOperator="Contiene"
+              filterNotContainsOperator="No contiene" filterStartsWithOperator="Comienza con"
+              filterEndsWithOperator="Termina con" filterIsNullOperator="Es nulo (null)"
+              filterIsNotNullOperator="No es nulo (null)" filterIsEmptyOperator="Esta vacio"
+              filterIsNotEmptyOperator="No está vacío" filterAfterOperator="Es posterior a"
+              filterAfterOrEqualOperator="Es posterior o igual a" filterBeforeOrEqualOperator="Es anterior o igual a"
+              filterBeforeOperator="Es antes">
+            </kendo-grid-messages>
+          </kendo-grid>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="ModalGestionCliente" tabindex="-1" role="dialog"
+  aria-labelledby="ModalAgregarFacturaLabels">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header" style="background-color: #2E4053; color: #FFF">
+        <span class="modal-title" id="ModalAgregarFacturaLabels" style="font-size: 15px">{{modalCliente.Titulo}}</span>
+      </div>
+      <div class="modal-body" style="padding: 20px">
+        <div class="row">
+          <div class="col-xs-12 col-sm-6 col-md-6">
+            <div class="form-group">
+              <label>Identificación</label>
+              <input type="text" class="input" [(ngModel)]="fmrCliente.Identificacion"
+                (keyup)="fmrCliente.Identificacion = globales.formatoCampo(fmrCliente.Identificacion, '0123456789', 13, 2)">
+            </div>
+            <div class="form-group">
+              <label>Primer Nombre</label>
+              <input type="text" class="input" [(ngModel)]="fmrCliente.PrimerNombre"
+                (keyup)="fmrCliente.PrimerNombre = globales.formatoCampo(fmrCliente.PrimerNombre, 'abcdefghijklmnñopqrstuvwxyzáéíóúÁÉÍÓÚABCDEFGHIJKLMNÑOPQRSTUVWXYZ', 100, 1)">
+            </div>
+            <div class="form-group">
+              <label>Segundo Nombre</label>
+              <input type="text" class="input" [(ngModel)]="fmrCliente.SegundoNombre"
+                (keyup)="fmrCliente.SegundoNombre = globales.formatoCampo(fmrCliente.SegundoNombre, 'abcdefghijklmnñopqrstuvwxyzáéíóúÁÉÍÓÚABCDEFGHIJKLMNÑOPQRSTUVWXYZ', 100, 1)">
+            </div>
+          </div>
+          <div class="col-xs-12 col-sm-6 col-md-6">
+            <div class="form-group">
+              <label>Apellido</label>
+              <input type="text" class="input" [(ngModel)]="fmrCliente.Apellido"
+                (keyup)="fmrCliente.Apellido = globales.formatoCampo(fmrCliente.Apellido, 'abcdefghijklmnñopqrstuvwxyzáéíóúÁÉÍÓÚABCDEFGHIJKLMNÑOPQRSTUVWXYZ', 100, 1)">
+            </div>
+            <div class="form-group">
+              <label>Correo Electrónico</label>
+              <input type="text" class="input" [(ngModel)]="fmrCliente.Email"
+                (keyup)="fmrCliente.Email = globales.formatoCampo(fmrCliente.Email, 'abcdefghijklmnñopqrstuvwxyzáéíóúÁÉÍÓÚABCDEFGHIJKLMNÑOPQRSTUVWXYZ0123456789_-@.', 100, 2)">
+            </div>
+            <div class="form-group">
+              <label>Teléfono</label>
+              <input type="text" class="input" [(ngModel)]="fmrCliente.Telefono"
+                (keyup)="fmrCliente.Telefono = globales.formatoCampo(fmrCliente.Telefono, '0123456789', 10, 2)">
+            </div>
+          </div>
+          <div class="col-md-12">
+            <div class="form-group">
+              <label>Aplicación / Plataforma</label><br>
+              <kendo-dropdownlist [data]="lstAplicaciones" [textField]="'Nombre'" [valueField]="'IdAplicacion'"
+                [value]="aplicacionSeleccionada" [(ngModel)]="aplicaciones"
+                style="width: 100%; height: 35px; font-size: 14.5px !important">
+                <ng-template kendoDropDownListItemTemplate let-dataItem>
+                  <table
+                    style="font-size: 14.5px !important; text-align: left !important; padding: 10px !important; width: 100% !important;">
+                    <tr>
+                      <td style="width: 20% !important; padding: 10px !important">
+                        <b>Logo:</b><br>
+                        <div [ngStyle]="{'background-color': dataItem.FondoPrimario}">
+                          <img src="{{ dataItem.LogoSecundario }}" alt="LOGO" style="width: 100%">
+                        </div>
+                      </td>
+                      <td style="width: 20% !important; padding: 10px !important">
+                        <b>Código:</b><br>{{ dataItem.IdAplicacion }}
+                      </td>
+                      <td style="width: 60% !important; padding: 10px !important">
+                        <b>Nombre:</b><br>{{ dataItem.Nombre }}
+                      </td>
+                    </tr>
+                  </table>
+                </ng-template>
+              </kendo-dropdownlist>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer" style="padding: 20px">
+        <button *ngIf="modalCliente.BtnGuardar == true" type="button" class="btn-dark" (click)="agregarCliente()"
+          style="width: 100%">
+          Agregar Cliente
+        </button>
+        <button *ngIf="modalCliente.BtnModificar == true" type="button" class="btn-dark" (click)="modificarCliente()"
+          style="width: 100%">
+          Modificar Cliente
+        </button>
+        <br><br>
+        <button type="button" class="btn-white" data-dismiss="modal" style="width: 100%">Cancelar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="ModalDetallesCliente" tabindex="-1" role="dialog"
+  aria-labelledby="ModalDetallesFacturaLabel">
+  <div class="modal-dialog " role="document">
+    <div class="modal-content">
+      <div class="modal-header" style="background-color: #2E4053; color: #FFF">
+        <span class="modal-title" id="ModalDetallesFacturaLabel" style="font-size: 15px">Detalles Cliente</span>
+      </div>
+      <div class="modal-body" style="padding: 20px">
+        <div class="tab">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="form-group">
+                <h5 style="font-weight: bold"><u>Datos Cliente</u></h5>
+              </div>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-6">
+              <div class="form-group">
+                <label>Código</label><br>
+                <span>{{ cliente.IdCliente }}</span>
+              </div>
+              <div class="form-group">
+                <label>Identificación</label><br>
+                <span>{{ cliente.Identificacion }}</span>
+              </div>
+              <div class="form-group">
+                <label>Primer Nombre</label><br>
+                <span>{{ cliente.PrimerNombre }}</span>
+              </div>
+              <div class="form-group">
+                <label>Segundo Nombre</label><br>
+                <span>{{ cliente.SegundoNombre }}</span>
+              </div>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-6">
+              <div class="form-group">
+                <label>Apellido</label><br>
+                <span>{{ cliente.Apellido }}</span>
+              </div>
+              <div class="form-group">
+                <label>Correo Electrónico</label><br>
+                <span>{{ cliente.Email }}</span>
+              </div>
+              <div class="form-group">
+                <label>Teléfono</label><br>
+                <span>{{ cliente.Telefono }}</span>
+              </div>
+            </div>
+            <div class="col-md-12">
+              <div class="form-group">
+                <h5 style="font-weight: bold"><u>Datos Aplicación / Plataforma</u></h5>
+              </div>
+              <div class="form-group">
+                <label>Nombre</label><br>
+                <span>{{ cliente.Aplicacion.Nombre }}</span>
+              </div>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-6">
+              <div class="form-group">
+                <label>Logo Primario</label><br>
+                <div [ngStyle]="{'background-color': cliente.Aplicacion.FondoPrimario}">
+                  <img src="{{ cliente.Aplicacion.LogoSecundario }}" alt="LOGO" width="150">
+                </div>
+              </div>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-6">
+              <div class="form-group">
+                <label>Logo Secundario</label><br>
+                <div [ngStyle]="{'background-color': cliente.Aplicacion.FondoPrimario}">
+                  <img src="{{ cliente.Aplicacion.LogoPrimario }}" alt="LOGO" width="150">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer" style="padding: 20px">
+        <button type="button" class="btn-dark" data-dismiss="modal" style="width: 100%">Cerrar</button>
+      </div>
+    </div>
+  </div>
+</div>

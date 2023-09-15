@@ -1,0 +1,194 @@
+<ngx-spinner bdColor="rgba(51,51,51,0.8)" size="medium" color="#fff"
+  loadingText="Enviando links de pago, la siguiente acción puede tardar varios minutos.">
+</ngx-spinner>
+
+
+<div class="container-scroller" style="font-size: 14px;">
+
+
+  <nav class="navbar default-layout-navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
+    <app-navbar></app-navbar>
+  </nav>
+
+  <div class="container-fluid page-body-wrapper">
+
+    <nav class="sidebar sidebar-offcanvas" id="sidebar">
+      <app-sidebar></app-sidebar>
+    </nav>
+
+    <div class="main-panel">
+      <div class="content-wrapper">
+
+        <div class="page-header">
+          <h3 class="page-title"> Envío de Links </h3>
+          <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item"><a>Masivos</a></li>
+              <li class="breadcrumb-item active" aria-current="page">Envío de Links</li>
+            </ol>
+          </nav>
+        </div>
+
+        <div class="row">
+          <div class="col-12 grid-margin stretch-card">
+            <div class="card">
+              <div class="card-body" style="padding-top: 15px !important; padding-bottom: 8px !important;">
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label><b>Cargar Archivo</b></label>
+                      <div class="input-group mb-3">
+                        <div class="custom-file">
+                          <input type="file" class="custom-file-input height-md" id="inputGroupFile01"
+                            accept="application/vnd.ms-excel,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+                            (change)="seleccionarArchivo($event)" multiple="false">
+                          <label class="custom-file-label height" for="inputGroupFile01"
+                            style="padding-top: 10px;">{{ nombreDocumento }}</label>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label><b>Plantilla</b></label>
+                      <a href="assets/documents/Masivos.xlsx" target="_blank" class="link-btn btn-block">
+                        <i class="fa fa-file"></i> Descargar
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-12 grid-margin stretch-card">
+            <div class="card">
+              <div class="card-body">
+
+                <div *ngIf="lstDocumentoClientes.length > 0" class="text-right">
+                  <button class="btn btn-success btn-sm height-md" (click)="generarLinks()">
+                    <i class="mdi mdi-send"></i> Enviar Links
+                  </button>
+                  <br><br>
+                </div>
+
+                <div class="table-responsive">
+                  <table class="table table-bordered">
+                    <thead>
+                      <tr class="table-success text-white">
+                        <th>Identificación</th>
+                        <th>Nombre</th>
+                        <th>Email</th>
+                        <th>Celular</th>
+                        <th>Ramo</th>
+                        <th>Póliza</th>
+                        <th>Id Pv</th>
+                        <th>Deuda</th>
+                        <th>Cobranza</th>
+                        <th>Saldo</th>
+                        <th>Cuotas</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr *ngIf="lstDocumentoClientes.length == 0">
+                        <td colspan="11" class="text-center">
+                          Sin registros en el archivo seleccionado
+                        </td>
+                      </tr>
+                      <tr
+                        *ngFor="let cliente of lstDocumentoClientes | paginate: { id: 'clientes', itemsPerPage: 10, currentPage: p }">
+                        <td>{{ cliente.identificacion }}</td>
+                        <td style="width: 50px !important;">{{ cliente.nombre }}</td>
+                        <td>{{ cliente.email }}</td>
+                        <td>{{ cliente.celular }}</td>
+                        <td>{{ cliente.ramo }}</td>
+                        <td>{{ cliente.poliza }}</td>
+                        <td>{{ cliente.idpv }}</td>
+                        <td>{{ cliente.deuda }}</td>
+                        <td>{{ cliente.cobranza }}</td>
+                        <td>{{ cliente.saldo }}</td>
+                        <td>{{ cliente.cuota }}</td>
+                    </tbody>
+                    <tfoot *ngIf="lstDocumentoClientes.length != 0">
+                      <tr>
+                        <td colspan="11">
+                          <pagination-controls id="clientes" (pageChange)="p = $event" maxSize="10" autoHide="true"
+                            responsive="true" previousLabel="Anterior" nextLabel="Siguiente" class="paginacion">
+                          </pagination-controls>
+                        </td>
+                      </tr>
+                    </tfoot>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <footer class="footer">
+        <div class="d-sm-flex justify-content-center justify-content-sm-between">
+          <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">Copyright © 2020 <a
+              target="_blank">Innovacloud</a>. Todos los derechos reservados.</span>
+        </div>
+      </footer>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="ModalErrores" tabindex="-1" role="dialog" aria-labelledby="ModalErroresTitle"
+  aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+
+        <div class="text-center">
+          <h5>Transacción Exitosa</h5>
+          <i class="mdi mdi-check-circle text-success" style="font-size: 100px;"></i>
+        </div>
+
+        <table *ngIf="lstLinksFallidos.length != 0" class="links" border="1" style="width: 100% !important;">
+          <tr>
+            <td colspan="3">
+              A los clientes que se muestran a continuación no se les generó el link de pago.<br>
+              Detalles:
+            </td>
+          </tr>
+          <tr>
+            <td><b>Identificación</b></td>
+            <td><b>Nombre</b></td>
+            <td><b>Error</b></td>
+          </tr>
+          <tr *ngFor="let errorLink of lstLinksFallidos | paginate: { id: 'errores', itemsPerPage: 3, currentPage: q }">
+            <td>{{ errorLink.Identificacion }}</td>
+            <td>{{ errorLink.Cliente }}</td>
+            <td>{{ errorLink.Descripcion }}</td>
+          </tr>
+          <tr>
+            <td colspan="3">
+              Para reenviar los links a los clientes de la lista, redirigirse al módulo de <a class="redireccion"
+                [routerLink]="['/administrador/masivos/gestion']"><b>Masivos <i
+                    class="mdi mdi-chevron-double-right"></i> Gestión de Links</b></a>.
+            </td>
+          </tr>
+          <tr *ngIf="lstLinksFallidos.length > 3">
+            <td colspan="3" class="text-right">
+              <pagination-controls id="errores" (pageChange)="q = $event" maxSize="3" autoHide="true" responsive="true"
+                previousLabel=" " nextLabel=" " class="paginacion" style="font-size: 12px !important;">
+              </pagination-controls>
+            </td>
+          </tr>
+        </table>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-success btn-sm" data-dismiss="modal">Aceptar</button>
+      </div>
+    </div>
+  </div>
+</div>

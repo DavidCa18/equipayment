@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+https://go.microsoft.com/fwlink/?LinkID=208121. 
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <_PublishTargetUrl>C:\Users\ESCRITORIO\Desktop\Equipayment Producción - Servicio</_PublishTargetUrl>
+  </PropertyGroup>
+  <ItemGroup>
+    <File Include="Administracion/SAdmPagos.svc">
+      <publishTime>05/13/2019 09:07:33</publishTime>
+    </File>
+    <File Include="bin/itextsharp.dll">
+      <publishTime>06/20/2019 17:39:40</publishTime>
+    </File>
+    <File Include="bin/Newtonsoft.Json.dll">
+      <publishTime>01/28/2016 14:22:24</publishTime>
+    </File>
+    <File Include="bin/SegurosEquinoccial.Pagos.Controlador.dll">
+      <publishTime>09/29/2020 16:59:28</publishTime>
+    </File>
+    <File Include="bin/SegurosEquinoccial.Pagos.Controlador.pdb">
+      <publishTime>09/29/2020 16:59:28</publishTime>
+    </File>
+    <File Include="bin/SegurosEquinoccial.Pagos.Datos.dll">
+      <publishTime>09/29/2020 16:59:28</publishTime>
+    </File>
+    <File Include="bin/SegurosEquinoccial.Pagos.Datos.pdb">
+      <publishTime>09/29/2020 16:59:28</publishTime>
+    </File>
+    <File Include="bin/SegurosEquinoccial.Pagos.dll">
+      <publishTime>09/29/2020 16:59:29</publishTime>
+    </File>
+    <File Include="bin/SegurosEquinoccial.Pagos.Entidad.dll">
+      <publishTime>09/29/2020 16:59:26</publishTime>
+    </File>
+    <File Include="bin/SegurosEquinoccial.Pagos.Entidad.pdb">
+      <publishTime>09/29/2020 16:59:26</publishTime>
+    </File>
+    <File Include="bin/SegurosEquinoccial.Pagos.pdb">
+      <publishTime>09/29/2020 16:59:29</publishTime>
+    </File>
+    <File Include="bin/System.ComponentModel.Annotations.dll">
+      <publishTime>05/15/2018 13:29:36</publishTime>
+    </File>
+    <File Include="Documentos/POLITICA.pdf">
+      <publishTime>01/09/2020 12:02:07</publishTime>
+    </File>
+    <File Include="Gestion/SGesGestion.svc">
+      <publishTime>06/06/2019 10:17:27</publishTime>
+    </File>
+    <File Include="Global.asax">
+      <publishTime>05/13/2019 09:01:35</publishTime>
+    </File>
+    <File Include="Service1.svc">
+      <publishTime>05/13/2019 08:44:03</publishTime>
+    </File>
+    <File Include="Web.config">
+      <publishTime>09/29/2020 16:59:30</publishTime>
+    </File>
+  </ItemGroup>
+</Project>

@@ -1,0 +1,479 @@
+<div class="container">
+
+  <div class="container-pay">
+
+    <!-- Inicio Cargando -->
+    <div *ngIf="loading.load" class="loading"
+      [ngStyle]="{'background-color': dtsAplicacionClienteFactura.Cliente.Aplicacion.FondoPrimario, 'color': dtsAplicacionClienteFactura.Cliente.Aplicacion.ColorPrimario}">
+      <div class="loading-content">
+        <div class="loading-detail">
+          <img src="assets/images/loading.svg" width="150"><br>
+          Procesando Pago...
+        </div>
+      </div>
+    </div>
+    <!-- Fin Cargando -->
+
+    <!-- Inicio Reintentar -->
+
+    <!-- Fin Reintentar -->
+
+    <div *ngIf="loading.form" class="row">
+      <div class="col-md-4 container-detail-1"
+        [ngStyle]="{'background-color': dtsAplicacionClienteFactura.Cliente.Aplicacion.FondoPrimario, 'color': dtsAplicacionClienteFactura.Cliente.Aplicacion.ColorPrimario}">
+
+        <br>
+        <img src="{{ dtsAplicacionClienteFactura.Cliente.Aplicacion.LogoPrimario }}"
+          width="{{ dtsAplicacionClienteFactura.Cliente.Aplicacion.LogoPrimarioTamano }}" />
+
+        <hr class="line"
+          [ngStyle]="{'background-color': dtsAplicacionClienteFactura.Cliente.Aplicacion.ColorPrimario + '40'}">
+        <div class="row">
+          <div class="col-2 spacing-label">
+            <i class="fas fa-id-card-alt icon-size"></i>
+          </div>
+          <div class="col-10 spacing-label">
+            <span class="label-size">Cliente:</span>
+          </div>
+          <div class="col-2">
+          </div>
+          <div class="col-10">
+            <b>
+              {{ dtsAplicacionClienteFactura.Cliente.PrimerNombre }}
+              {{ dtsAplicacionClienteFactura.Cliente.SegundoNombre }}
+              {{ dtsAplicacionClienteFactura.Cliente.Apellido }}
+            </b>
+          </div>
+        </div>
+        <hr class="line"
+          [ngStyle]="{'background-color': dtsAplicacionClienteFactura.Cliente.Aplicacion.ColorPrimario + '40'}">
+        <div class="row">
+          <div class="col-2 spacing-label">
+            <i class="fas fa-wallet icon-size"></i>
+          </div>
+          <div class="col-10 spacing-label">
+            <span
+              class="label-size">{{ dtsAplicacionClienteFactura.Cliente.Aplicacion.Recurrencia == 1 && parametros.recurrencia == 1 ? 'Monto Total:': 'Monto:' }}</span>
+          </div>
+          <div class="col-2">
+          </div>
+          <div class="col-10">
+            <b>$ {{ globales.formatearNumero(dtsAplicacionClienteFactura.Total, 2) }} USD</b>
+          </div>
+        </div>
+
+        <hr *ngIf="dtsAplicacionClienteFactura.Cliente.Aplicacion.Recurrencia == 1 && parametros.recurrencia == 1" class="line"
+          [ngStyle]="{'background-color': dtsAplicacionClienteFactura.Cliente.Aplicacion.ColorPrimario + '40'}">
+        <div *ngIf="dtsAplicacionClienteFactura.Cliente.Aplicacion.Recurrencia == 1 && parametros.recurrencia == 1" class="row">
+          <div class="col-2 spacing-label">
+            <i class="far fa-check-circle icon-size"></i>
+          </div>
+          <div class="col-10 spacing-label">
+            <span class="label-size">Monto Cobrado:</span>
+          </div>
+          <div class="col-2">
+          </div>
+          <div class="col-10">
+            <b>$ {{ globales.formatearNumero(parametros.cuota, 2) }} USD</b>
+          </div>
+        </div>
+
+        <hr class="line"
+          [ngStyle]="{'background-color': dtsAplicacionClienteFactura.Cliente.Aplicacion.ColorPrimario + '40'}">
+        <div class="row">
+          <div class="col-2 spacing-label">
+            <i class="fas fa-calendar-alt icon-size"></i>
+          </div>
+          <div class="col-10 spacing-label">
+            <span class="label-size">Fecha:</span>
+          </div>
+          <div class="col-2">
+          </div>
+          <div class="col-10">
+            <b>{{ globales.transformarFecha(globales.obtenerFechaCompleta("-")).mes }}
+              &nbsp;{{ globales.transformarFecha(globales.obtenerFechaCompleta("-")).dia }}</b>
+          </div>
+        </div>
+        <hr class="line"
+          [ngStyle]="{'background-color': dtsAplicacionClienteFactura.Cliente.Aplicacion.ColorPrimario + '40'}">
+        <div class="row">
+          <div class="col-2 spacing-label">
+            <i class="fas fa-star icon-size"></i>
+          </div>
+          <div class="col-10 spacing-label">
+            <span class="label-size">Descripción:</span>
+          </div>
+          <div class="col-2">
+          </div>
+          <div class="col-10">
+            <b>
+              {{ dtsAplicacionClienteFactura.Cliente.Aplicacion.Nombre }}<br>
+              {{ dtsAplicacionClienteFactura.Comercio }}
+            </b>
+          </div>
+        </div>
+        <hr class="line"
+          [ngStyle]="{'background-color': dtsAplicacionClienteFactura.Cliente.Aplicacion.ColorPrimario + '40'}">
+        <div class="row">
+          <div class="col-2 spacing-label">
+            <i class="fas fa-receipt icon-size"></i>
+          </div>
+          <div class="col-10 spacing-label">
+            <span class="label-size">N° Confirmación:</span>
+          </div>
+          <div class="col-2">
+          </div>
+          <div class="col-10">
+            <b>{{ dtsAplicacionClienteFactura.Numero }}</b>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Inicio Movil -->
+      <div class="col-md-12 phone-logo"
+        [ngStyle]="{'background-color': dtsAplicacionClienteFactura.Cliente.Aplicacion.FondoSecundario, 'color': dtsAplicacionClienteFactura.Cliente.Aplicacion.ColorSecundario}">
+
+        <img src="{{ dtsAplicacionClienteFactura.Cliente.Aplicacion.LogoSecundario }}"
+          width="{{ dtsAplicacionClienteFactura.Cliente.Aplicacion.LogoSecundarioTamano }}" />
+
+      </div>
+
+      <div class="col-md-12 phone-detail"
+        [ngStyle]="{'background-color': dtsAplicacionClienteFactura.Cliente.Aplicacion.FondoPrimario, 'color': dtsAplicacionClienteFactura.Cliente.Aplicacion.ColorPrimario}">
+
+        <div class="row" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false"
+          aria-controls="collapseExample">
+          <div class="col-2 spacing-label">
+            <i class="fas fa-wallet icon-size"></i>
+          </div>
+          <div class="col-10 spacing-label">
+            <span class="label-size">{{dtsAplicacionClienteFactura.Cliente.Aplicacion.Recurrencia == 1 && parametros.recurrencia == 1 ? 'Monto Total:':
+              'Monto:'}}</span>
+          </div>
+          <div class="col-2">
+          </div>
+          <div class="col-10">
+            <b>$ {{ globales.formatearNumero(dtsAplicacionClienteFactura.Total, 2) }} USD</b>
+          </div>
+          <div class="col-12">
+            <div style="padding-top: 8px !important; text-align: center !important;">
+              <i class="fas fa-chevron-down"></i>
+            </div>
+          </div>
+        </div>
+
+        <div class="collapse" id="collapseExample">
+
+
+          <hr *ngIf="dtsAplicacionClienteFactura.Cliente.Aplicacion.Recurrencia == 1 && parametros.recurrencia == 1" class="line"
+            [ngStyle]="{'background-color': dtsAplicacionClienteFactura.Cliente.Aplicacion.ColorPrimario + '40'}">
+          <div *ngIf="dtsAplicacionClienteFactura.Cliente.Aplicacion.Recurrencia == 1 && parametros.recurrencia == 1" class="row">
+            <div class="col-2 spacing-label">
+              <i class="far fa-check-circle icon-size"></i>
+            </div>
+            <div class="col-10 spacing-label">
+              <span class="label-size">Monto Cobrado:</span>
+            </div>
+            <div class="col-2">
+            </div>
+            <div class="col-10">
+              <b>$ {{ globales.formatearNumero(parametros.cuota, 2) }} USD</b>
+            </div>
+          </div>
+
+          <hr class="line"
+            [ngStyle]="{'background-color': dtsAplicacionClienteFactura.Cliente.Aplicacion.ColorPrimario + '40'}">
+          <div class="row">
+            <div class="col-2 spacing-label">
+              <i class="fas fa-id-card-alt icon-size"></i>
+            </div>
+            <div class="col-10 spacing-label">
+              <span class="label-size">Cliente:</span>
+            </div>
+            <div class="col-2">
+            </div>
+            <div class="col-10">
+              <b>
+                {{ dtsAplicacionClienteFactura.Cliente.PrimerNombre }}
+                {{ dtsAplicacionClienteFactura.Cliente.SegundoNombre }}
+                {{ dtsAplicacionClienteFactura.Cliente.Apellido }}
+              </b>
+            </div>
+          </div>
+          <hr class="line"
+            [ngStyle]="{'background-color': dtsAplicacionClienteFactura.Cliente.Aplicacion.ColorPrimario + '40'}">
+          <div class="row">
+            <div class="col-2 spacing-label">
+              <i class="fas fa-calendar-alt icon-size"></i>
+            </div>
+            <div class="col-10 spacing-label">
+              <span class="label-size">Fecha:</span>
+            </div>
+            <div class="col-2">
+            </div>
+            <div class="col-10">
+              <b>{{ globales.transformarFecha(globales.obtenerFechaCompleta("-")).mes }}
+                &nbsp;{{ globales.transformarFecha(globales.obtenerFechaCompleta("-")).dia }}</b>
+            </div>
+          </div>
+          <hr class="line"
+            [ngStyle]="{'background-color': dtsAplicacionClienteFactura.Cliente.Aplicacion.ColorPrimario + '40'}">
+          <div class="row">
+            <div class="col-2 spacing-label">
+              <i class="fas fa-star icon-size"></i>
+            </div>
+            <div class="col-10 spacing-label">
+              <span class="label-size">Descripción:</span>
+            </div>
+            <div class="col-2">
+            </div>
+            <div class="col-10">
+              <b>
+                {{ dtsAplicacionClienteFactura.Cliente.Aplicacion.Nombre }}<br>
+                {{ dtsAplicacionClienteFactura.Comercio }}
+              </b>
+            </div>
+          </div>
+          <hr class="line"
+            [ngStyle]="{'background-color': dtsAplicacionClienteFactura.Cliente.Aplicacion.ColorPrimario + '40'}">
+          <div class="row">
+            <div class="col-2 spacing-label">
+              <i class="fas fa-receipt icon-size"></i>
+            </div>
+            <div class="col-10 spacing-label">
+              <span class="label-size">N° Confirmación:</span>
+            </div>
+            <div class="col-2">
+            </div>
+            <div class="col-10">
+              <b>{{ dtsAplicacionClienteFactura.Numero }}</b>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <!-- Fin Movil -->
+
+      <div class="col-md-8 container-form-1"
+        [ngStyle]="{'background-color': dtsAplicacionClienteFactura.Cliente.Aplicacion.FondoSecundario, 'color': dtsAplicacionClienteFactura.Cliente.Aplicacion.ColorSecundario}">
+
+        <br class="heading">
+        <div class="row heading">
+          <div class="col-4"><img src="{{ dtsAplicacionClienteFactura.Cliente.Aplicacion.LogoSecundario }}"
+              width="{{ dtsAplicacionClienteFactura.Cliente.Aplicacion.LogoSecundarioTamano }}" /></div>
+          <div class="col-8 text-right" style="line-height: 42px !important;">
+            {{ globales.obtenerFechaLetras() }}
+          </div>
+        </div>
+
+        <hr class="line heading"
+          [ngStyle]="{'background-color': dtsAplicacionClienteFactura.Cliente.Aplicacion.ColorPrimario + '40'}">
+        <div class="row heading">
+          <div class="col-2">
+            <img src="{{ dtsMensaje.Imagen }}" alt="Estado" width="60">
+          </div>
+          <div class="col-10" style="line-height: 50px;">
+            {{ dtsMensaje.Texto }} <span
+              *ngIf="dtsPago.Plataforma == 'PAYPHONE' && dtsPago.Estado == 3">{{ dtsPago.ResultadoTexto }}</span>
+          </div>
+        </div>
+
+        <div class="row phone-description">
+          <div class="col-md-12">
+            <img src="{{ dtsMensaje.Imagen }}" alt="Estado" width="50"> {{ dtsMensaje.Texto }} <span
+              *ngIf="dtsPago.Plataforma == 'PAYPHONE' && dtsPago.Estado == 3">{{ dtsPago.ResultadoTexto }}</span>
+          </div>
+        </div>
+
+        <hr class="line"
+          [ngStyle]="{'background-color': dtsAplicacionClienteFactura.Cliente.Aplicacion.ColorPrimario + '40'}">
+        <div class="row">
+          <div class="col-md-6">
+
+            <div class="row">
+              <div class="col-2">
+                <i class="fas fa-clipboard-check icon-size"></i>
+              </div>
+              <div class="col-10">
+                <span class="label-size">{{ dtsPago.Plataforma == 'DATAFAST' ? 'Aprobación': 'Autorización' }}:</span>
+              </div>
+              <div class="col-2">
+              </div>
+              <div class="col-10">
+                <b>{{dtsPago.CodigoAutenticacion}}</b>
+              </div>
+            </div>
+
+            <hr class="line"
+              [ngStyle]="{'background-color': dtsAplicacionClienteFactura.Cliente.Aplicacion.ColorPrimario + '40'}">
+            <div class="row">
+              <div class="col-2">
+                <i class="fas fa-file-invoice icon-size"></i>
+              </div>
+              <div class="col-10">
+                <span class="label-size">Lote:</span>
+              </div>
+              <div class="col-2">
+              </div>
+              <div class="col-10">
+                <b>{{dtsPago.Lote}}</b>
+              </div>
+            </div>
+
+            <hr class="line"
+              [ngStyle]="{'background-color': dtsAplicacionClienteFactura.Cliente.Aplicacion.ColorPrimario + '40'}">
+            <div class="row">
+              <div class="col-2">
+                <i class="fas fa-file-alt icon-size"></i>
+              </div>
+              <div class="col-10">
+                <span class="label-size">Referencia:</span>
+              </div>
+              <div class="col-2">
+              </div>
+              <div class="col-10">
+                <b>{{dtsPago.Referencia}}</b>
+              </div>
+            </div>
+
+          </div>
+          <div class="col-md-6">
+
+            <hr class="line phone-description"
+              [ngStyle]="{'background-color': dtsAplicacionClienteFactura.Cliente.Aplicacion.ColorPrimario + '40'}">
+
+            <div class="row">
+              <div class="col-2">
+                <i class="fas fa-file-contract icon-size"></i>
+              </div>
+              <div class="col-10">
+                <span class="label-size">Diferido:</span>
+              </div>
+              <div class="col-2">
+              </div>
+              <div class="col-10">
+                <b
+                  *ngIf="dtsAplicacionClienteFactura.Cliente.Aplicacion.Recurrencia != 1 && parametros.recurrencia != 1">{{ dtsPago.Plataforma == 'DATAFAST' ? dtsPago.NumeroDiferidos == 0 ? 'Corriente' : dtsPago.NumeroDiferidos + ' Meses' : dtsPago.NumeroDiferidos}}</b>
+                <b
+                  *ngIf="dtsAplicacionClienteFactura.Cliente.Aplicacion.Recurrencia == 1 && parametros.recurrencia == 1">{{ parametros.diferidos == 1 ? 'Corriente' : parametros.diferidos + ' Meses' }}</b>
+              </div>
+            </div>
+
+            <hr class="line"
+              [ngStyle]="{'background-color': dtsAplicacionClienteFactura.Cliente.Aplicacion.ColorPrimario + '40'}">
+            <div class="row">
+              <div class="col-2">
+                <i class="fas fa-university icon-size"></i>
+              </div>
+              <div class="col-10">
+                <span class="label-size">Marca:</span>
+              </div>
+              <div class="col-2">
+              </div>
+              <div class="col-10">
+                <b>{{dtsPago.Marca}}</b>
+              </div>
+            </div>
+
+            <hr class="line"
+              [ngStyle]="{'background-color': dtsAplicacionClienteFactura.Cliente.Aplicacion.ColorPrimario + '40'}">
+            <div class="row">
+              <div class="col-2">
+                <i class="fas fa-credit-card icon-size"></i>
+              </div>
+              <div class="col-10">
+                <span class="label-size">Tarjeta:</span>
+              </div>
+              <div class="col-2">
+              </div>
+              <div class="col-10">
+                <b>{{marcaTarjeta(dtsPago.Bin, dtsPago.Digitos).card | mask: marcaTarjeta(dtsPago.Bin, dtsPago.Digitos).icon == 'fab fa-cc-diners-club' ? 'AAAA  AAAAAA  AAAA' : marcaTarjeta(dtsPago.Bin, dtsPago.Digitos).icon == 'fab fa-cc-amex' ? 'AAAA  AAAAAA  AAAAA' : 'AAAA  AAAA  AAAA  AAAA' }}</b>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-12 text-right">
+            <br>
+            <br>
+            <br>
+            <br class="heading">
+            <br class="heading">
+            <br class="heading">
+            <br class="heading" *ngIf="dtsAplicacionClienteFactura.Cliente.Aplicacion.Recurrencia == 1 && parametros.recurrencia == 1">
+
+            <div *ngIf="dtsAplicacionClienteFactura.Cliente.Aplicacion.Recurrencia == 1 && parametros.recurrencia == 1">
+              <small>* Los próximos pagos de $ {{ globales.formatearNumero(parametros.cuota, 2) }} se debitarán de su
+                tarjeta de crédito/débito automaticamente el {{ globales.obtenerDia() }} de cada mes, durante los
+                próximos {{ globales.obtenerDiferidos(parametros.diferidos) }} Meses.</small>
+            </div>
+            <br class="heading"
+              *ngIf="dtsAplicacionClienteFactura.Cliente.Aplicacion.Recurrencia == 1 && parametros.recurrencia == 1">
+            <button *ngIf="reintento == 1" class="btn btn-sm height-md button-block" (click)="verificarIntentos()"
+              [ngStyle]="{'color': dtsAplicacionClienteFactura.Cliente.Aplicacion.FondoSecundario, 'background-color': dtsAplicacionClienteFactura.Cliente.Aplicacion.ColorSecundario }">
+              Reintentar
+            </button>
+
+            <br class="phone-description"><br class="phone-description">
+
+            <button class="btn btn-sm height-md button-block" (click)="continuarUrl()"
+              [ngStyle]="{'background-color': dtsAplicacionClienteFactura.Cliente.Aplicacion.FondoPrimario, 'color': dtsAplicacionClienteFactura.Cliente.Aplicacion.ColorPrimario }">
+              &nbsp; {{ dtsAplicacionClienteFactura.UrlRetorno != "0" ? 'Continuar' : 'Finalizar' }} &nbsp;
+            </button>
+          </div>
+        </div>
+
+      </div>
+      <div class="col-md-4 container-detail-2"
+        [ngStyle]="{'background-color': dtsAplicacionClienteFactura.Cliente.Aplicacion.FondoPrimario, 'color': dtsAplicacionClienteFactura.Cliente.Aplicacion.ColorPrimario }">
+        <div class="row">
+          <div class="col-md-12 text-center" style="font-size: 9px !important;">
+            Revisa nuestra política de privacidad de datos<br>
+            <a href="{{ documentoDatos }}" target="_blank" style="color: white !important">
+              <u>Click Aquí</u>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-8 container-form-2"
+        [ngStyle]="{'background-color': dtsAplicacionClienteFactura.Cliente.Aplicacion.FondoSecundario, 'color': dtsAplicacionClienteFactura.Cliente.Aplicacion.ColorSecundario}">
+        <div class="row">
+          <div class="col-md-6">
+            <div class="row">
+              <div class="col-6">
+                <small>Certificado TLS</small>
+                <img src="assets/images/items/ssl-site.png" alt="" width="20">
+              </div>
+              <div class="col-6">
+                <small>Protección de Datos</small>
+                <img src="assets/images/items/proteccion-datos.png" alt="" width="20">
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 text-right">
+            <small>Aceptamos: </small>
+            <span
+              [ngStyle]="{'color': dtsAplicacionClienteFactura.Cliente.Aplicacion.ColorSecundario, 'font-size': '27px'}"><i
+                class="fab fa-cc-mastercard"></i></span>
+            <span
+              [ngStyle]="{'color': dtsAplicacionClienteFactura.Cliente.Aplicacion.ColorSecundario, 'font-size': '27px'}"><i
+                class="fab fa-cc-visa"></i></span>
+            <span
+              [ngStyle]="{'color': dtsAplicacionClienteFactura.Cliente.Aplicacion.ColorSecundario, 'font-size': '27px'}"><i
+                class="fab fa-cc-diners-club"></i></span>
+            <span
+              [ngStyle]="{'color': dtsAplicacionClienteFactura.Cliente.Aplicacion.ColorSecundario, 'font-size': '27px'}"><i
+                class="fab fa-cc-discover"></i></span>
+            <span
+              [ngStyle]="{'color': dtsAplicacionClienteFactura.Cliente.Aplicacion.ColorSecundario, 'font-size': '27px'}"><i
+                class="fab fa-cc-amex"></i></span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+</div>

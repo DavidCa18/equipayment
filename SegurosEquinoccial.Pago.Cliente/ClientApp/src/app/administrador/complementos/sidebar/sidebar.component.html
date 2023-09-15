@@ -1,0 +1,189 @@
+<ul class="nav sidebar-web">
+  <li class="nav-item nav-profile">
+    <a href="#" class="nav-link">
+      <div class="nav-profile-image">
+        <img src="assets/images/items/usuario-dark.png" alt="profile" width="44">
+        <span class="login-status online"></span>
+
+      </div>
+      <div class="nav-profile-text d-flex flex-column">
+        <span class="font-weight-bold mb-2" style="text-transform: capitalize !important;">{{ usuario.Nombre }}</span>
+        <span class="text-secondary text-small" style="text-transform: capitalize !important;">{{ usuario.Rol }}</span>
+      </div>
+      <i class="mdi mdi-bookmark-check text-primary nav-profile-badge"></i>
+    </a>
+  </li>
+  <!--<li [ngClass]="url == '/administrador/dashboard' ? 'nav-item active' : 'nav-item'">
+    <a class="nav-link" [routerLink]="['/administrador/dashboard']">
+      <span class="menu-title">Inicio</span>
+      <i class="mdi mdi-view-dashboard menu-icon"></i>
+    </a>
+  </li>
+  <li [ngClass]="url == '/administrador/aplicacion' ? 'nav-item active' : 'nav-item'">
+    <a class="nav-link" [routerLink]="['/administrador/aplicacion']">
+      <span class="menu-title">Aplicaciones</span>
+      <i class="mdi mdi-animation menu-icon"></i>
+    </a>
+  </li>-->
+  <li [ngClass]="url == '/administrador/aplicacion' ? 'nav-item active' : 'nav-item'">
+    <a class="nav-link" [routerLink]="['/administrador/aplicacion']">
+      <span class="menu-title">Plataformas</span>
+      <i class="mdi mdi-city menu-icon"></i>
+    </a>
+  </li>
+  <li [ngClass]="url == '/administrador/pagos' ? 'nav-item active' : 'nav-item'">
+    <a class="nav-link" [routerLink]="['/administrador/pagos']">
+      <span class="menu-title">Pagos</span>
+      <i class="mdi mdi-credit-card menu-icon"></i>
+    </a>
+  </li>
+  <li [ngClass]="url == '/administrador/reversos' ? 'nav-item active' : 'nav-item'">
+    <a class="nav-link" [routerLink]="['/administrador/reversos']">
+      <span class="menu-title">Reversos</span>
+      <i class="mdi mdi-reload menu-icon"></i>
+    </a>
+  </li>
+  <li
+    [ngClass]="url == '/administrador/masivos/envio' ? 'nav-item active' : url == '/administrador/masivos/gestion' ? 'nav-item active' : url == '/administrador/masivos/aplicacion' ? 'nav-item active' : 'nav-item'">
+    <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
+      <span class="menu-title">Masivos</span>
+      <i class="menu-arrow"></i>
+      <i class="mdi mdi-credit-card-multiple menu-icon"></i>
+    </a>
+    <div
+      [ngClass]="url == '/administrador/masivos/envio' ? 'collapse show' : url == '/administrador/masivos/gestion' ? 'collapse show' : url == '/administrador/masivos/aplicacion' ? 'collapse show' : url == '/administrador/masivos/lista' ? 'collapse show' : 'collapse'"
+      id="ui-basic">
+      <ul class="nav flex-column sub-menu">
+        <li class="nav-item"> <a [ngClass]="url == '/administrador/masivos/envio' ? 'nav-link active' : 'nav-link'"
+            [routerLink]="['/administrador/masivos/envio']">Envío de Links</a></li>
+        <li class="nav-item"> <a [ngClass]="url == '/administrador/masivos/gestion' ? 'nav-link active' : 'nav-link'"
+            [routerLink]="['/administrador/masivos/gestion']">Gestión de Links</a></li>
+        <li class="nav-item"> <a [ngClass]="url == '/administrador/masivos/lista' ? 'nav-link active' : 'nav-link'"
+            [routerLink]="['/administrador/masivos/lista']">Lista de Links</a></li>
+        <li class="nav-item"> <a [ngClass]="url == '/administrador/masivos/aplicacion' ? 'nav-link active' : 'nav-link'"
+            [routerLink]="['/administrador/masivos/aplicacion']">Aplicación Pago</a></li>
+
+      </ul>
+    </div>
+  </li>
+</ul>
+
+<ul class="navbar-nav navbar-nav-right sidebar-movil">
+  <li class="nav-item dropdown">
+    <a class="nav-link count-indicator dropdown-toggle" id="notificationDropdown" href="#" data-toggle="dropdown"
+      aria-expanded="false">
+      <i class="mdi mdi-menu"></i>
+    </a>
+    <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list" aria-labelledby="notificationDropdown">
+      <h6 class="p-3 mb-0">Menú</h6>
+      <!--<div class="dropdown-divider"></div>
+      <a [ngClass]="url == '/administrador/dashboard' ? 'dropdown-item preview-item activado' : 'dropdown-item preview-item'"
+        [routerLink]="['/administrador/dashboard']">
+        <div class="preview-thumbnail">
+          <div class="preview-icon bg-success">
+            <i class="mdi mdi-view-dashboard"></i>
+          </div>
+        </div>
+        <div class="preview-item-content d-flex align-items-start flex-column justify-content-center">
+          <h6 class="preview-subject font-weight-normal mb-1">Inicio</h6>
+        </div>
+      </a>
+      <div class="dropdown-divider"></div>
+      <a [ngClass]="url == '/administrador/aplicacion' ? 'dropdown-item preview-item activado' : 'dropdown-item preview-item'"
+        [routerLink]="['/administrador/aplicacion']">
+        <div class="preview-thumbnail">
+          <div class="preview-icon bg-warning">
+            <i class="mdi mdi-animation"></i>
+          </div>
+        </div>
+        <div class="preview-item-content d-flex align-items-start flex-column justify-content-center">
+          <h6 class="preview-subject font-weight-normal mb-1">Aplicaciones</h6>
+        </div>
+      </a>
+      <div class="dropdown-divider"></div>-->
+      <a [ngClass]="url == '/administrador/aplicacion' ? 'dropdown-item preview-item activado' : 'dropdown-item preview-item'"
+        [routerLink]="['/administrador/aplicacion']">
+        <div class="preview-thumbnail">
+          <div class="preview-icon bg-info">
+            <i class="mdi mdi-city"></i>
+          </div>
+        </div>
+        <div class="preview-item-content d-flex align-items-start flex-column justify-content-center">
+          <h6 class="preview-subject font-weight-normal mb-1">Plataformas</h6>
+        </div>
+      </a>
+      <div class="dropdown-divider"></div>
+      <a [ngClass]="url == '/administrador/pagos' ? 'dropdown-item preview-item activado' : 'dropdown-item preview-item'"
+        [routerLink]="['/administrador/pagos']">
+        <div class="preview-thumbnail">
+          <div class="preview-icon bg-info">
+            <i class="mdi mdi-credit-card"></i>
+          </div>
+        </div>
+        <div class="preview-item-content d-flex align-items-start flex-column justify-content-center">
+          <h6 class="preview-subject font-weight-normal mb-1">Pagos</h6>
+        </div>
+      </a>
+      <div class="dropdown-divider"></div>
+      <a [ngClass]="url == '/administrador/reversos' ? 'dropdown-item preview-item activado' : 'dropdown-item preview-item'"
+        [routerLink]="['/administrador/reversos']">
+        <div class="preview-thumbnail">
+          <div class="preview-icon bg-danger">
+            <i class="mdi mdi-reload"></i>
+          </div>
+        </div>
+        <div class="preview-item-content d-flex align-items-start flex-column justify-content-center">
+          <h6 class="preview-subject font-weight-normal mb-1">Reversos</h6>
+        </div>
+      </a>
+      <div class="dropdown-divider"></div>
+      <a [ngClass]="url == '/administrador/masivos/envio' ? 'dropdown-item preview-item activado' : 'dropdown-item preview-item'"
+        [routerLink]="['/administrador/masivos/envio']">
+        <div class="preview-thumbnail">
+          <div class="preview-icon bg-dark">
+            <i class="mdi mdi-credit-card-multiple"></i>
+          </div>
+        </div>
+        <div class="preview-item-content d-flex align-items-start flex-column justify-content-center">
+          <h6 class="preview-subject font-weight-normal mb-1">Masivos | Envio de Links</h6>
+        </div>
+      </a>
+      <div class="dropdown-divider"></div>
+      <a [ngClass]="url == '/administrador/masivos/gestion' ? 'dropdown-item preview-item activado' : 'dropdown-item preview-item'"
+        [routerLink]="['/administrador/masivos/gestion']">
+        <div class="preview-thumbnail">
+          <div class="preview-icon bg-dark">
+            <i class="mdi mdi-credit-card-multiple"></i>
+          </div>
+        </div>
+        <div class="preview-item-content d-flex align-items-start flex-column justify-content-center">
+          <h6 class="preview-subject font-weight-normal mb-1">Masivos | Gestión de Links</h6>
+        </div>
+      </a>
+      <div class="dropdown-divider"></div>
+      <a [ngClass]="url == '/administrador/masivos/lista' ? 'dropdown-item preview-item activado' : 'dropdown-item preview-item'"
+        [routerLink]="['/administrador/masivos/lista']">
+        <div class="preview-thumbnail">
+          <div class="preview-icon bg-dark">
+            <i class="mdi mdi-credit-card-multiple"></i>
+          </div>
+        </div>
+        <div class="preview-item-content d-flex align-items-start flex-column justify-content-center">
+          <h6 class="preview-subject font-weight-normal mb-1">Masivos | Lista de Links</h6>
+        </div>
+      </a>
+      <div class="dropdown-divider"></div>
+      <a [ngClass]="url == '/administrador/masivos/aplicacion' ? 'dropdown-item preview-item activado' : 'dropdown-item preview-item'"
+        [routerLink]="['/administrador/masivos/aplicacion']">
+        <div class="preview-thumbnail">
+          <div class="preview-icon bg-dark">
+            <i class="mdi mdi-credit-card-multiple"></i>
+          </div>
+        </div>
+        <div class="preview-item-content d-flex align-items-start flex-column justify-content-center">
+          <h6 class="preview-subject font-weight-normal mb-1">Masivos | Aplicación Pago</h6>
+        </div>
+      </a>
+    </div>
+  </li>
+</ul>

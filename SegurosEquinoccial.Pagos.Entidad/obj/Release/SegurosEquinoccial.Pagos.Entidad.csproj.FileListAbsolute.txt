@@ -1,0 +1,54 @@
+C:\Users\LENOVO LEGION\Documents\Visual Studio 2017\Projects\SegurosEquinoccial.Pagos\SegurosEquinoccial.Pagos.Entidad\bin\Release\SegurosEquinoccial.Pagos.Entidad.dll
+C:\Users\LENOVO LEGION\Documents\Visual Studio 2017\Projects\SegurosEquinoccial.Pagos\SegurosEquinoccial.Pagos.Entidad\bin\Release\SegurosEquinoccial.Pagos.Entidad.pdb
+C:\Users\LENOVO LEGION\Documents\Visual Studio 2017\Projects\SegurosEquinoccial.Pagos\SegurosEquinoccial.Pagos.Entidad\bin\Release\System.ComponentModel.Annotations.dll
+C:\Users\LENOVO LEGION\Documents\Visual Studio 2017\Projects\SegurosEquinoccial.Pagos\SegurosEquinoccial.Pagos.Entidad\obj\Release\SegurosEquinoccial.Pagos.Entidad.csprojAssemblyReference.cache
+C:\Users\LENOVO LEGION\Documents\Visual Studio 2017\Projects\SegurosEquinoccial.Pagos\SegurosEquinoccial.Pagos.Entidad\obj\Release\SegurosEquinoccial.Pagos.Entidad.csproj.CoreCompileInputs.cache
+C:\Users\LENOVO LEGION\Documents\Visual Studio 2017\Projects\SegurosEquinoccial.Pagos\SegurosEquinoccial.Pagos.Entidad\obj\Release\SegurosEquinoccial.Pagos.Entidad.csproj.CopyComplete
+C:\Users\LENOVO LEGION\Documents\Visual Studio 2017\Projects\SegurosEquinoccial.Pagos\SegurosEquinoccial.Pagos.Entidad\obj\Release\SegurosEquinoccial.Pagos.Entidad.dll
+C:\Users\LENOVO LEGION\Documents\Visual Studio 2017\Projects\SegurosEquinoccial.Pagos\SegurosEquinoccial.Pagos.Entidad\obj\Release\SegurosEquinoccial.Pagos.Entidad.pdb
+C:\Users\ABY\Documents\Trabajo Mario Palomo\SegurosEquinoccial.Pagos\SegurosEquinoccial.Pagos.Entidad\bin\Release\SegurosEquinoccial.Pagos.Entidad.dll
+C:\Users\ABY\Documents\Trabajo Mario Palomo\SegurosEquinoccial.Pagos\SegurosEquinoccial.Pagos.Entidad\bin\Release\SegurosEquinoccial.Pagos.Entidad.pdb
+C:\Users\ABY\Documents\Trabajo Mario Palomo\SegurosEquinoccial.Pagos\SegurosEquinoccial.Pagos.Entidad\bin\Release\System.ComponentModel.Annotations.dll
+C:\Users\ABY\Documents\Trabajo Mario Palomo\SegurosEquinoccial.Pagos\SegurosEquinoccial.Pagos.Entidad\obj\Release\SegurosEquinoccial.Pagos.Entidad.csprojAssemblyReference.cache
+C:\Users\ABY\Documents\Trabajo Mario Palomo\SegurosEquinoccial.Pagos\SegurosEquinoccial.Pagos.Entidad\obj\Release\SegurosEquinoccial.Pagos.Entidad.csproj.CopyComplete
+C:\Users\ABY\Documents\Trabajo Mario Palomo\SegurosEquinoccial.Pagos\SegurosEquinoccial.Pagos.Entidad\obj\Release\SegurosEquinoccial.Pagos.Entidad.dll
+C:\Users\ABY\Documents\Trabajo Mario Palomo\SegurosEquinoccial.Pagos\SegurosEquinoccial.Pagos.Entidad\obj\Release\SegurosEquinoccial.Pagos.Entidad.pdb
+C:\Users\MARIO\Documents\Visual Studio 2019\Project\SegurosEquinoccial.Pagos\SegurosEquinoccial.Pagos.Entidad\bin\Release\SegurosEquinoccial.Pagos.Entidad.dll
+C:\Users\MARIO\Documents\Visual Studio 2019\Project\SegurosEquinoccial.Pagos\SegurosEquinoccial.Pagos.Entidad\bin\Release\SegurosEquinoccial.Pagos.Entidad.pdb
+C:\Users\MARIO\Documents\Visual Studio 2019\Project\SegurosEquinoccial.Pagos\SegurosEquinoccial.Pagos.Entidad\bin\Release\System.ComponentModel.Annotations.dll
+C:\Users\MARIO\Documents\Visual Studio 2019\Project\SegurosEquinoccial.Pagos\SegurosEquinoccial.Pagos.Entidad\obj\Release\SegurosEquinoccial.Pagos.Entidad.csprojAssemblyReference.cache
+C:\Users\MARIO\Documents\Visual Studio 2019\Project\SegurosEquinoccial.Pagos\SegurosEquinoccial.Pagos.Entidad\obj\Release\SegurosEquinoccial.Pagos.Entidad.csproj.CopyComplete
+C:\Users\MARIO\Documents\Visual Studio 2019\Project\SegurosEquinoccial.Pagos\SegurosEquinoccial.Pagos.Entidad\obj\Release\SegurosEquinoccial.Pagos.Entidad.dll
+C:\Users\MARIO\Documents\Visual Studio 2019\Project\SegurosEquinoccial.Pagos\SegurosEquinoccial.Pagos.Entidad\obj\Release\SegurosEquinoccial.Pagos.Entidad.pdb
+C:\Users\mario\Documents\Visual Studio 2019\Projects\SegurosEquinoccial.Pagos\SegurosEquinoccial.Pagos.Entidad\bin\Release\SegurosEquinoccial.Pagos.Entidad.dll
+C:\Users\mario\Documents\Visual Studio 2019\Projects\SegurosEquinoccial.Pagos\SegurosEquinoccial.Pagos.Entidad\bin\Release\SegurosEquinoccial.Pagos.Entidad.pdb
+C:\Users\mario\Documents\Visual Studio 2019\Projects\SegurosEquinoccial.Pagos\SegurosEquinoccial.Pagos.Entidad\bin\Release\System.ComponentModel.Annotations.dll
+C:\Users\mario\Documents\Visual Studio 2019\Projects\SegurosEquinoccial.Pagos\SegurosEquinoccial.Pagos.Entidad\obj\Release\SegurosEquinoccial.Pagos.Entidad.csprojAssemblyReference.cache
+C:\Users\mario\Documents\Visual Studio 2019\Projects\SegurosEquinoccial.Pagos\SegurosEquinoccial.Pagos.Entidad\obj\Release\SegurosEquinoccial.Pagos.Entidad.csproj.CoreCompileInputs.cache
+C:\Users\mario\Documents\Visual Studio 2019\Projects\SegurosEquinoccial.Pagos\SegurosEquinoccial.Pagos.Entidad\obj\Release\SegurosEquinoccial.Pagos.Entidad.csproj.CopyComplete
+C:\Users\mario\Documents\Visual Studio 2019\Projects\SegurosEquinoccial.Pagos\SegurosEquinoccial.Pagos.Entidad\obj\Release\SegurosEquinoccial.Pagos.Entidad.dll
+C:\Users\mario\Documents\Visual Studio 2019\Projects\SegurosEquinoccial.Pagos\SegurosEquinoccial.Pagos.Entidad\obj\Release\SegurosEquinoccial.Pagos.Entidad.pdb
+C:\Users\mario\Documents\Visual Studio 2019\Projects\Equipayment\SegurosEquinoccial.Pagos.Entidad\bin\Release\SegurosEquinoccial.Pagos.Entidad.dll
+C:\Users\mario\Documents\Visual Studio 2019\Projects\Equipayment\SegurosEquinoccial.Pagos.Entidad\bin\Release\SegurosEquinoccial.Pagos.Entidad.pdb
+C:\Users\mario\Documents\Visual Studio 2019\Projects\Equipayment\SegurosEquinoccial.Pagos.Entidad\bin\Release\System.ComponentModel.Annotations.dll
+C:\Users\mario\Documents\Visual Studio 2019\Projects\Equipayment\SegurosEquinoccial.Pagos.Entidad\obj\Release\SegurosEquinoccial.Pagos.Entidad.csprojAssemblyReference.cache
+C:\Users\mario\Documents\Visual Studio 2019\Projects\Equipayment\SegurosEquinoccial.Pagos.Entidad\obj\Release\SegurosEquinoccial.Pagos.Entidad.csproj.CoreCompileInputs.cache
+C:\Users\mario\Documents\Visual Studio 2019\Projects\Equipayment\SegurosEquinoccial.Pagos.Entidad\obj\Release\SegurosEquinoccial.Pagos.Entidad.csproj.CopyComplete
+C:\Users\mario\Documents\Visual Studio 2019\Projects\Equipayment\SegurosEquinoccial.Pagos.Entidad\obj\Release\SegurosEquinoccial.Pagos.Entidad.dll
+C:\Users\mario\Documents\Visual Studio 2019\Projects\Equipayment\SegurosEquinoccial.Pagos.Entidad\obj\Release\SegurosEquinoccial.Pagos.Entidad.pdb
+C:\Users\MARIO\Documents\Visual Studio 2019\Project\Equipayment\SegurosEquinoccial.Pagos.Entidad\bin\Release\SegurosEquinoccial.Pagos.Entidad.dll
+C:\Users\MARIO\Documents\Visual Studio 2019\Project\Equipayment\SegurosEquinoccial.Pagos.Entidad\bin\Release\SegurosEquinoccial.Pagos.Entidad.pdb
+C:\Users\MARIO\Documents\Visual Studio 2019\Project\Equipayment\SegurosEquinoccial.Pagos.Entidad\bin\Release\System.ComponentModel.Annotations.dll
+C:\Users\MARIO\Documents\Visual Studio 2019\Project\Equipayment\SegurosEquinoccial.Pagos.Entidad\obj\Release\SegurosEquinoccial.Pagos.Entidad.csprojAssemblyReference.cache
+C:\Users\MARIO\Documents\Visual Studio 2019\Project\Equipayment\SegurosEquinoccial.Pagos.Entidad\obj\Release\SegurosEquinoccial.Pagos.Entidad.csproj.CoreCompileInputs.cache
+C:\Users\MARIO\Documents\Visual Studio 2019\Project\Equipayment\SegurosEquinoccial.Pagos.Entidad\obj\Release\SegurosEquinoccial.Pagos.Entidad.csproj.CopyComplete
+C:\Users\MARIO\Documents\Visual Studio 2019\Project\Equipayment\SegurosEquinoccial.Pagos.Entidad\obj\Release\SegurosEquinoccial.Pagos.Entidad.dll
+C:\Users\MARIO\Documents\Visual Studio 2019\Project\Equipayment\SegurosEquinoccial.Pagos.Entidad\obj\Release\SegurosEquinoccial.Pagos.Entidad.pdb
+C:\Users\ESCRITORIO\Documents\Visual Studio 2019\Projects\Equipayment\SegurosEquinoccial.Pagos.Entidad\bin\Release\SegurosEquinoccial.Pagos.Entidad.dll
+C:\Users\ESCRITORIO\Documents\Visual Studio 2019\Projects\Equipayment\SegurosEquinoccial.Pagos.Entidad\bin\Release\SegurosEquinoccial.Pagos.Entidad.pdb
+C:\Users\ESCRITORIO\Documents\Visual Studio 2019\Projects\Equipayment\SegurosEquinoccial.Pagos.Entidad\bin\Release\System.ComponentModel.Annotations.dll
+C:\Users\ESCRITORIO\Documents\Visual Studio 2019\Projects\Equipayment\SegurosEquinoccial.Pagos.Entidad\obj\Release\SegurosEquinoccial.Pagos.Entidad.csprojAssemblyReference.cache
+C:\Users\ESCRITORIO\Documents\Visual Studio 2019\Projects\Equipayment\SegurosEquinoccial.Pagos.Entidad\obj\Release\SegurosEquinoccial.Pagos.Entidad.csproj.CoreCompileInputs.cache
+C:\Users\ESCRITORIO\Documents\Visual Studio 2019\Projects\Equipayment\SegurosEquinoccial.Pagos.Entidad\obj\Release\SegurosEquinoccial.Pagos.Entidad.csproj.CopyComplete
+C:\Users\ESCRITORIO\Documents\Visual Studio 2019\Projects\Equipayment\SegurosEquinoccial.Pagos.Entidad\obj\Release\SegurosEquinoccial.Pagos.Entidad.dll
+C:\Users\ESCRITORIO\Documents\Visual Studio 2019\Projects\Equipayment\SegurosEquinoccial.Pagos.Entidad\obj\Release\SegurosEquinoccial.Pagos.Entidad.pdb

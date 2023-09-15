@@ -1,0 +1,94 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{B542CFC5-A373-4EAA-8289-6AA27813071A}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SegurosEquinoccial.Pagos.Datos</RootNamespace>
+    <AssemblyName>SegurosEquinoccial.Pagos.Datos</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EASendMail, Version=7.5.0.3, Culture=neutral, PublicKeyToken=88adb80ecd66540b, processorArchitecture=MSIL">
+      <HintPath>..\packages\EASendMail.7.5.0.3\lib\net461\EASendMail.dll</HintPath>
+    </Reference>
+    <Reference Include="itextsharp, Version=5.5.13.1, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\iTextSharp.5.5.13.1\lib\itextsharp.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=11.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\..\Program Files\dotnet\sdk\NuGetFallbackFolder\newtonsoft.json\11.0.2\lib\netstandard2.0\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Administracion\DAdmAplicacion.cs" />
+    <Compile Include="Administracion\DAdmCatalogoBancos.cs" />
+    <Compile Include="Administracion\DAdmCatalogoBines.cs" />
+    <Compile Include="Administracion\DAdmCliente.cs" />
+    <Compile Include="Administracion\DAdmError.cs" />
+    <Compile Include="Administracion\DAdmFactura.cs" />
+    <Compile Include="Administracion\DAdmGestion.cs" />
+    <Compile Include="Administracion\DAdmHistorialTransacciones.cs" />
+    <Compile Include="Administracion\DAdmMasivos.cs" />
+    <Compile Include="Administracion\DAdmPagoDiferidos.cs" />
+    <Compile Include="Administracion\DAdmPagoPayphone.cs" />
+    <Compile Include="Administracion\DAdmCredenciales.cs" />
+    <Compile Include="Administracion\DAdmMensajes.cs" />
+    <Compile Include="Administracion\DAdmPago.cs" />
+    <Compile Include="Administracion\DAdmPagoReverso.cs" />
+    <Compile Include="Administracion\DAdmPagoWidget.cs" />
+    <Compile Include="Administracion\DAdmRecurrencia.cs" />
+    <Compile Include="Administracion\DAdmToken.cs" />
+    <Compile Include="Administracion\DAdmUsuario.cs" />
+    <Compile Include="Gestion\DGesConexion.cs" />
+    <Compile Include="Gestion\DGesConexionREST.cs" />
+    <Compile Include="Gestion\DGesConexionSOAP.cs" />
+    <Compile Include="Gestion\DGesEmail.cs" />
+    <Compile Include="Gestion\DGesEncriptacion.cs" />
+    <Compile Include="Gestion\DGesMetodos.cs" />
+    <Compile Include="Gestion\DGesPlantilla.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SegurosEquinoccial.Pagos.Entidad\SegurosEquinoccial.Pagos.Entidad.csproj">
+      <Project>{04CFB2BC-03DD-46F2-B48E-8009BCC64762}</Project>
+      <Name>SegurosEquinoccial.Pagos.Entidad</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

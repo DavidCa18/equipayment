@@ -1,0 +1,24 @@
+/*.nav-container {
+  width: 100% !important;
+  border-radius: 7px 7px 7px 7px;
+  -moz-border-radius: 7px 7px 7px 7px;
+  -webkit-border-radius: 7px 7px 7px 7px;
+  background-color: #ffffff;
+  padding: 15px !important;
+}
+
+.nav-options{
+  padding-left: 15px;
+  padding-right: 15px;
+  display: inline-block;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.nav-options:hover{
+  color: #b14140;
+}
+
+.active{
+  color: #b14140;
+}*/

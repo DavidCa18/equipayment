@@ -1,0 +1,352 @@
+<app-navbar></app-navbar>
+<ngx-spinner bdColor="rgba(51,51,51,0.8)" size="medium" color="#fff" loadingText="Procesando Datos..." type="ball-atom">
+</ngx-spinner>
+
+<div class="container-admin">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="panel panel-default">
+        <div class="panel-body">
+          <h4><b>Gestión Factura</b></h4>
+          <hr style="margin: 0; margin-bottom: 8px">
+          <kendo-grid [data]="tablaFactura" [pageSize]="tablaGestion.take" [skip]="tablaGestion.skip"
+            [sort]="tablaGestion.sort" [filter]="tablaGestion.filter" [height]="600" [resizable]="true"
+            [groupable]="true" [sortable]="true" [pageable]="true" filterable="menu"
+            (dataStateChange)="cambioEstadoFactura($event)" [group]="gruposFactura"
+            (groupChange)="cambioEstadoGrupoFactura($event)"
+            style="font-size: 13px !important; text-align: right !important;">
+
+            <ng-template kendoGridToolbarTemplate>
+              <button class="btn-dark" style="width: 180px !important" (click)="abrirModalAgregarFactura()">
+                <i class="fa fa-save"></i> Agregar Factura
+              </button>
+            </ng-template>
+            <kendo-grid-column field="Cliente.Identificacion" title="Identificación" width="150"
+              [headerStyle]="{'background-color': '#2C2C2C','color': '#fff'}">
+            </kendo-grid-column>
+            <kendo-grid-column field="IdFactura" title="Código" width="80"
+              [headerStyle]="{'background-color': '#2C2C2C','color': '#fff'}">
+            </kendo-grid-column>
+            <kendo-grid-column field="Numero" title="Número" width="100"
+              [headerStyle]="{'background-color': '#2C2C2C','color': '#fff'}">
+            </kendo-grid-column>
+            <kendo-grid-column field="Comercio" title="Comercio" width="150"
+              [headerStyle]="{'background-color': '#2C2C2C','color': '#fff'}">
+            </kendo-grid-column>
+            <kendo-grid-column field="Subtotal12" title="Subtotal (12%)" width="100" [filterable]="false"
+              [headerStyle]="{'background-color': '#2C2C2C','color': '#fff'}">
+              <ng-template kendoGridCellTemplate let-dataItem>
+                $ {{ globales.formatearNumero(dataItem.Subtotal12, 2) }}
+              </ng-template>
+            </kendo-grid-column>
+            <kendo-grid-column field="Subtotal0" title="Subtotal (0%)" width="100" [filterable]="false"
+              [headerStyle]="{'background-color': '#2C2C2C','color': '#fff'}">
+              <ng-template kendoGridCellTemplate let-dataItem>
+                $ {{ globales.formatearNumero(dataItem.Subtotal0, 2) }}
+              </ng-template>
+            </kendo-grid-column>
+            <kendo-grid-column field="Iva" title="IVA" width="80" [filterable]="false"
+              [headerStyle]="{'background-color': '#2C2C2C','color': '#fff'}">
+              <ng-template kendoGridCellTemplate let-dataItem>
+                $ {{ globales.formatearNumero(dataItem.Iva, 2) }}
+              </ng-template>
+            </kendo-grid-column>
+            <kendo-grid-column field="Total" title="Total" width="92" [filterable]="false"
+              [headerStyle]="{'background-color': '#2C2C2C','color': '#fff'}">
+              <ng-template kendoGridCellTemplate let-dataItem>
+                $ {{ globales.formatearNumero(dataItem.Total, 2) }}
+              </ng-template>
+            </kendo-grid-column>
+            <kendo-grid-column field="IdFactura" title="" width="50"
+              [headerStyle]="{'background-color': '#2C2C2C','color': '#fff'}" [filterable]="false">
+              <ng-template kendoGridCellTemplate let-dataItem>
+                <button class="btn-dark" (click)="abrirModalDetalleFactura(dataItem)">
+                  <i class="fa fa-eye"></i>
+                </button>
+              </ng-template>
+            </kendo-grid-column>
+            <kendo-grid-column field="IdFactura" title="" width="50"
+              [headerStyle]="{'background-color': '#2C2C2C','color': '#fff'}" [filterable]="false">
+              <ng-template kendoGridCellTemplate let-dataItem>
+                <button class="btn-yellow" (click)="abrirModalModificarFactura(dataItem)">
+                  <i class="fa fa-pencil"></i>
+                </button>
+              </ng-template>
+            </kendo-grid-column>
+            <kendo-grid-column field="Cliente.NombreCompleto" title="Cliente" width="1"
+              [headerStyle]="{'background-color': '#2C2C2C','color': '#fff'}">
+            </kendo-grid-column>
+            <kendo-grid-messages groupPanelEmpty="Arrastra aquí para agrupar" noRecords="No hay elementos que mostrar."
+              pagerPage="Página" pagerOf="de" pagerItems="ítems" pagerItemsPerPage="ítems por página"
+              filterClearButton="Limpiar" filterFilterButton="Buscar" filterAndLogic="Y" filterOrLogic="O"
+              filterEqOperator="Es igual a" filterNotEqOperator="No es igual a" filterContainsOperator="Contiene"
+              filterNotContainsOperator="No contiene" filterStartsWithOperator="Comienza con"
+              filterEndsWithOperator="Termina con" filterIsNullOperator="Es nulo (null)"
+              filterIsNotNullOperator="No es nulo (null)" filterIsEmptyOperator="Esta vacio"
+              filterIsNotEmptyOperator="No está vacío" filterAfterOperator="Es posterior a"
+              filterAfterOrEqualOperator="Es posterior o igual a" filterBeforeOrEqualOperator="Es anterior o igual a"
+              filterBeforeOperator="Es antes">
+            </kendo-grid-messages>
+          </kendo-grid>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="ModalGestionFactura" tabindex="-1" role="dialog"
+  aria-labelledby="ModalAgregarFacturaLabels">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header" style="background-color: #2E4053; color: #FFF">
+        <span class="modal-title" id="ModalAgregarFacturaLabels" style="font-size: 15px">{{modalFactura.Titulo}}</span>
+      </div>
+      <div class="modal-body" style="padding: 20px">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="panel-group" id="accordion">
+              <div class="panel panel-default">
+                <div class="panel-heading">
+                  <h4 class="panel-title">
+                    <a data-toggle="collapse" data-parent="#accordion" href="#collapse1">
+                      Datos Factura</a>
+                  </h4>
+                </div>
+                <div id="collapse1" class="panel-collapse collapse in">
+                  <div class="panel-body">
+
+                    <div class="row">
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label>Comercio</label>
+                          <input type="text" class="input" [(ngModel)]="fmrFactura.Comercio"
+                            (keyup)="fmrFactura.Comercio = globales.formatoCampo(fmrFactura.Comercio, 'abcdefghijklmnñopqrstuvwxyzáéíóúÁÉÍÓÚABCDEFGHIJKLMNÑOPQRSTUVWXYZ0123456789 ', 100, 1)">
+                        </div>
+                        <div class="form-group">
+                          <label>URL Retorno</label>
+                          <input type="text" class="input" [(ngModel)]="fmrFactura.UrlRetorno">
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label>Subtotal (12%)</label>
+                          <input type="text" class="input" [(ngModel)]="fmrFactura.Subtotal12"
+                            (ngModelChange)="calcularValores()"
+                            (keyup)="fmrFactura.Subtotal12 = globales.formatoCampo(fmrFactura.Subtotal12, '0123456789.', 10, 2)">
+                        </div>
+                        <div class="form-group">
+                          <label>Subtotal (0%)</label>
+                          <input type="text" class="input" [(ngModel)]="fmrFactura.Subtotal0"
+                            (ngModelChange)="calcularValores()"
+                            (keyup)="fmrFactura.Subtotal0 = globales.formatoCampo(fmrFactura.Subtotal0, '0123456789.', 10, 2)">
+                        </div>
+                        <div class="form-group">
+                          <label>I.V.A</label>
+                          <input type="text" class="input" [(ngModel)]="fmrFactura.Iva"
+                            (ngModelChange)="calcularValores()"
+                            (keyup)="fmrFactura.Iva = globales.formatoCampo(fmrFactura.Iva, '0123456789.', 10, 2)"
+                            disabled>
+                        </div>
+                        <div class="form-group">
+                          <label>Total</label>
+                          <input type="text" class="input" [(ngModel)]="fmrFactura.Total"
+                            (ngModelChange)="calcularValores()"
+                            (keyup)="fmrFactura.Total = globales.formatoCampo(fmrFactura.Total, '0123456789.', 10, 2)"
+                            disabled>
+                        </div>
+                      </div>
+                      <div class="col-md-12">
+                        <div class="form-group">
+                          <label>Cliente</label><br>
+                          <kendo-dropdownlist [data]="lstClientes" [textField]="'Identificacion'"
+                            [valueField]="'IdCliente'" [value]="clienteSeleccionado" [(ngModel)]="cliente"
+                            style="width: 100%; height: 35px; font-size: 14.5px !important">
+                            <ng-template kendoDropDownListItemTemplate let-dataItem>
+                              <table
+                                style="font-size: 14.5px !important; text-align: left !important; padding: 10px !important; width: 100% !important;">
+                                <tr>
+                                  <td style="width: 20% !important; padding: 10px !important">
+                                    <b>Código:</b><br>{{ dataItem.IdCliente }}
+                                  </td>
+                                  <td style="width: 20% !important; padding: 10px !important">
+                                    <b>Identificación:</b><br>{{ dataItem.Identificacion }}
+                                  </td>
+                                  <td style="width: 60% !important; padding: 10px !important">
+                                    <b>Nombre:</b><br>{{ dataItem.PrimerNombre }} {{ dataItem.SegundoNombre }}
+                                    {{ dataItem.Apellido }}
+                                  </td>
+                                </tr>
+                              </table>
+                            </ng-template>
+                          </kendo-dropdownlist>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="panel panel-default">
+                <div class="panel-heading">
+                  <h4 class="panel-title">
+                    <a data-toggle="collapse" data-parent="#accordion" href="#collapse2">
+                      Datos Cliente | Vista Previa</a>
+                  </h4>
+                </div>
+                <div id="collapse2" class="panel-collapse collapse">
+                  <div class="panel-body">
+                    <div *ngIf="cliente.IdCliente != 0" class="row">
+                      <div class="col-md-12">
+                        <div class="form-group">
+                          <label>Identificación</label><br>
+                          <span>{{ cliente.Identificacion }}</span>
+                        </div>
+                        <div class="form-group">
+                          <label>Nombre</label><br>
+                          <span>
+                            {{ cliente.PrimerNombre }}
+                            {{ cliente.SegundoNombre }}
+                            {{ cliente.Apellido }}
+                          </span>
+                        </div>
+                        <div class="form-group">
+                          <label>Correo Electrónico</label><br>
+                          <span>{{ cliente.Email }}</span>
+                        </div>
+                        <div class="form-group">
+                          <label>Teléfono</label><br>
+                          <span>{{ cliente.Telefono }}</span>
+                        </div>
+                        <div class="form-group">
+                          <label>Aplicación</label><br>
+                          {{ cliente.Aplicacion.Nombre }}
+                        </div>
+                      </div>
+                    </div>
+                    <div *ngIf="cliente.IdCliente == 0">
+                      <span>
+                        Es necesario seleccionar un cliente de la
+                        lista desplegable para visualizar los detalles.
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer" style="padding: 20px">
+        <button *ngIf="modalFactura.BtnGuardar == true" type="button" class="btn-dark" (click)="agregarFactura()"
+          style="width: 100%">
+          Agregar Factura
+        </button>
+        <button *ngIf="modalFactura.BtnModificar == true" type="button" class="btn-dark" (click)="modificarFactura()"
+          style="width: 100%">
+          Modificar Factura
+        </button>
+        <br><br>
+        <button type="button" class="btn-white" data-dismiss="modal" style="width: 100%">Cancelar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="ModalDetallesFactura" tabindex="-1" role="dialog"
+  aria-labelledby="ModalDetallesFacturaLabel">
+  <div class="modal-dialog " role="document">
+    <div class="modal-content">
+      <div class="modal-header" style="background-color: #2E4053; color: #FFF">
+        <span class="modal-title" id="ModalDetallesFacturaLabel" style="font-size: 15px">Detalles Factura</span>
+      </div>
+      <div class="modal-body" style="padding: 20px">
+
+        <ul class="nav nav-tabs">
+          <li [ngClass]="tabs.Factura.Estilo" (click)="gestionTabs('Factura')"><a>Factura</a></li>
+          <li [ngClass]="tabs.Cliente.Estilo" (click)="gestionTabs('Cliente')"><a>Cliente</a></li>
+        </ul>
+        <div *ngIf="tabs.Factura.Estado" class="tab">
+          <br>
+          <div class="row">
+            <div class="col-xs-12 col-sm-6 col-md-6">
+              <div class="form-group">
+                <label>Código Factura</label><br>
+                <span>{{ factura.IdFactura }}</span>
+              </div>
+              <div class="form-group">
+                <label>Comercio</label><br>
+                <span>{{ factura.Comercio }}</span>
+              </div>
+              <div class="form-group">
+                <label>Número</label><br>
+                <span>{{ factura.Numero }}</span>
+              </div>
+              <div class="form-group">
+                <label>Url de Retorno</label><br>
+                <textarea class="text-area-none" rows="1">{{ factura.UrlRetorno }}</textarea>
+              </div>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-6">
+              <div class="form-group">
+                <label>Subtotal 12</label><br>
+                <span>$ {{ globales.formatearNumero(factura.Subtotal12, 2) }}</span>
+              </div>
+              <div class="form-group">
+                <label>Subtotal 0</label><br>
+                <span>$ {{ globales.formatearNumero(factura.Subtotal0, 2) }}</span>
+              </div>
+              <div class="form-group">
+                <label>IVA</label><br>
+                <span>$ {{ globales.formatearNumero(factura.Iva, 2) }}</span>
+              </div>
+              <div class="form-group">
+                <label>Total</label><br>
+                <span>$ {{ globales.formatearNumero(factura.Total, 2) }}</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div *ngIf="tabs.Cliente.Estado" class="tab">
+          <br>
+          <div class="row">
+            <div class="col-xs-12 col-sm-6 col-md-6">
+              <div class="form-group">
+                <label>Código Cliente</label><br>
+                <span>{{ factura.Cliente.IdCliente }}</span>
+              </div>
+              <div class="form-group">
+                <label>Identificación</label><br>
+                <span>{{ factura.Cliente.Identificacion }}</span>
+              </div>
+              <div class="form-group">
+                <label>Nombre</label><br>
+                <span>
+                  {{ factura.Cliente.PrimerNombre }}
+                  {{ factura.Cliente.SegundoNombre }}
+                  {{ factura.Cliente.Apellido }}
+                </span>
+              </div>
+              <div class="form-group">
+                <label>Correo Electrónico</label><br>
+                <span>{{ factura.Cliente.Email }}</span>
+              </div>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-6">
+              <div class="form-group">
+                <label>Teléfono</label><br>
+                <span>{{ factura.Cliente.Telefono }}</span>
+              </div>
+              <div class="form-group">
+                <label>Aplicación</label><br>
+                <span>{{ factura.Cliente.Aplicacion.Nombre }}</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <div class="modal-footer" style="padding: 20px">
+        <button type="button" class="btn-dark" data-dismiss="modal" style="width: 100%">Cerrar</button>
+      </div>
+    </div>
+  </div>
+</div>

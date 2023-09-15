@@ -1,0 +1,35 @@
+<ngx-spinner bdColor="rgba(51,51,51,0.8)" size="medium" color="#fff" loadingText="Procesando Datos..." >
+</ngx-spinner>
+<div id="notfound"
+  style="background-image: url('../../../assets/images/bg-01.jpg'); background-repeat: no-repeat; background-position: center; background-size: cover; min-height: calc(100vh - 0px);">
+  <div class="notfound">
+    <div class="row">
+      <div class="col-md-12">
+        <form [formGroup]="fmrInicioSesion" (ngSubmit)="iniciarSesion(fmrInicioSesion.value)">
+          <div class="form-group" style="text-align: center">
+            <img src="../../../assets/images/logos/logodark.png" alt="Equipayment" width="265">
+          </div>
+          <hr><br>
+          <div class="form-group">
+            <label><b>Correo Electrónico</b></label>
+            <input type="email" formControlName="Email" class="input" placeholder="Ingresar Correo Electrónico">
+          </div>
+          <div class="form-group">
+            <label><b>Contraseña</b></label>
+            <input type="password" formControlName="Contrasena" class="input" placeholder="Ingresar Contraseña">
+          </div>
+
+          <div class="form-group">
+            <button type="submit" class="btn btn-success btn-sm btn-block height-md">Iniciar Sesión</button>
+          </div>
+          <div class="form-group">
+            <a style="font-size: 12.5px; color: black"><i class="fa fa-key"></i> Recuperar Contraseña</a>
+          </div>
+          <div class="form-group">
+            <button type="button" class="btn btn-success btn-sm btn-block height-md">Solicitar Cuenta</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

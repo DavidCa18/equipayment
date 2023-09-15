@@ -1,0 +1,41 @@
+<nav class="navbar default-layout-navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
+  <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
+    <img src="assets/images/logos/logodark.png" alt="Equipayment" style="width: 200px;" />
+  </div>
+  <div class="navbar-menu-wrapper d-flex align-items-stretch">
+    <div class="search-field d-none d-md-block">
+      <div class="d-flex align-items-center h-100">
+
+      </div>
+    </div>
+    <ul class="navbar-nav navbar-nav-right">
+      <li class="nav-item nav-profile dropdown">
+        <a class="nav-link dropdown-toggle" id="profileDropdown" href="#" data-toggle="dropdown" aria-expanded="false">
+          <div class="nav-profile-img">
+            <img src="assets/images/items/usuario-dark.png" alt="image" width="32">
+            <span class="availability-status online"></span>
+          </div>
+          <div class="nav-profile-text">
+            <p class="mb-1 text-black">{{ usuario.Nombre }}</p>
+          </div>
+        </a>
+        <div class="dropdown-menu navbar-dropdown" aria-labelledby="profileDropdown">
+          <a class="dropdown-item" style="font-size: 14px !important; color: #212529 !important;">
+            <i class="mdi mdi-cached mr-2 text-dark"></i> Configuración </a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" style="font-size: 14px !important; color: #212529 !important;"
+            (click)="cerrarSesion()">
+            <i class="mdi mdi-logout mr-2 text-dark"></i> Cerrar Sesión </a>
+        </div>
+      </li>
+      <li class="nav-item nav-logout d-none d-lg-block" (click)="cerrarSesion()">
+        <a class="nav-link" style="cursor: pointer;">
+          <i class="mdi mdi-power text-dark"></i>
+        </a>
+      </li>
+    </ul>
+    <div class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-toggle="offcanvas">
+      <app-sidebar></app-sidebar>
+    </div>
+  </div>
+</nav>

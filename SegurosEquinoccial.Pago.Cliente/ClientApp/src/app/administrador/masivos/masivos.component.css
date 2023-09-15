@@ -1,0 +1,12 @@
+.paginacion /deep/ .ngx-pagination .current {
+    background: #17A589;
+}
+
+.links tr td{  
+  padding: 10px;
+  font-size: 12px;
+}
+
+.redireccion{
+  color: #17A589;
+}

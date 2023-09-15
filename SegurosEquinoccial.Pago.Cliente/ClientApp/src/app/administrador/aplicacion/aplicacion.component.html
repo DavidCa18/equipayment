@@ -1,0 +1,1108 @@
+<div class="modal fade" id="ModalDetallesAplicacion" tabindex="-1" role="dialog"
+  aria-labelledby="ModalDetallesAplicacionLabel">
+  <div class="modal-dialog " role="document">
+    <div class="modal-content">
+      <div class="modal-header" style="background-color: #2E4053; color: #FFF">
+        <span class="modal-title" id="ModalDetallesAplicacionLabel" style="font-size: 15px">Detalles Aplicación /
+          Plataforma</span>
+      </div>
+      <div class="modal-body" style="padding: 20px">
+
+        <div class="row">
+          <div class="col-md-12">
+            <nav>
+              <ol class="cd-breadcrumb triangle">
+                <li [ngClass]="gestionPasos.paso1Estilo" (click)="gestionarPasos(1)"><a>Datos Generales</a></li>
+                <li [ngClass]="gestionPasos.paso2Estilo" (click)="gestionarPasos(2)"><a>Datos Primarios</a></li>
+                <li [ngClass]="gestionPasos.paso3Estilo" (click)="gestionarPasos(3)"><a>Datos Secundarios</a></li>
+              </ol>
+            </nav>
+          </div>
+        </div>
+
+        <div class="tab">
+          <div *ngIf="gestionPasos.paso1">
+            <div class="row">
+              <div class="col-md-12">
+                <div class="form-group">
+                  <h5 style="font-weight: bold"><u>Datos Generales</u></h5>
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-md-12">
+                <div class="form-group">
+                  <label>Nombre</label><br>
+                  <span>{{ aplicacion.Nombre }}</span>
+                </div>
+                <div class="form-group">
+                  <label>Token</label>
+                  <div class="input-group">
+                    <input id="contrasena" type="password" value="{{ aplicacion.Token }}" class="input-rigth"
+                      aria-describedby="basic-addon2">
+                    <span class="btn-dark input-group-addon" id="basic-addon2" (click)="visualizarToken()">
+                      <i class="fa fa-eye"></i>
+                    </span>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label>Codigo</label><br>
+                  <span>{{ aplicacion.Codigo }}</span>
+                </div>
+                <div class="form-group">
+                  <label>Identificación</label><br>
+                  <span>{{ aplicacion.Identificacion }}</span>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <div *ngIf="gestionPasos.paso2">
+            <div class="row">
+              <div class="col-md-12">
+                <div class="form-group">
+                  <h5 style="font-weight: bold"><u>Datos Primarios</u></h5>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label>Logo</label><br>
+                  <div class="imagenes" [ngStyle]="{'background-color': aplicacion.FondoPrimario}">
+                    <img src="{{ aplicacion.LogoPrimario }}" width="200">
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-4">
+                <div class="form-group">
+                  <label>Tamaño</label><br>
+                  <span>{{ aplicacion.LogoPrimarioTamano }} Pixeles</span>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="form-group">
+                  <label>Color</label><br>
+                  <span class="color" [ngStyle]="{'background-color': aplicacion.ColorPrimario}">
+                    <i class="color-espacio"></i>
+                  </span>&nbsp;
+                  <span>{{ aplicacion.ColorPrimario }}</span>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="form-group">
+                  <label>Fondo</label><br>
+                  <span class="color" [ngStyle]="{'background-color': aplicacion.FondoPrimario}">
+                    <i class="color-espacio"></i>
+                  </span>&nbsp;
+                  <span>{{ aplicacion.FondoPrimario }}</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div *ngIf="gestionPasos.paso3">
+            <div class="row">
+              <div class="col-md-12">
+                <div class="form-group">
+                  <h5 style="font-weight: bold"><u>Datos Secundarios</u></h5>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label>Logo</label><br>
+                  <div class="imagenes" [ngStyle]="{'background-color': aplicacion.FondoPrimario}">
+                    <img src="{{ aplicacion.LogoSecundario }}" width="200">
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-4">
+                <div class="form-group">
+                  <label>Tamaño</label><br>
+                  <span>{{ aplicacion.LogoSecundarioTamano }} Pixeles</span>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="form-group">
+                  <label>Color</label><br>
+                  <span class="color" [ngStyle]="{'background-color': aplicacion.ColorSecundario}">
+                    <i class="color-espacio"></i>
+                  </span>&nbsp;
+                  <span>{{ aplicacion.ColorSecundario }}</span>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="form-group">
+                  <label>Fondo</label><br>
+                  <span class="color" [ngStyle]="{'background-color': aplicacion.FondoSecundario}">
+                    <i class="color-espacio"></i>
+                  </span>&nbsp;
+                  <span>{{ aplicacion.FondoSecundario }}</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+      <div class="modal-footer" style="padding: 20px">
+        <button type="button" class="btn-dark" data-dismiss="modal" style="width: 100%">Cerrar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="ModalGestionAplicacions" tabindex="-1" role="dialog"
+  aria-labelledby="ModalAgregarAplicacionLabelss">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header" style="background-color: #2E4053; color: #FFF">
+        <span class="modal-title" id="ModalAgregarAplicacionLabels"
+          style="font-size: 15px">{{modalAplicacion.Titulo}}</span>
+        <span style="float: right; cursor: pointer;" data-dismiss="modal"><i class="fa fa-times"></i></span>
+      </div>
+      <div class="modal-body" style="padding: 20px">
+
+        <div class="row">
+          <div class="col-md-12">
+            <nav>
+              <ol class="cd-breadcrumb triangle">
+                <li [ngClass]="gestionPasos.paso1Estilo" (click)="gestionarPasos(1)"><a>Gestión Datos</a></li>
+                <li [ngClass]="gestionPasos.paso2Estilo" (click)="gestionarPasos(2)"><a>Gestión Primaria</a></li>
+                <li [ngClass]="gestionPasos.paso3Estilo" (click)="gestionarPasos(3)"><a>Gestión Secundaria</a></li>
+              </ol>
+            </nav>
+          </div>
+        </div>
+
+        <div class="tab">
+          <div *ngIf="gestionPasos.paso1">
+            <div class="row">
+              <div class="col-md-12">
+                <div class="form-group">
+                  <h5 style="font-weight: bold"><u>Gestión Datos</u></h5>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-12">
+                <div class="form-group">
+                  <label>Nombre</label>
+                  <input type="text" class="input" [(ngModel)]="fmrAplicacion.Nombre"
+                    (keyup)="fmrAplicacion.Nombre = globales.formatoCampo(fmrAplicacion.Nombre, 'abcdefghijklmnñopqrstuvwxyzáéíóúÁÉÍÓÚABCDEFGHIJKLMNÑOPQRSTUVWXYZ-| ', 100, 1)">
+                </div>
+                <div class="form-group">
+                  <label>Codigo</label>
+                  <input type="text" class="input" [(ngModel)]="fmrAplicacion.Codigo"
+                    (keyup)="fmrAplicacion.Codigo = globales.formatoCampo(fmrAplicacion.Codigo, '012345678', 10, 2)">
+                </div>
+                <div class="form-group">
+                  <label>Identificación</label>
+                  <input type="text" class="input" [(ngModel)]="fmrAplicacion.Identificacion"
+                    (keyup)="fmrAplicacion.Identificacion = globales.formatoCampo(fmrAplicacion.Identificacion, '012345678', 10, 2)">
+                </div>
+              </div>
+            </div>
+            <hr>
+            <div style="text-align: right">
+              <button type="button" class="btn-white" style="width: 120px !important" disabled>
+                Anterior
+              </button>
+              <button type="button" class="btn-dark" (click)="gestionarPasos(2)" style="width: 120px !important">
+                Siguiente
+              </button>
+            </div>
+          </div>
+
+          <div *ngIf="gestionPasos.paso2">
+            <div class="row">
+              <div class="col-md-12">
+                <div class="form-group">
+                  <h5 style="font-weight: bold"><u>Gestión Primaria</u></h5>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-xs-12 col-sm-6 col-md-6">
+                <div class="form-group">
+                  <label>Color Texto</label><br>
+                  <div class="input-group">
+                    <input #ignoredInput class="input" [value]="fmrAplicacion.ColorPrimario" [(cpToggle)]="toggle"
+                      [cpIgnoredElements]="[ignoredButton, ignoredInput]" [cpPosition]="'bottom'"
+                      [(colorPicker)]="color" (colorPickerChange)="color=obtenerColor($event, 1)" class="input-color">
+                    <span class="input-group-btn">
+                      <button #ignoredButton class="button-color" (click)="toggle=!toggle">
+                        <i class="fa fa-chevron-down"></i>
+                      </button>
+                    </span>
+                  </div>
+                </div>
+              </div>
+              <div class="col-xs-12 col-sm-6 col-md-6">
+                <div class="form-group">
+                  <label>Color Fondo</label><br>
+                  <div class="input-group">
+                    <input #ignoredInput2 class="input" [value]="fmrAplicacion.FondoPrimario" [(cpToggle)]="toggle2"
+                      [cpIgnoredElements]="[ignoredButton2, ignoredInput2]" [cpPosition]="'bottom'"
+                      [(colorPicker)]="color" (colorPickerChange)="color=obtenerColor($event, 2)" class="input-color">
+                    <span class="input-group-btn">
+                      <button #ignoredButton2 class="button-color" (click)="toggle2=!toggle2">
+                        <i class="fa fa-chevron-down"></i>
+                      </button>
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-xs-12 col-sm-6 col-md-6">
+                <div class="form-group">
+                  <label>Logo</label>
+                  <input type="file" id="LogoPrimario" class="upload" (change)="obtenerImagen(1)" />
+                  <label for="LogoPrimario"><i class="fa fa-picture-o"></i></label>
+                  <input type="text" class="input" style="width: 80% !important"
+                    value="{{fmrAplicacion.NombreLogoPrimario}}" disabled>
+                </div>
+              </div>
+              <div class="col-xs-12 col-sm-6 col-md-6">
+                <div class="form-group">
+                  <label>Tamaño Logo</label>
+                  <input type="text" class="input" [(ngModel)]="fmrAplicacion.LogoPrimarioTamano"
+                    placeholder="Tamaño en Pixeles"
+                    (keyup)="fmrAplicacion.LogoPrimarioTamano = globales.formatoCampo(fmrAplicacion.LogoPrimarioTamano, '0123456789', 4, 2)">
+                </div>
+              </div>
+            </div>
+            <hr>
+            <div style="text-align: right">
+              <button type="button" class="btn-white" style="width: 120px !important" (click)="gestionarPasos(1)">
+                Anterior
+              </button>
+              <button type="button" class="btn-dark" (click)="gestionarPasos(3)" style="width: 120px !important">
+                Siguiente
+              </button>
+            </div>
+          </div>
+
+          <div *ngIf="gestionPasos.paso3">
+            <div class="row">
+              <div class="col-md-12">
+                <div class="form-group">
+                  <h5 style="font-weight: bold"><u>Gestión Secundaria</u></h5>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-xs-12 col-sm-6 col-md-6">
+                <div class="form-group">
+                  <label>Color Texto</label><br>
+                  <div class="input-group">
+                    <input #ignoredInput3 class="input" [value]="fmrAplicacion.ColorSecundario" [(cpToggle)]="toggle3"
+                      [cpIgnoredElements]="[ignoredButton3, ignoredInput3]" [cpPosition]="'bottom'"
+                      [(colorPicker)]="color" (colorPickerChange)="color=obtenerColor($event, 3)" class="input-color">
+                    <span class="input-group-btn">
+                      <button #ignoredButton3 class="button-color" (click)="toggle3=!toggle3">
+                        <i class="fa fa-chevron-down"></i>
+                      </button>
+                    </span>
+                  </div>
+                </div>
+              </div>
+              <div class="col-xs-12 col-sm-6 col-md-6">
+                <div class="form-group">
+                  <label>Color Fondo</label><br>
+                  <div class="input-group">
+                    <input #ignoredInput4 class="input" [value]="fmrAplicacion.FondoSecundario" [(cpToggle)]="toggle4"
+                      [cpIgnoredElements]="[ignoredButton4, ignoredInput4]" [cpPosition]="'bottom'"
+                      [(colorPicker)]="color" (colorPickerChange)="color=obtenerColor($event, 4)" class="input-color">
+                    <span class="input-group-btn">
+                      <button #ignoredButton4 class="button-color" (click)="toggle4=!toggle4">
+                        <i class="fa fa-chevron-down"></i>
+                      </button>
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-xs-12 col-sm-6 col-md-6">
+                <div class="form-group">
+                  <label>Logo</label><br>
+                  <input type="file" id="LogoSecundario" class="upload" (change)="obtenerImagen(2)" />
+                  <label for="LogoSecundario"><i class="fa fa-picture-o"></i></label>
+                  <input type="text" class="input" style="width: 80% !important"
+                    value="{{fmrAplicacion.NombreLogoSecundario}}" disabled>
+                </div>
+              </div>
+              <div class="col-xs-12 col-sm-6 col-md-6">
+                <div class="form-group">
+                  <label>Tamaño Logo</label>
+                  <input type="text" class="input" [(ngModel)]="fmrAplicacion.LogoSecundarioTamano"
+                    placeholder="Tamaño en Pixeles"
+                    (keyup)="fmrAplicacion.LogoSecundarioTamano = globales.formatoCampo(fmrAplicacion.LogoSecundarioTamano, '0123456789', 4, 2)">
+                </div>
+              </div>
+            </div>
+            <hr>
+            <div style="text-align: right">
+              <button type="button" class="btn-white" style="width: 120px !important"
+                (click)="gestionarPasos(2)">Anterior</button>
+              <button *ngIf="modalAplicacion.BtnGuardar == true" type="button" class="btn-dark"
+                (click)="agregarAplicacion()" style="width: 120px !important">
+                Guardar
+              </button>
+
+              <button *ngIf="modalAplicacion.BtnModificar == true" type="button" class="btn-dark"
+                (click)="modificarAplicacion()" style="width: 120px !important">
+                Modificar
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+<ngx-spinner bdColor="rgba(51,51,51,0.8)" size="medium" color="#fff" loadingText="Procesando Datos...">
+</ngx-spinner>
+
+<div class="container-scroller" style="font-size: 14px;">
+
+  <nav class="navbar default-layout-navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
+    <app-navbar></app-navbar>
+  </nav>
+
+  <div class="container-fluid page-body-wrapper">
+
+    <nav class="sidebar sidebar-offcanvas" id="sidebar">
+      <app-sidebar></app-sidebar>
+    </nav>
+
+    <div class="main-panel">
+      <div class="content-wrapper">
+
+        <div class="page-header">
+          <h3 class="page-title"> Gestión de Plataformas </h3>
+          <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item"><a>Pagos</a></li>
+              <li class="breadcrumb-item active" aria-current="page">Plataformas</li>
+            </ol>
+          </nav>
+        </div>
+
+        <div class="row">
+
+          <div class="col-12 grid-margin stretch-card">
+            <div class="card">
+              <div class="card-body">
+
+
+                <div style="text-align: right; padding-bottom: 20px;">
+                  <button class="btn btn-success btn-sm height-md" (click)="abrirModalAgregarAplicacion()">
+                    <i class="mdi mdi-content-save"></i> Agregar Plataforma
+                  </button>
+                </div>
+                <div class="table-responsive">
+                  <table class="table table-bordered">
+                    <thead>
+                      <tr class="table-success text-white">
+                        <td>Logo</td>
+                        <td>Nombre</td>
+                        <td style="text-align: center;">Gracia</td>
+                        <td style="text-align: center;">Estado</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr *ngIf="lstAplicaciones.length == 0">
+                        <td colspan="6" class="text-center">
+                          No existen elementos.
+                        </td>
+                      </tr>
+                      <tr
+                        *ngFor="let aplicacion of lstAplicaciones | paginate: { id: 'aplicacion', itemsPerPage: 10, currentPage: p }">
+                        <td>
+                          <div [ngStyle]="{'background-color': aplicacion.FondoSecundario}"
+                            style="text-align: center !important">
+                            <img src="{{aplicacion.LogoSecundario}}"
+                              style="width: 100px !important; border-radius: 0px !important;">
+                          </div>
+                        </td>
+                        <td>
+                          {{ aplicacion.Nombre }}
+                        </td>
+                        <td style="text-align: center;">
+                          <span *ngIf="aplicacion.Gracia == 0"><i
+                              class="fas fa-minus-circle text-info tamanio"></i></span>
+                          <span *ngIf="aplicacion.Gracia == 1"><i
+                              class="fas fa-check-circle text-success tamanio"></i></span>
+                        </td>
+                        <td style="text-align: center;">
+                          <span *ngIf="aplicacion.Estado == 0"><i
+                              class="fas fa-times-circle text-danger tamanio"></i></span>
+                          <span *ngIf="aplicacion.Estado == 1"><i
+                              class="fas fa-check-circle text-success tamanio"></i></span>
+                        </td>
+                        <td>
+                          <button class="btn btn-info btn-sm" (click)="abrirModalDisenoAplicacion(aplicacion)">
+                            <i class="mdi mdi-image"></i>
+                          </button>
+                        </td>
+                        <td>
+                          <button *ngIf="aplicacion.Estado == 1" class="btn btn-danger btn-sm" (click)="cambioEstadoAplicacion(aplicacion)">
+                            <i class="mdi mdi-delete"></i>
+                          </button>
+
+                          <button *ngIf="aplicacion.Estado == 0" class="btn btn-danger btn-sm" (click)="cambioEstadoAplicacion(aplicacion)">
+                            <i class="mdi mdi-reload"></i>
+                          </button>
+                        </td>
+                        <td>
+                          <button class="btn btn-warning btn-sm" (click)="abrirModalModificarAplicacion(aplicacion)">
+                            <i class="mdi mdi-lead-pencil"></i>
+                          </button>
+                        </td>
+                      </tr>
+                    </tbody>
+                    <tfoot *ngIf="lstAplicaciones.length > 10">
+                      <tr>
+                        <td colspan="6">
+                          <pagination-controls id="aplicacion" (pageChange)="p = $event" maxSize="10" autoHide="true"
+                            responsive="true" previousLabel="Anterior" nextLabel="Siguiente" class="paginacion">
+                          </pagination-controls>
+                        </td>
+                      </tr>
+                    </tfoot>
+                  </table>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <footer class="footer">
+        <div class="d-sm-flex justify-content-center justify-content-sm-between">
+          <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">Copyright © 2020 <a
+              target="_blank">Innovacloud</a>. Todos los derechos reservados.</span>
+        </div>
+      </footer>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="ModalGestionAplicacion" tabindex="-1" role="dialog" aria-labelledby="ModalGestionAplicacion"
+  aria-hidden="true">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Gestión Plataforma</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+
+        <div class="row">
+          <div class="col-md-6">
+            <div class="row">
+              <div class="col-md-6">
+                <div class="form-group">
+                  <b>Nombre</b>
+                  <input type="text" class="form-control" [(ngModel)]="fmrAplicacion.Nombre"
+                    (keyup)="fmrAplicacion.Nombre = globales.formatoCampo(fmrAplicacion.Nombre, 'abcdefghijklmnñopqrstuvwxyzáéíóúÁÉÍÓÚABCDEFGHIJKLMNÑOPQRSTUVWXYZ-| ', 100, 1)">
+                </div>
+                <div class="form-group">
+
+                  <b>Caducidad Link</b>
+                  <div class="row">
+                    <div class="col-md-6">
+                      <input type="text" class="form-control" [(ngModel)]="fmrAplicacion.CaducidadTiempoValor"
+                        (keyup)="fmrAplicacion.CaducidadTiempoValor = globales.formatoCampo(fmrAplicacion.CaducidadTiempoValor, '012345678', 5, 2)">
+                    </div>
+                    <div class="col-md-6">
+                      <select class="form-control" [(ngModel)]="fmrAplicacion.CaducidadTiempo" style="color: black;">
+                        <option *ngFor="let tiempo of lstTipoTiempo" [value]="tiempo.codigo">{{ tiempo.texto }}</option>
+                      </select>
+                    </div>
+                  </div>
+
+                </div>
+                <div class="form-group">
+                  <b>Identificación</b><br>
+                  <select [(ngModel)]="fmrAplicacion.Identificacion" class="form-control" style="color: black;">
+                    <option *ngFor="let iden of lstIdentificacion" [value]="iden.codigo">{{ iden.texto }}</option>
+                  </select>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-group">
+                  <b>Monto Máximo</b>
+                  <input type="text" class="form-control" [(ngModel)]="fmrAplicacion.MontoMaximo"
+                    (keyup)="fmrAplicacion.MontoMaximo = globales.formatoCampo(fmrAplicacion.MontoMaximo, '012345678', 10, 2)">
+                </div>
+                <div class="form-group">
+                  <b>Monto Mínimo</b>
+                  <input type="text" class="form-control" [(ngModel)]="fmrAplicacion.MontoMinimo"
+                    (keyup)="fmrAplicacion.MontoMinimo = globales.formatoCampo(fmrAplicacion.MontoMinimo, '012345678', 10, 2)">
+                </div>
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <b>Gracia</b>
+                      <select [(ngModel)]="fmrAplicacion.Gracia" class="form-control" style="color: black;">
+                        <option [value]="0">NO</option>
+                        <option [value]="1">SI</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <b>Recurrencia</b>
+                      <select [(ngModel)]="fmrAplicacion.Recurrencia" class="form-control" style="color: black;">
+                        <option [value]="0">NO</option>
+                        <option [value]="1">SI</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-12">
+                <div class="row">
+
+                  <div class="col-md-6">
+
+                    <div class="row">
+                      <div class="col-md-12">
+                        <div class="form-group">
+                          <b>Gestión Primaria</b>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="form-group">
+                      <b>Color Fondo</b><br>
+                      <div class="input-group">
+                        <input #ignoredInput2 [value]="fmrAplicacion.FondoPrimario" [(cpToggle)]="toggle2"
+                          [cpIgnoredElements]="[ignoredButton2, ignoredInput2]" [cpPosition]="'bottom'"
+                          [(colorPicker)]="color" (colorPickerChange)="color=obtenerColor($event, 2)">
+                        <span class="input-group-btn">
+                          <button #ignoredButton2 class="button-color" (click)="toggle2=!toggle2">
+                            <i class="fa fa-chevron-down"></i>
+                          </button>
+                        </span>
+                      </div>
+                    </div>
+
+                    <div class="form-group">
+                      <b>Color Texto</b><br>
+                      <div class="input-group">
+                        <input #ignoredInput [value]="fmrAplicacion.ColorPrimario" [(cpToggle)]="toggle"
+                          [cpIgnoredElements]="[ignoredButton, ignoredInput]" [cpPosition]="'bottom'"
+                          [(colorPicker)]="color" (colorPickerChange)="color=obtenerColor($event, 1)">
+                        <span class="input-group-btn">
+                          <button #ignoredButton class="button-color" (click)="toggle=!toggle">
+                            <i class="fa fa-chevron-down"></i>
+                          </button>
+                        </span>
+                      </div>
+                    </div>
+
+                    <div class="form-group">
+                      <b>Tamaño Logo</b>
+                      <input type="text" class="form-control" [(ngModel)]="fmrAplicacion.LogoPrimarioTamano"
+                        placeholder="Tamaño en Pixeles"
+                        (keyup)="fmrAplicacion.LogoPrimarioTamano = globales.formatoCampo(fmrAplicacion.LogoPrimarioTamano, '0123456789', 4, 2)">
+                    </div>
+
+                    <div class="form-group">
+                      <b>Logo</b><br>
+                      <input type="file" id="LogoPrimario" class="upload" (change)="obtenerImagen(1)" />
+                      <label for="LogoPrimario"><i class="mdi mdi-image"></i></label>
+                      <input type="text" class="form-control" style="width: 80% !important"
+                        value="{{fmrAplicacion.NombreLogoPrimario}}" disabled>
+                    </div>
+
+
+                  </div>
+                  <div class="col-md-6">
+
+                    <div class="row">
+                      <div class="col-md-12">
+                        <div class="form-group">
+                          <b>Gestión Secundaria</b>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="form-group">
+                      <b>Color Fondo</b><br>
+                      <div class="input-group">
+                        <input #ignoredInput4 [value]="fmrAplicacion.FondoSecundario" [(cpToggle)]="toggle4"
+                          [cpIgnoredElements]="[ignoredButton4, ignoredInput4]" [cpPosition]="'bottom'"
+                          [(colorPicker)]="color" (colorPickerChange)="color=obtenerColor($event, 4)">
+                        <span class="input-group-btn">
+                          <button #ignoredButton4 class="button-color" (click)="toggle4=!toggle4">
+                            <i class="fa fa-chevron-down"></i>
+                          </button>
+                        </span>
+                      </div>
+                    </div>
+
+                    <div class="form-group">
+                      <b>Color Texto</b><br>
+                      <div class="input-group">
+                        <input #ignoredInput3 [value]="fmrAplicacion.ColorSecundario" [(cpToggle)]="toggle3"
+                          [cpIgnoredElements]="[ignoredButton3, ignoredInput3]" [cpPosition]="'bottom'"
+                          [(colorPicker)]="color" (colorPickerChange)="color=obtenerColor($event, 3)">
+                        <span class="input-group-btn">
+                          <button #ignoredButton3 class="button-color" (click)="toggle3=!toggle3">
+                            <i class="fa fa-chevron-down"></i>
+                          </button>
+                        </span>
+                      </div>
+                    </div>
+
+                    <div class="form-group">
+                      <b>Tamaño Logo</b>
+                      <input type="text" class="form-control" [(ngModel)]="fmrAplicacion.LogoSecundarioTamano"
+                        placeholder="Tamaño en Pixeles"
+                        (keyup)="fmrAplicacion.LogoSecundarioTamano = globales.formatoCampo(fmrAplicacion.LogoSecundarioTamano, '0123456789', 4, 2)">
+                    </div>
+
+                    <div class="form-group">
+                      <b>Logo</b><br>
+                      <input type="file" id="LogoSecundario" class="upload" (change)="obtenerImagen(2)" />
+                      <label for="LogoSecundario"><i class="mdi mdi-image"></i></label>
+                      <input type="text" class="form-control" style="width: 80% !important"
+                        value="{{fmrAplicacion.NombreLogoSecundario}}" disabled>
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6" style="padding-left: 20px;">
+
+            <div class="row">
+              <div class="col-12">
+                <b>Pre-visualización</b>
+              </div>
+            </div>
+            <br>
+            <div class="row">
+              <div class="col-4">
+                <b>Gestión Primaria</b>
+              </div>
+              <div class="col-8">
+                <b>Gestión Secundaria</b>
+              </div>
+            </div>
+            <br>
+            <div class="row" style="padding-left: 20px;">
+              <div class="col-md-4"
+                [ngStyle]="{'background-color': fmrAplicacion.FondoPrimario, 'border-radius': '7px 0px 0px 7px', 'padding': '20px', 'font-size': '14px'}">
+                <div [ngStyle]="{'color': fmrAplicacion.ColorPrimario }">
+
+                  <div class="row" style="padding-bottom: 20px;">
+                    <div class="col-md-12">
+                      <div>
+                        <img [src]="fmrAplicacion.LogoPrimario" width="{{ fmrAplicacion.LogoPrimarioTamano }}">
+                      </div>
+                    </div>
+                  </div>
+
+                  <div [ngStyle]="{'padding-top': '5px', 'border-top': '1px solid ' + fmrAplicacion.ColorPrimario }">
+                    &nbsp;
+                  </div>
+
+                  <div class="row">
+                    <div class="col-12" style="padding-bottom: 8px;">
+                      Plataforma:
+                    </div>
+                    <div class="col-12">
+                      <b>
+                        {{ fmrAplicacion.Nombre }}
+                      </b>
+                      <br><br><br><br><br><br><br><br><br><br><br><br>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+              <div class="col-md-7"
+                [ngStyle]="{'background-color': fmrAplicacion.FondoSecundario, 'border-radius': '0px 7px 7px 0px', 'padding': '20px', 'font-size': '14px'}">
+                <div [ngStyle]="{'color': fmrAplicacion.ColorSecundario }">
+
+                  <div class="row" style="padding-bottom: 20px;">
+                    <div class="col-6">
+                      <div>
+                        <img [src]="fmrAplicacion.LogoSecundario" width="{{ fmrAplicacion.LogoSecundarioTamano }}">
+                      </div>
+                    </div>
+                    <div class="col-6" style="text-align: left;">
+                      <b>
+                        {{ globales.obtenerFecha("-") }}
+                      </b>
+                    </div>
+                  </div>
+
+                  <div [ngStyle]="{'padding-top': '5px', 'border-top': '1px solid ' + fmrAplicacion.ColorSecundario }">
+                    &nbsp;
+                  </div>
+
+                  <div class="row">
+                    <div class="col-12">
+                      <b>
+                        &nbsp;
+                      </b>
+                      <br><br><br><br><br><br><br><br><br><br><br><br>
+                    </div>
+                  </div>
+
+
+                </div>
+              </div>
+              <div class="col-1"></div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+        <button *ngIf="modalAplicacion.BtnGuardar" type="button" class="btn btn-primary"
+          (click)="agregarAplicacion()">Guardar</button>
+        <button *ngIf="modalAplicacion.BtnModificar" type="button" class="btn btn-primary"
+          (click)="modificarAplicacion()">Modificar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="ModalModificacionAplicacion" tabindex="-1" role="dialog"
+  aria-labelledby="ModalModificacionAplicacion" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Gestión Plataforma</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+
+        <div class="row">
+          <div class="col-md-12">
+            <div class="row">
+              <div class="col-md-12">
+                <div class="form-group">
+                  <b>Nombre</b>
+                  <input type="text" class="form-control" [(ngModel)]="fmrAplicacion.Nombre"
+                    (keyup)="fmrAplicacion.Nombre = globales.formatoCampo(fmrAplicacion.Nombre, 'abcdefghijklmnñopqrstuvwxyzáéíóúÁÉÍÓÚABCDEFGHIJKLMNÑOPQRSTUVWXYZ-| ', 100, 1)">
+                </div>
+                <div class="form-group">
+
+                  <b>Caducidad Link</b>
+                  <div class="row">
+                    <div class="col-md-6">
+                      <input type="text" class="form-control" [(ngModel)]="fmrAplicacion.CaducidadTiempoValor"
+                        (keyup)="fmrAplicacion.CaducidadTiempoValor = globales.formatoCampo(fmrAplicacion.CaducidadTiempoValor, '012345678', 5, 2)">
+                    </div>
+                    <div class="col-md-6">
+                      <select class="form-control" [(ngModel)]="fmrAplicacion.CaducidadTiempo" style="color: black;">
+                        <option *ngFor="let tiempo of lstTipoTiempo" [value]="tiempo.codigo">{{ tiempo.texto }}</option>
+                      </select>
+                    </div>
+                  </div>
+
+                </div>
+                <div class="form-group">
+                  <b>Identificación</b><br>
+                  <select [(ngModel)]="fmrAplicacion.Identificacion" class="form-control" style="color: black;">
+                    <option *ngFor="let iden of lstIdentificacion" [value]="iden.codigo">{{ iden.texto }}</option>
+                  </select>
+                </div>
+
+                <div class="form-group">
+                  <b>Monto Máximo</b>
+                  <input type="text" class="form-control" [(ngModel)]="fmrAplicacion.MontoMaximo"
+                    (keyup)="fmrAplicacion.MontoMaximo = globales.formatoCampo(fmrAplicacion.MontoMaximo, '012345678', 10, 2)">
+                </div>
+                <div class="form-group">
+                  <b>Monto Mínimo</b>
+                  <input type="text" class="form-control" [(ngModel)]="fmrAplicacion.MontoMinimo"
+                    (keyup)="fmrAplicacion.MontoMinimo = globales.formatoCampo(fmrAplicacion.MontoMinimo, '012345678', 10, 2)">
+                </div>
+                <div class="form-group">
+                  <b>Gracia</b>
+                  <select [(ngModel)]="fmrAplicacion.Gracia" class="form-control" style="color: black;">
+                    <option [value]="0">NO</option>
+                    <option [value]="1">SI</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <b>Recurrencia</b>
+                  <select [(ngModel)]="fmrAplicacion.Recurrencia" class="form-control" style="color: black;">
+                    <option [value]="0">NO</option>
+                    <option [value]="1">SI</option>
+                  </select>
+                </div>
+
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+        <button *ngIf="modalAplicacion.BtnModificar" type="button" class="btn btn-primary"
+          (click)="modificarAplicacion()">Modificar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="ModalDisenoAplicacion" tabindex="-1" role="dialog" aria-labelledby="ModalDisenoAplicacion"
+  aria-hidden="true">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Gestión Plataforma</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+
+        <div class="row">
+          <div class="col-md-6">
+            <div class="row">
+              <div class="col-md-12">
+                <div class="row">
+
+                  <div class="col-md-6">
+
+                    <div class="row">
+                      <div class="col-md-12">
+                        <div class="form-group">
+                          <b>Gestión Primaria</b>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="form-group">
+                      <b>Color Fondo</b><br>
+                      <div class="input-group">
+                        <input #ignoredInput3 [value]="fmrAplicacion.FondoPrimario" [(cpToggle)]="toggle3"
+                          [cpIgnoredElements]="[ignoredButton3, ignoredInput3]" [cpPosition]="'bottom'"
+                          [(colorPicker)]="color" (colorPickerChange)="color=obtenerColor($event, 2)">
+                        <span class="input-group-btn">
+                          <button #ignoredButton3 class="button-color" (click)="toggle3=!toggle3">
+                            <i class="fa fa-chevron-down"></i>
+                          </button>
+                        </span>
+                      </div>
+                    </div>
+
+                    <div class="form-group">
+                      <b>Color Texto</b><br>
+                      <div class="input-group">
+                        <input #ignoredInput4 [value]="fmrAplicacion.ColorPrimario" [(cpToggle)]="toggle4"
+                          [cpIgnoredElements]="[ignoredButton4, ignoredInput4]" [cpPosition]="'bottom'"
+                          [(colorPicker)]="color" (colorPickerChange)="color=obtenerColor($event, 1)">
+                        <span class="input-group-btn">
+                          <button #ignoredButton4 class="button-color" (click)="toggle4=!toggle4">
+                            <i class="fa fa-chevron-down"></i>
+                          </button>
+                        </span>
+                      </div>
+                    </div>
+
+                    <div class="form-group">
+                      <b>Tamaño Logo</b>
+                      <input type="text" class="form-control" [(ngModel)]="fmrAplicacion.LogoPrimarioTamano"
+                        placeholder="Tamaño en Pixeles"
+                        (keyup)="fmrAplicacion.LogoPrimarioTamano = globales.formatoCampo(fmrAplicacion.LogoPrimarioTamano, '0123456789', 4, 2)">
+                    </div>
+
+                    <div class="form-group">
+                      <b>Logo</b><br>
+                      <input type="file" id="LogoPrimario" class="upload" (change)="obtenerImagen(1)" />
+                      <label for="LogoPrimario"><i class="mdi mdi-image"></i></label>
+                      <input type="text" class="form-control" style="width: 80% !important"
+                        value="{{fmrAplicacion.NombreLogoPrimario}}" disabled>
+                    </div>
+
+
+                  </div>
+                  <div class="col-md-6">
+
+                    <div class="row">
+                      <div class="col-md-12">
+                        <div class="form-group">
+                          <b>Gestión Secundaria</b>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="form-group">
+                      <b>Color Fondo</b><br>
+                      <div class="input-group">
+                        <input #ignoredInput4 [value]="fmrAplicacion.FondoSecundario" [(cpToggle)]="toggle4"
+                          [cpIgnoredElements]="[ignoredButton4, ignoredInput4]" [cpPosition]="'bottom'"
+                          [(colorPicker)]="color" (colorPickerChange)="color=obtenerColor($event, 4)">
+                        <span class="input-group-btn">
+                          <button #ignoredButton4 class="button-color" (click)="toggle4=!toggle4">
+                            <i class="fa fa-chevron-down"></i>
+                          </button>
+                        </span>
+                      </div>
+                    </div>
+
+                    <div class="form-group">
+                      <b>Color Texto</b><br>
+                      <div class="input-group">
+                        <input #ignoredInput3 [value]="fmrAplicacion.ColorSecundario" [(cpToggle)]="toggle3"
+                          [cpIgnoredElements]="[ignoredButton3, ignoredInput3]" [cpPosition]="'bottom'"
+                          [(colorPicker)]="color" (colorPickerChange)="color=obtenerColor($event, 3)">
+                        <span class="input-group-btn">
+                          <button #ignoredButton3 class="button-color" (click)="toggle3=!toggle3">
+                            <i class="fa fa-chevron-down"></i>
+                          </button>
+                        </span>
+                      </div>
+                    </div>
+
+                    <div class="form-group">
+                      <b>Tamaño Logo</b>
+                      <input type="text" class="form-control" [(ngModel)]="fmrAplicacion.LogoSecundarioTamano"
+                        placeholder="Tamaño en Pixeles"
+                        (keyup)="fmrAplicacion.LogoSecundarioTamano = globales.formatoCampo(fmrAplicacion.LogoSecundarioTamano, '0123456789', 4, 2)">
+                    </div>
+
+                    <div class="form-group">
+                      <b>Logo</b><br>
+                      <input type="file" id="LogoSecundario" class="upload" (change)="obtenerImagen(2)" />
+                      <label for="LogoSecundario"><i class="mdi mdi-image"></i></label>
+                      <input type="text" class="form-control" style="width: 80% !important"
+                        value="{{fmrAplicacion.NombreLogoSecundario}}" disabled>
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6" style="padding-left: 20px;">
+
+            <div class="row">
+              <div class="col-12">
+                <b>Pre-visualización</b>
+              </div>
+            </div>
+            <br>
+            <div class="row">
+              <div class="col-4">
+                <b>Gestión Primaria</b>
+              </div>
+              <div class="col-8">
+                <b>Gestión Secundaria</b>
+              </div>
+            </div>
+            <br>
+            <div class="row" style="padding-left: 20px;">
+              <div class="col-md-4"
+                [ngStyle]="{'background-color': fmrAplicacion.FondoPrimario, 'border-radius': '7px 0px 0px 7px', 'padding': '20px', 'font-size': '14px'}">
+                <div [ngStyle]="{'color': fmrAplicacion.ColorPrimario }">
+
+                  <div class="row" style="padding-bottom: 20px;">
+                    <div class="col-md-12">
+                      <div>
+                        <img [src]="fmrAplicacion.LogoPrimario" width="{{ fmrAplicacion.LogoPrimarioTamano }}">
+                      </div>
+                    </div>
+                  </div>
+
+                  <div [ngStyle]="{'padding-top': '5px', 'border-top': '1px solid ' + fmrAplicacion.ColorPrimario }">
+                    &nbsp;
+                  </div>
+
+                  <div class="row">
+                    <div class="col-12" style="padding-bottom: 8px;">
+                      Plataforma:
+                    </div>
+                    <div class="col-12">
+                      <b>
+                        {{ fmrAplicacion.Nombre }}
+                      </b>
+                      <br><br><br><br><br><br><br><br><br><br><br><br>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+              <div class="col-md-7"
+                [ngStyle]="{'background-color': fmrAplicacion.FondoSecundario, 'border-radius': '0px 7px 7px 0px', 'padding': '20px', 'font-size': '14px'}">
+                <div [ngStyle]="{'color': fmrAplicacion.ColorSecundario }">
+
+                  <div class="row" style="padding-bottom: 20px;">
+                    <div class="col-6">
+                      <div>
+                        <img [src]="fmrAplicacion.LogoSecundario" width="{{ fmrAplicacion.LogoSecundarioTamano }}">
+                      </div>
+                    </div>
+                    <div class="col-6" style="text-align: left;">
+                      <b>
+                        {{ globales.obtenerFecha("-") }}
+                      </b>
+                    </div>
+                  </div>
+
+                  <div [ngStyle]="{'padding-top': '5px', 'border-top': '1px solid ' + fmrAplicacion.ColorSecundario }">
+                    &nbsp;
+                  </div>
+
+                  <div class="row">
+                    <div class="col-12">
+                      <b>
+                        &nbsp;
+                      </b>
+                      <br><br><br><br><br><br><br><br><br><br><br><br>
+                    </div>
+                  </div>
+
+
+                </div>
+              </div>
+              <div class="col-1"></div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+        <button  type="button" class="btn btn-primary"
+          (click)="modificarDisenoAplicacion()">Modificar</button>
+      </div>
+    </div>
+  </div>
+</div>

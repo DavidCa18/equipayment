@@ -1,0 +1,181 @@
+<ngx-spinner bdColor="rgba(51,51,51,0.8)" size="medium" color="#fff" loadingText="Procesando Datos...">
+</ngx-spinner>
+
+
+<div class="container-scroller" style="font-size: 14px;">
+
+
+  <nav class="navbar default-layout-navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
+    <app-navbar></app-navbar>
+  </nav>
+
+  <div class="container-fluid page-body-wrapper">
+
+    <nav class="sidebar sidebar-offcanvas" id="sidebar">
+      <app-sidebar></app-sidebar>
+    </nav>
+
+    <div class="main-panel">
+      <div class="content-wrapper">
+
+        <div class="page-header">
+          <h3 class="page-title"> Gestión de Links </h3>
+          <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item"><a>Masivos</a></li>
+              <li class="breadcrumb-item active" aria-current="page">Gestión de Links</li>
+            </ol>
+          </nav>
+        </div>
+
+        <div class="row">
+          <div class="col-12 grid-margin stretch-card">
+            <div class="card">
+              <div class="card-body" style="padding-top: 15px !important; padding-bottom: 15px !important;">
+
+                <a class="card-description text-success" data-toggle="collapse" href="#filtros" role="button"
+                  aria-expanded="false" aria-controls="filtros" style="color: #17A589;">Filtros <i
+                    class="fas fa-sliders-h"></i></a>
+
+                <div class="collapse" id="filtros">
+                  <br>
+                  <div class="row">
+                    <div class="col-md-8">
+                      <div class="form-group">
+                        <kendo-daterange>
+                          <label>
+                            <span><b>Inicio</b></span>
+                            <div class="espacio"></div>
+                            <kendo-dateinput kendoDateRangeStartInput [(ngModel)]="fecha.inicio"
+                              style="width: 115px; height: 41.19px;">
+                            </kendo-dateinput>
+                          </label>
+                          <label>
+                            <span><b>Fin</b></span>
+                            <div class="espacio"></div>
+                            <kendo-dateinput kendoDateRangeEndInput [(ngModel)]="fecha.fin"
+                              style="width: 115px; height: 41.19px;">
+                            </kendo-dateinput>
+                          </label>
+                        </kendo-daterange>
+                      </div>
+                    </div>
+                    <div class="col-md-4">
+                      <div class="form-group text-right">
+                        <div style="padding-top: 22px;"></div>
+                        <button class="btn btn-success btn-sm btn-block height-md"
+                          (click)="listarHistorialTransacciones()">
+                          <i class="mdi mdi-magnify"></i> Buscar &nbsp;&nbsp;
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+          <div class="col-12 grid-margin stretch-card">
+
+            <div class="card">
+              <div class="card-body">
+
+                <div *ngIf="lstHistorial.length > 0" class="text-right">
+                  <button class="btn btn-success btn-sm height-md" (click)="enviarLinks()">
+                    <i class="mdi mdi-send"></i> Enviar Links &nbsp;
+                  </button>
+                </div>
+                <br *ngIf="lstHistorial.length > 0">
+                <div class="table-responsive">
+                  <table class="links" style="width: 100%;" border="1">
+                    <thead>
+                      <tr class="table-success text-white">
+                        <td>Cliente</td>
+                        <td>Mensaje</td>
+                        <td>Corregir</td>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr *ngIf="lstHistorial.length == 0">
+                        <td colspan="3" class="text-center">
+                          No existen elementos.
+                        </td>
+                      </tr>
+                      <tr
+                        *ngFor="let cliente of lstHistorial | paginate: { id: 'historial', itemsPerPage: 10, currentPage: p }">
+                        <td style="width: 100px !important;">
+                          {{ cliente.Identificacion }}<br>
+                          {{ cliente.Apellido }}
+                        </td>
+                        <td style="width: 130px !important;">{{ cliente.Mensaje }}</td>
+                        <td style="width: 170px !important;">
+                          <input *ngIf="cliente.Tipo == 'identificacion'" [(ngModel)]="cliente.Identificacion"
+                            (keyup)="cliente.Identificacion = globales.formatoCampo(cliente.Identificacion, '0123456789', 13, 2)"
+                            type="text" class="form-control form-control-sm" placeholder="Ingresar Valor">
+                          <input *ngIf="cliente.Tipo == 'nombre'" [(ngModel)]="cliente.Apellido"
+                            (keyup)="cliente.Apellido = globales.formatoCampo(cliente.Apellido, 'abcdefghijklmnñopqrstuvwxyzáéíóúÁÉÍÓÚABCDEFGHIJKLMNÑOPQRSTUVWXYZ ', 100, 1)"
+                            type="text" class="form-control form-control-sm" placeholder="Ingresar Valor">
+                          <input *ngIf="cliente.Tipo == 'email'" [(ngModel)]="cliente.Email"
+                            (keyup)="cliente.Email = globales.formatoCampo(cliente.Email, 'abcdefghijklmnñopqrstuvwxyzáéíóúÁÉÍÓÚABCDEFGHIJKLMNÑOPQRSTUVWXYZ0123456789_-@.', 100, 2)"
+                            type="text" class="form-control form-control-sm" placeholder="Ingresar Valor">
+                          <input *ngIf="cliente.Tipo == 'ramo'" [(ngModel)]="cliente.Comercio"
+                            (keyup)="cliente.Comercio = globales.formatoCampo(cliente.Comercio, 'abcdefghijklmnñopqrstuvwxyzáéíóúÁÉÍÓÚABCDEFGHIJKLMNÑOPQRSTUVWXYZ ', 100, 1)"
+                            type="text" class="form-control form-control-sm" placeholder="Ingresar Valor">
+                          <input *ngIf="cliente.Tipo == 'poliza'" [(ngModel)]="cliente.Poliza"
+                            (keyup)="cliente.Poliza = globales.formatoCampo(cliente.Poliza, '0123456789', 15, 2)"
+                            type="text" class="form-control form-control-sm" placeholder="Ingresar Valor">
+                          <input *ngIf="cliente.Tipo == 'idpv'" [(ngModel)]="cliente.IdPv"
+                            (keyup)="cliente.IdPv = globales.formatoCampo(cliente.IdPv, '0123456789', 15, 2)"
+                            type="text" class="form-control form-control-sm" placeholder="Ingresar Valor">
+                          <input *ngIf="cliente.Tipo == 'total'" [(ngModel)]="cliente.Total"
+                            (keyup)="cliente.Total = globales.formatoCampo(cliente.Total, '0123456789.', 15, 1)"
+                            type="text" class="form-control form-control-sm" placeholder="Ingresar Valor">
+                        </td>
+                      </tr>
+                    </tbody>
+                    <tfoot *ngIf="lstHistorial.length > 10">
+                      <tr>
+                        <td colspan="3">
+                          <pagination-controls id="historial" (pageChange)="p = $event" maxSize="10" autoHide="true"
+                            responsive="true" previousLabel="Anterior" nextLabel="Siguiente" class="paginacion">
+                          </pagination-controls>
+                        </td>
+                      </tr>
+                    </tfoot>
+                  </table>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+      <footer class="footer">
+        <div class="d-sm-flex justify-content-center justify-content-sm-between">
+          <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">Copyright © 2020 <a
+              target="_blank">Innovacloud</a>. Todos los derechos reservados.</span>
+        </div>
+      </footer>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="ModalErrores" tabindex="-1" role="dialog" aria-labelledby="ModalErroresTitle"
+  aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-success" data-dismiss="modal">Aceptar</button>
+      </div>
+    </div>
+  </div>
+</div>

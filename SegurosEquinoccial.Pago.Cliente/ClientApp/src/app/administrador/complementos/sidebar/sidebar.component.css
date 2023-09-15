@@ -1,0 +1,21 @@
+.sidebar-web{
+    display: block;
+}
+
+.sidebar-movil{
+    display: none;
+}
+
+.activado{
+    background-color: #E1E1E1;
+}
+
+@media screen and (max-width: 992px) {
+    .sidebar-web{
+        display: none;
+    }
+    
+    .sidebar-movil{
+        display: block;
+    }
+}

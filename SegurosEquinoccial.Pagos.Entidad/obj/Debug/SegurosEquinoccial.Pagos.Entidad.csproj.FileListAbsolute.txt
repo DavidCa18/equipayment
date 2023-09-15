@@ -1,0 +1,143 @@
+D:\Seguros Equinoccial\Sistemas\SegurosEquinoccial.Pagos\SegurosEquinoccial.Pagos.Entidad\bin\Debug\SegurosEquinoccial.Pagos.Entidad.dll
+D:\Seguros Equinoccial\Sistemas\SegurosEquinoccial.Pagos\SegurosEquinoccial.Pagos.Entidad\bin\Debug\SegurosEquinoccial.Pagos.Entidad.pdb
+D:\Seguros Equinoccial\Sistemas\SegurosEquinoccial.Pagos\SegurosEquinoccial.Pagos.Entidad\bin\Debug\Microsoft.Win32.Primitives.dll
+D:\Seguros Equinoccial\Sistemas\SegurosEquinoccial.Pagos\SegurosEquinoccial.Pagos.Entidad\bin\Debug\netstandard.dll
+D:\Seguros Equinoccial\Sistemas\SegurosEquinoccial.Pagos\SegurosEquinoccial.Pagos.Entidad\bin\Debug\System.AppContext.dll
+D:\Seguros Equinoccial\Sistemas\SegurosEquinoccial.Pagos\SegurosEquinoccial.Pagos.Entidad\bin\Debug\System.Collections.Concurrent.dll
+D:\Seguros Equinoccial\Sistemas\SegurosEquinoccial.Pagos\SegurosEquinoccial.Pagos.Entidad\bin\Debug\System.Collections.dll
+D:\Seguros Equinoccial\Sistemas\SegurosEquinoccial.Pagos\SegurosEquinoccial.Pagos.Entidad\bin\Debug\System.Collections.NonGeneric.dll
+D:\Seguros Equinoccial\Sistemas\SegurosEquinoccial.Pagos\SegurosEquinoccial.Pagos.Entidad\bin\Debug\System.Collections.Specialized.dll
+D:\Seguros Equinoccial\Sistemas\SegurosEquinoccial.Pagos\SegurosEquinoccial.Pagos.Entidad\bin\Debug\System.ComponentModel.dll
+D:\Seguros Equinoccial\Sistemas\SegurosEquinoccial.Pagos\SegurosEquinoccial.Pagos.Entidad\bin\Debug\System.ComponentModel.EventBasedAsync.dll
+D:\Seguros Equinoccial\Sistemas\SegurosEquinoccial.Pagos\SegurosEquinoccial.Pagos.Entidad\bin\Debug\System.ComponentModel.Primitives.dll
+D:\Seguros Equinoccial\Sistemas\SegurosEquinoccial.Pagos\SegurosEquinoccial.Pagos.Entidad\bin\Debug\System.ComponentModel.TypeConverter.dll
+D:\Seguros Equinoccial\Sistemas\SegurosEquinoccial.Pagos\SegurosEquinoccial.Pagos.Entidad\bin\Debug\System.Console.dll
+D:\Seguros Equinoccial\Sistemas\SegurosEquinoccial.Pagos\SegurosEquinoccial.Pagos.Entidad\bin\Debug\System.Data.Common.dll
+D:\Seguros Equinoccial\Sistemas\SegurosEquinoccial.Pagos\SegurosEquinoccial.Pagos.Entidad\bin\Debug\System.Diagnostics.Contracts.dll
+D:\Seguros Equinoccial\Sistemas\SegurosEquinoccial.Pagos\SegurosEquinoccial.Pagos.Entidad\bin\Debug\System.Diagnostics.Debug.dll
+D:\Seguros Equinoccial\Sistemas\SegurosEquinoccial.Pagos\SegurosEquinoccial.Pagos.Entidad\bin\Debug\System.Diagnostics.FileVersionInfo.dll
+D:\Seguros Equinoccial\Sistemas\SegurosEquinoccial.Pagos\SegurosEquinoccial.Pagos.Entidad\bin\Debug\System.Diagnostics.Process.dll
+D:\Seguros Equinoccial\Sistemas\SegurosEquinoccial.Pagos\SegurosEquinoccial.Pagos.Entidad\bin\Debug\System.Diagnostics.StackTrace.dll
+D:\Seguros Equinoccial\Sistemas\SegurosEquinoccial.Pagos\SegurosEquinoccial.Pagos.Entidad\bin\Debug\System.Diagnostics.TextWriterTraceListener.dll
+D:\Seguros Equinoccial\Sistemas\SegurosEquinoccial.Pagos\SegurosEquinoccial.Pagos.Entidad\bin\Debug\System.Diagnostics.Tools.dll
+D:\Seguros Equinoccial\Sistemas\SegurosEquinoccial.Pagos\SegurosEquinoccial.Pagos.Entidad\bin\Debug\System.Diagnostics.TraceSource.dll
+D:\Seguros Equinoccial\Sistemas\SegurosEquinoccial.Pagos\SegurosEquinoccial.Pagos.Entidad\bin\Debug\System.Diagnostics.Tracing.dll
+D:\Seguros Equinoccial\Sistemas\SegurosEquinoccial.Pagos\SegurosEquinoccial.Pagos.Entidad\bin\Debug\System.Drawing.Primitives.dll
+D:\Seguros Equinoccial\Sistemas\SegurosEquinoccial.Pagos\SegurosEquinoccial.Pagos.Entidad\bin\Debug\System.Dynamic.Runtime.dll
+D:\Seguros Equinoccial\Sistemas\SegurosEquinoccial.Pagos\SegurosEquinoccial.Pagos.Entidad\bin\Debug\System.Globalization.Calendars.dll
+D:\Seguros Equinoccial\Sistemas\SegurosEquinoccial.Pagos\SegurosEquinoccial.Pagos.Entidad\bin\Debug\System.Globalization.dll
+D:\Seguros Equinoccial\Sistemas\SegurosEquinoccial.Pagos\SegurosEquinoccial.Pagos.Entidad\bin\Debug\System.Globalization.Extensions.dll
+D:\Seguros Equinoccial\Sistemas\SegurosEquinoccial.Pagos\SegurosEquinoccial.Pagos.Entidad\bin\Debug\System.IO.Compression.dll
+D:\Seguros Equinoccial\Sistemas\SegurosEquinoccial.Pagos\SegurosEquinoccial.Pagos.Entidad\bin\Debug\System.IO.Compression.ZipFile.dll
+D:\Seguros Equinoccial\Sistemas\SegurosEquinoccial.Pagos\SegurosEquinoccial.Pagos.Entidad\bin\Debug\System.IO.dll
+D:\Seguros Equinoccial\Sistemas\SegurosEquinoccial.Pagos\SegurosEquinoccial.Pagos.Entidad\bin\Debug\System.IO.FileSystem.dll
+D:\Seguros Equinoccial\Sistemas\SegurosEquinoccial.Pagos\SegurosEquinoccial.Pagos.Entidad\bin\Debug\System.IO.FileSystem.DriveInfo.dll
+D:\Seguros Equinoccial\Sistemas\SegurosEquinoccial.Pagos\SegurosEquinoccial.Pagos.Entidad\bin\Debug\System.IO.FileSystem.Primitives.dll
+D:\Seguros Equinoccial\Sistemas\SegurosEquinoccial.Pagos\SegurosEquinoccial.Pagos.Entidad\bin\Debug\System.IO.FileSystem.Watcher.dll
+D:\Seguros Equinoccial\Sistemas\SegurosEquinoccial.Pagos\SegurosEquinoccial.Pagos.Entidad\bin\Debug\System.IO.IsolatedStorage.dll
+D:\Seguros Equinoccial\Sistemas\SegurosEquinoccial.Pagos\SegurosEquinoccial.Pagos.Entidad\bin\Debug\System.IO.MemoryMappedFiles.dll
+D:\Seguros Equinoccial\Sistemas\SegurosEquinoccial.Pagos\SegurosEquinoccial.Pagos.Entidad\bin\Debug\System.IO.Pipes.dll
+D:\Seguros Equinoccial\Sistemas\SegurosEquinoccial.Pagos\SegurosEquinoccial.Pagos.Entidad\bin\Debug\System.IO.UnmanagedMemoryStream.dll
+D:\Seguros Equinoccial\Sistemas\SegurosEquinoccial.Pagos\SegurosEquinoccial.Pagos.Entidad\bin\Debug\System.Linq.dll
+D:\Seguros Equinoccial\Sistemas\SegurosEquinoccial.Pagos\SegurosEquinoccial.Pagos.Entidad\bin\Debug\System.Linq.Expressions.dll
+D:\Seguros Equinoccial\Sistemas\SegurosEquinoccial.Pagos\SegurosEquinoccial.Pagos.Entidad\bin\Debug\System.Linq.Parallel.dll
+D:\Seguros Equinoccial\Sistemas\SegurosEquinoccial.Pagos\SegurosEquinoccial.Pagos.Entidad\bin\Debug\System.Linq.Queryable.dll
+D:\Seguros Equinoccial\Sistemas\SegurosEquinoccial.Pagos\SegurosEquinoccial.Pagos.Entidad\bin\Debug\System.Net.Http.dll
+D:\Seguros Equinoccial\Sistemas\SegurosEquinoccial.Pagos\SegurosEquinoccial.Pagos.Entidad\bin\Debug\System.Net.NameResolution.dll
+D:\Seguros Equinoccial\Sistemas\SegurosEquinoccial.Pagos\SegurosEquinoccial.Pagos.Entidad\bin\Debug\System.Net.NetworkInformation.dll
+D:\Seguros Equinoccial\Sistemas\SegurosEquinoccial.Pagos\SegurosEquinoccial.Pagos.Entidad\bin\Debug\System.Net.Ping.dll
+D:\Seguros Equinoccial\Sistemas\SegurosEquinoccial.Pagos\SegurosEquinoccial.Pagos.Entidad\bin\Debug\System.Net.Primitives.dll
+D:\Seguros Equinoccial\Sistemas\SegurosEquinoccial.Pagos\SegurosEquinoccial.Pagos.Entidad\bin\Debug\System.Net.Requests.dll
+D:\Seguros Equinoccial\Sistemas\SegurosEquinoccial.Pagos\SegurosEquinoccial.Pagos.Entidad\bin\Debug\System.Net.Security.dll
+D:\Seguros Equinoccial\Sistemas\SegurosEquinoccial.Pagos\SegurosEquinoccial.Pagos.Entidad\bin\Debug\System.Net.Sockets.dll
+D:\Seguros Equinoccial\Sistemas\SegurosEquinoccial.Pagos\SegurosEquinoccial.Pagos.Entidad\bin\Debug\System.Net.WebHeaderCollection.dll
+D:\Seguros Equinoccial\Sistemas\SegurosEquinoccial.Pagos\SegurosEquinoccial.Pagos.Entidad\bin\Debug\System.Net.WebSockets.Client.dll
+D:\Seguros Equinoccial\Sistemas\SegurosEquinoccial.Pagos\SegurosEquinoccial.Pagos.Entidad\bin\Debug\System.Net.WebSockets.dll
+D:\Seguros Equinoccial\Sistemas\SegurosEquinoccial.Pagos\SegurosEquinoccial.Pagos.Entidad\bin\Debug\System.ObjectModel.dll
+D:\Seguros Equinoccial\Sistemas\SegurosEquinoccial.Pagos\SegurosEquinoccial.Pagos.Entidad\bin\Debug\System.Reflection.dll
+D:\Seguros Equinoccial\Sistemas\SegurosEquinoccial.Pagos\SegurosEquinoccial.Pagos.Entidad\bin\Debug\System.Reflection.Extensions.dll
+D:\Seguros Equinoccial\Sistemas\SegurosEquinoccial.Pagos\SegurosEquinoccial.Pagos.Entidad\bin\Debug\System.Reflection.Primitives.dll
+D:\Seguros Equinoccial\Sistemas\SegurosEquinoccial.Pagos\SegurosEquinoccial.Pagos.Entidad\bin\Debug\System.Resources.Reader.dll
+D:\Seguros Equinoccial\Sistemas\SegurosEquinoccial.Pagos\SegurosEquinoccial.Pagos.Entidad\bin\Debug\System.Resources.ResourceManager.dll
+D:\Seguros Equinoccial\Sistemas\SegurosEquinoccial.Pagos\SegurosEquinoccial.Pagos.Entidad\bin\Debug\System.Resources.Writer.dll
+D:\Seguros Equinoccial\Sistemas\SegurosEquinoccial.Pagos\SegurosEquinoccial.Pagos.Entidad\bin\Debug\System.Runtime.CompilerServices.VisualC.dll
+D:\Seguros Equinoccial\Sistemas\SegurosEquinoccial.Pagos\SegurosEquinoccial.Pagos.Entidad\bin\Debug\System.Runtime.dll
+D:\Seguros Equinoccial\Sistemas\SegurosEquinoccial.Pagos\SegurosEquinoccial.Pagos.Entidad\bin\Debug\System.Runtime.Extensions.dll
+D:\Seguros Equinoccial\Sistemas\SegurosEquinoccial.Pagos\SegurosEquinoccial.Pagos.Entidad\bin\Debug\System.Runtime.Handles.dll
+D:\Seguros Equinoccial\Sistemas\SegurosEquinoccial.Pagos\SegurosEquinoccial.Pagos.Entidad\bin\Debug\System.Runtime.InteropServices.dll
+D:\Seguros Equinoccial\Sistemas\SegurosEquinoccial.Pagos\SegurosEquinoccial.Pagos.Entidad\bin\Debug\System.Runtime.InteropServices.RuntimeInformation.dll
+D:\Seguros Equinoccial\Sistemas\SegurosEquinoccial.Pagos\SegurosEquinoccial.Pagos.Entidad\bin\Debug\System.Runtime.Numerics.dll
+D:\Seguros Equinoccial\Sistemas\SegurosEquinoccial.Pagos\SegurosEquinoccial.Pagos.Entidad\bin\Debug\System.Runtime.Serialization.Formatters.dll
+D:\Seguros Equinoccial\Sistemas\SegurosEquinoccial.Pagos\SegurosEquinoccial.Pagos.Entidad\bin\Debug\System.Runtime.Serialization.Json.dll
+D:\Seguros Equinoccial\Sistemas\SegurosEquinoccial.Pagos\SegurosEquinoccial.Pagos.Entidad\bin\Debug\System.Runtime.Serialization.Primitives.dll
+D:\Seguros Equinoccial\Sistemas\SegurosEquinoccial.Pagos\SegurosEquinoccial.Pagos.Entidad\bin\Debug\System.Runtime.Serialization.Xml.dll
+D:\Seguros Equinoccial\Sistemas\SegurosEquinoccial.Pagos\SegurosEquinoccial.Pagos.Entidad\bin\Debug\System.Security.Claims.dll
+D:\Seguros Equinoccial\Sistemas\SegurosEquinoccial.Pagos\SegurosEquinoccial.Pagos.Entidad\bin\Debug\System.Security.Cryptography.Algorithms.dll
+D:\Seguros Equinoccial\Sistemas\SegurosEquinoccial.Pagos\SegurosEquinoccial.Pagos.Entidad\bin\Debug\System.Security.Cryptography.Csp.dll
+D:\Seguros Equinoccial\Sistemas\SegurosEquinoccial.Pagos\SegurosEquinoccial.Pagos.Entidad\bin\Debug\System.Security.Cryptography.Encoding.dll
+D:\Seguros Equinoccial\Sistemas\SegurosEquinoccial.Pagos\SegurosEquinoccial.Pagos.Entidad\bin\Debug\System.Security.Cryptography.Primitives.dll
+D:\Seguros Equinoccial\Sistemas\SegurosEquinoccial.Pagos\SegurosEquinoccial.Pagos.Entidad\bin\Debug\System.Security.Cryptography.X509Certificates.dll
+D:\Seguros Equinoccial\Sistemas\SegurosEquinoccial.Pagos\SegurosEquinoccial.Pagos.Entidad\bin\Debug\System.Security.Principal.dll
+D:\Seguros Equinoccial\Sistemas\SegurosEquinoccial.Pagos\SegurosEquinoccial.Pagos.Entidad\bin\Debug\System.Security.SecureString.dll
+D:\Seguros Equinoccial\Sistemas\SegurosEquinoccial.Pagos\SegurosEquinoccial.Pagos.Entidad\bin\Debug\System.Text.Encoding.dll
+D:\Seguros Equinoccial\Sistemas\SegurosEquinoccial.Pagos\SegurosEquinoccial.Pagos.Entidad\bin\Debug\System.Text.Encoding.Extensions.dll
+D:\Seguros Equinoccial\Sistemas\SegurosEquinoccial.Pagos\SegurosEquinoccial.Pagos.Entidad\bin\Debug\System.Text.RegularExpressions.dll
+D:\Seguros Equinoccial\Sistemas\SegurosEquinoccial.Pagos\SegurosEquinoccial.Pagos.Entidad\bin\Debug\System.Threading.dll
+D:\Seguros Equinoccial\Sistemas\SegurosEquinoccial.Pagos\SegurosEquinoccial.Pagos.Entidad\bin\Debug\System.Threading.Overlapped.dll
+D:\Seguros Equinoccial\Sistemas\SegurosEquinoccial.Pagos\SegurosEquinoccial.Pagos.Entidad\bin\Debug\System.Threading.Tasks.dll
+D:\Seguros Equinoccial\Sistemas\SegurosEquinoccial.Pagos\SegurosEquinoccial.Pagos.Entidad\bin\Debug\System.Threading.Tasks.Parallel.dll
+D:\Seguros Equinoccial\Sistemas\SegurosEquinoccial.Pagos\SegurosEquinoccial.Pagos.Entidad\bin\Debug\System.Threading.Thread.dll
+D:\Seguros Equinoccial\Sistemas\SegurosEquinoccial.Pagos\SegurosEquinoccial.Pagos.Entidad\bin\Debug\System.Threading.ThreadPool.dll
+D:\Seguros Equinoccial\Sistemas\SegurosEquinoccial.Pagos\SegurosEquinoccial.Pagos.Entidad\bin\Debug\System.Threading.Timer.dll
+D:\Seguros Equinoccial\Sistemas\SegurosEquinoccial.Pagos\SegurosEquinoccial.Pagos.Entidad\bin\Debug\System.ValueTuple.dll
+D:\Seguros Equinoccial\Sistemas\SegurosEquinoccial.Pagos\SegurosEquinoccial.Pagos.Entidad\bin\Debug\System.Xml.ReaderWriter.dll
+D:\Seguros Equinoccial\Sistemas\SegurosEquinoccial.Pagos\SegurosEquinoccial.Pagos.Entidad\bin\Debug\System.Xml.XDocument.dll
+D:\Seguros Equinoccial\Sistemas\SegurosEquinoccial.Pagos\SegurosEquinoccial.Pagos.Entidad\bin\Debug\System.Xml.XmlDocument.dll
+D:\Seguros Equinoccial\Sistemas\SegurosEquinoccial.Pagos\SegurosEquinoccial.Pagos.Entidad\bin\Debug\System.Xml.XmlSerializer.dll
+D:\Seguros Equinoccial\Sistemas\SegurosEquinoccial.Pagos\SegurosEquinoccial.Pagos.Entidad\bin\Debug\System.Xml.XPath.dll
+D:\Seguros Equinoccial\Sistemas\SegurosEquinoccial.Pagos\SegurosEquinoccial.Pagos.Entidad\bin\Debug\System.Xml.XPath.XDocument.dll
+D:\Seguros Equinoccial\Sistemas\SegurosEquinoccial.Pagos\SegurosEquinoccial.Pagos.Entidad\bin\Debug\System.ComponentModel.Annotations.dll
+D:\Seguros Equinoccial\Sistemas\SegurosEquinoccial.Pagos\SegurosEquinoccial.Pagos.Entidad\bin\Debug\System.ComponentModel.Annotations.xml
+D:\Seguros Equinoccial\Sistemas\SegurosEquinoccial.Pagos\SegurosEquinoccial.Pagos.Entidad\obj\Debug\SegurosEquinoccial.Pagos.Entidad.csprojAssemblyReference.cache
+D:\Seguros Equinoccial\Sistemas\SegurosEquinoccial.Pagos\SegurosEquinoccial.Pagos.Entidad\obj\Debug\SegurosEquinoccial.Pagos.Entidad.csproj.CoreCompileInputs.cache
+D:\Seguros Equinoccial\Sistemas\SegurosEquinoccial.Pagos\SegurosEquinoccial.Pagos.Entidad\obj\Debug\SegurosEquinoccial.Pagos.Entidad.csproj.CopyComplete
+D:\Seguros Equinoccial\Sistemas\SegurosEquinoccial.Pagos\SegurosEquinoccial.Pagos.Entidad\obj\Debug\SegurosEquinoccial.Pagos.Entidad.dll
+D:\Seguros Equinoccial\Sistemas\SegurosEquinoccial.Pagos\SegurosEquinoccial.Pagos.Entidad\obj\Debug\SegurosEquinoccial.Pagos.Entidad.pdb
+C:\Users\LENOVO LEGION\Documents\Visual Studio 2017\Projects\SegurosEquinoccial.Pagos\SegurosEquinoccial.Pagos.Entidad\bin\Debug\SegurosEquinoccial.Pagos.Entidad.dll
+C:\Users\LENOVO LEGION\Documents\Visual Studio 2017\Projects\SegurosEquinoccial.Pagos\SegurosEquinoccial.Pagos.Entidad\bin\Debug\SegurosEquinoccial.Pagos.Entidad.pdb
+C:\Users\LENOVO LEGION\Documents\Visual Studio 2017\Projects\SegurosEquinoccial.Pagos\SegurosEquinoccial.Pagos.Entidad\bin\Debug\System.ComponentModel.Annotations.dll
+C:\Users\LENOVO LEGION\Documents\Visual Studio 2017\Projects\SegurosEquinoccial.Pagos\SegurosEquinoccial.Pagos.Entidad\obj\Debug\SegurosEquinoccial.Pagos.Entidad.csprojAssemblyReference.cache
+C:\Users\LENOVO LEGION\Documents\Visual Studio 2017\Projects\SegurosEquinoccial.Pagos\SegurosEquinoccial.Pagos.Entidad\obj\Debug\SegurosEquinoccial.Pagos.Entidad.csproj.CoreCompileInputs.cache
+C:\Users\LENOVO LEGION\Documents\Visual Studio 2017\Projects\SegurosEquinoccial.Pagos\SegurosEquinoccial.Pagos.Entidad\obj\Debug\SegurosEquinoccial.Pagos.Entidad.csproj.CopyComplete
+C:\Users\LENOVO LEGION\Documents\Visual Studio 2017\Projects\SegurosEquinoccial.Pagos\SegurosEquinoccial.Pagos.Entidad\obj\Debug\SegurosEquinoccial.Pagos.Entidad.dll
+C:\Users\LENOVO LEGION\Documents\Visual Studio 2017\Projects\SegurosEquinoccial.Pagos\SegurosEquinoccial.Pagos.Entidad\obj\Debug\SegurosEquinoccial.Pagos.Entidad.pdb
+C:\Users\ABY\Documents\Trabajo Mario Palomo\SegurosEquinoccial.Pagos\SegurosEquinoccial.Pagos.Entidad\bin\Debug\SegurosEquinoccial.Pagos.Entidad.dll
+C:\Users\ABY\Documents\Trabajo Mario Palomo\SegurosEquinoccial.Pagos\SegurosEquinoccial.Pagos.Entidad\bin\Debug\SegurosEquinoccial.Pagos.Entidad.pdb
+C:\Users\ABY\Documents\Trabajo Mario Palomo\SegurosEquinoccial.Pagos\SegurosEquinoccial.Pagos.Entidad\bin\Debug\System.ComponentModel.Annotations.dll
+C:\Users\ABY\Documents\Trabajo Mario Palomo\SegurosEquinoccial.Pagos\SegurosEquinoccial.Pagos.Entidad\obj\Debug\SegurosEquinoccial.Pagos.Entidad.csprojAssemblyReference.cache
+C:\Users\ABY\Documents\Trabajo Mario Palomo\SegurosEquinoccial.Pagos\SegurosEquinoccial.Pagos.Entidad\obj\Debug\SegurosEquinoccial.Pagos.Entidad.csproj.CopyComplete
+C:\Users\ABY\Documents\Trabajo Mario Palomo\SegurosEquinoccial.Pagos\SegurosEquinoccial.Pagos.Entidad\obj\Debug\SegurosEquinoccial.Pagos.Entidad.dll
+C:\Users\ABY\Documents\Trabajo Mario Palomo\SegurosEquinoccial.Pagos\SegurosEquinoccial.Pagos.Entidad\obj\Debug\SegurosEquinoccial.Pagos.Entidad.pdb
+C:\Users\MARIO\Documents\Visual Studio 2019\Project\SegurosEquinoccial.Pagos\SegurosEquinoccial.Pagos.Entidad\bin\Debug\SegurosEquinoccial.Pagos.Entidad.dll
+C:\Users\MARIO\Documents\Visual Studio 2019\Project\SegurosEquinoccial.Pagos\SegurosEquinoccial.Pagos.Entidad\bin\Debug\SegurosEquinoccial.Pagos.Entidad.pdb
+C:\Users\MARIO\Documents\Visual Studio 2019\Project\SegurosEquinoccial.Pagos\SegurosEquinoccial.Pagos.Entidad\bin\Debug\System.ComponentModel.Annotations.dll
+C:\Users\MARIO\Documents\Visual Studio 2019\Project\SegurosEquinoccial.Pagos\SegurosEquinoccial.Pagos.Entidad\obj\Debug\SegurosEquinoccial.Pagos.Entidad.csprojAssemblyReference.cache
+C:\Users\MARIO\Documents\Visual Studio 2019\Project\SegurosEquinoccial.Pagos\SegurosEquinoccial.Pagos.Entidad\obj\Debug\SegurosEquinoccial.Pagos.Entidad.csproj.CopyComplete
+C:\Users\MARIO\Documents\Visual Studio 2019\Project\SegurosEquinoccial.Pagos\SegurosEquinoccial.Pagos.Entidad\obj\Debug\SegurosEquinoccial.Pagos.Entidad.dll
+C:\Users\MARIO\Documents\Visual Studio 2019\Project\SegurosEquinoccial.Pagos\SegurosEquinoccial.Pagos.Entidad\obj\Debug\SegurosEquinoccial.Pagos.Entidad.pdb
+C:\Users\mario\Documents\Visual Studio 2019\Projects\SegurosEquinoccial.Pagos\SegurosEquinoccial.Pagos.Entidad\bin\Debug\SegurosEquinoccial.Pagos.Entidad.dll
+C:\Users\mario\Documents\Visual Studio 2019\Projects\SegurosEquinoccial.Pagos\SegurosEquinoccial.Pagos.Entidad\bin\Debug\SegurosEquinoccial.Pagos.Entidad.pdb
+C:\Users\mario\Documents\Visual Studio 2019\Projects\SegurosEquinoccial.Pagos\SegurosEquinoccial.Pagos.Entidad\bin\Debug\System.ComponentModel.Annotations.dll
+C:\Users\mario\Documents\Visual Studio 2019\Projects\SegurosEquinoccial.Pagos\SegurosEquinoccial.Pagos.Entidad\obj\Debug\SegurosEquinoccial.Pagos.Entidad.csprojAssemblyReference.cache
+C:\Users\mario\Documents\Visual Studio 2019\Projects\SegurosEquinoccial.Pagos\SegurosEquinoccial.Pagos.Entidad\obj\Debug\SegurosEquinoccial.Pagos.Entidad.csproj.CoreCompileInputs.cache
+C:\Users\mario\Documents\Visual Studio 2019\Projects\SegurosEquinoccial.Pagos\SegurosEquinoccial.Pagos.Entidad\obj\Debug\SegurosEquinoccial.Pagos.Entidad.csproj.CopyComplete
+C:\Users\mario\Documents\Visual Studio 2019\Projects\SegurosEquinoccial.Pagos\SegurosEquinoccial.Pagos.Entidad\obj\Debug\SegurosEquinoccial.Pagos.Entidad.dll
+C:\Users\mario\Documents\Visual Studio 2019\Projects\SegurosEquinoccial.Pagos\SegurosEquinoccial.Pagos.Entidad\obj\Debug\SegurosEquinoccial.Pagos.Entidad.pdb
+C:\Users\mario\Documents\Visual Studio 2019\Projects\Equipayment\SegurosEquinoccial.Pagos.Entidad\bin\Debug\SegurosEquinoccial.Pagos.Entidad.dll
+C:\Users\mario\Documents\Visual Studio 2019\Projects\Equipayment\SegurosEquinoccial.Pagos.Entidad\bin\Debug\SegurosEquinoccial.Pagos.Entidad.pdb
+C:\Users\mario\Documents\Visual Studio 2019\Projects\Equipayment\SegurosEquinoccial.Pagos.Entidad\bin\Debug\System.ComponentModel.Annotations.dll
+C:\Users\mario\Documents\Visual Studio 2019\Projects\Equipayment\SegurosEquinoccial.Pagos.Entidad\obj\Debug\SegurosEquinoccial.Pagos.Entidad.csprojAssemblyReference.cache
+C:\Users\mario\Documents\Visual Studio 2019\Projects\Equipayment\SegurosEquinoccial.Pagos.Entidad\obj\Debug\SegurosEquinoccial.Pagos.Entidad.csproj.CoreCompileInputs.cache
+C:\Users\mario\Documents\Visual Studio 2019\Projects\Equipayment\SegurosEquinoccial.Pagos.Entidad\obj\Debug\SegurosEquinoccial.Pagos.Entidad.csproj.CopyComplete
+C:\Users\mario\Documents\Visual Studio 2019\Projects\Equipayment\SegurosEquinoccial.Pagos.Entidad\obj\Debug\SegurosEquinoccial.Pagos.Entidad.dll
+C:\Users\mario\Documents\Visual Studio 2019\Projects\Equipayment\SegurosEquinoccial.Pagos.Entidad\obj\Debug\SegurosEquinoccial.Pagos.Entidad.pdb

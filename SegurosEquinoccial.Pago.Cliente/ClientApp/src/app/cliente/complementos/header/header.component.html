@@ -1,0 +1,61 @@
+<br>
+<div class="container">
+  <div class="contenedor">
+    <div class="contenedor-secundario"
+      [ngStyle]="{'background-color': fondoSecundario, 'color': colorSecundario, 'text-align': 'center'}">
+
+
+      <div class="row datos-secundario-web">
+        <div class="col-6" style="text-align: left !important; display: flex">
+          <div>
+            <img src="assets/images/items/ssl-site.png" alt="" width="20">
+            <span>Certificado TLS</span>
+          </div>
+          <div style="padding-left: 15px !important;">
+            <img src="assets/images/items/proteccion-datos.png" alt="" width="20">
+            <span>Protección de Datos</span>
+          </div>
+        </div>
+        <div class="col-6">
+          <div style="float: right !important;">
+            <span>Powered by</span>
+            <a href="https://azure.microsoft.com/es-es/" target="_blank" [ngStyle]="{'color': colorSecundario}">
+              <b>Microsoft Azure</b>
+            </a>
+            <img src="assets/images/items/azure.png" alt="" width="20">
+          </div>
+        </div>
+      </div>
+
+      <div class="row datos-secundario-movil" style="padding-right: 10px !important">
+        <div class="col-12" style="text-align: right !important">
+          <span [ngStyle]="{'color': colorSecundario, 'font-size': '27px'}"><i class="fab fa-cc-mastercard"></i></span>
+          <span [ngStyle]="{'color': colorSecundario, 'font-size': '27px'}"><i class="fab fa-cc-visa"></i></span>
+          <span [ngStyle]="{'color': colorSecundario, 'font-size': '27px'}"><i class="fab fa-cc-diners-club"></i></span>
+          <span [ngStyle]="{'color': colorSecundario, 'font-size': '27px'}"><i class="fab fa-cc-discover"></i></span>
+          <span [ngStyle]="{'color': colorSecundario, 'font-size': '27px'}"><i class="fab fa-cc-amex"></i></span>
+        </div>
+      </div>
+
+    </div>
+    <div class="contenedor-primario" [ngStyle]="{'background-color': fondoPrimario, 'color': colorPrimario}">
+      <div class="row">
+        <div class="col-md-6">
+          <img class="logo" src="{{logoPrimario}}" alt="LogoPrimario" width="{{logoPrimarioTamano}}">
+          <span class="logo" style="padding-left: 15px"></span>
+          <img class="logo" src="assets/images/separador.png" alt="LogoSecundario" height="50" width="2">
+          <span class="logo" style="padding-right: 8px"></span>
+          <img src="{{logoSecundario}}" alt="" width="{{logoSecundarioTamano}}">
+        </div>
+        <div class="col-md-6 tarjetas">
+          <span [ngStyle]="{'color': colorPrimario}">Aceptamos</span><br>
+          <span [ngStyle]="{'color': colorPrimario, 'font-size': '27px'}"><i class="fab fa-cc-mastercard"></i></span>
+          <span [ngStyle]="{'color': colorPrimario, 'font-size': '27px'}"><i class="fab fa-cc-visa"></i></span>
+          <span [ngStyle]="{'color': colorPrimario, 'font-size': '27px'}"><i class="fab fa-cc-diners-club"></i></span>
+          <span [ngStyle]="{'color': colorPrimario, 'font-size': '27px'}"><i class="fab fa-cc-discover"></i></span>
+          <span [ngStyle]="{'color': colorPrimario, 'font-size': '27px'}"><i class="fab fa-cc-amex"></i></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,96 @@
+<div class="contenedor-p">
+
+  <div *ngIf="alertas.mensaje.estado" [ngClass]="alertas.mensaje.color" style="font-size: 13.5px !important">
+    <img *ngIf="alertas.mensaje.spinner" src="../../../assets/images/states/cargando.gif" width="20" />
+    <b>{{ alertas.mensaje.texto }}</b>
+  </div>
+
+  <div class="form-group">
+    <div class="labels">Número de Tarjeta</div>
+    <input type="text" mask='0000 0000 0000 0000' placeholder="Número de Tarjeta" [(ngModel)]="tarjeta.Numero"
+      (ngModelChange)="validarNumeroTarjeta(tarjeta.Numero)">
+    <span *ngIf="validacionTarjeta.Numero" class="label-error">Número de tarjeta no válido</span>
+  </div>
+  <div class="contenedor-e-c">
+    <div class="expiry">
+      <div class="labels">Expiración</div>
+      <input type="text" [dropSpecialCharacters]="false" mask="00 / 00" placeholder="MM / YY"
+        [(ngModel)]="tarjeta.Expiracion" (ngModelChange)="validarNumeroExpiracion(tarjeta.Expiracion)">
+      <span *ngIf="validacionTarjeta.mesExpiracion" class="label-error">* Mes de expiración no válido</span><br>
+      <span *ngIf="validacionTarjeta.anioExpiracion" class="label-error">* Año de expiración no válido</span>
+    </div>
+    <div class="cvv">
+      <div class="labels">CVV</div>
+      <input type="text" mask="9999" placeholder="CVV" [(ngModel)]="tarjeta.CVV"
+        (ngModelChange)="validarCVV(tarjeta.CVV)">
+      <span *ngIf="validacionTarjeta.CVV" class="label-error">CVV no válido</span>
+    </div>
+  </div>
+  <br>
+  <div class="form-group">
+    <span class="labels">Titular de la Tarjeta</span>
+    <input type="text" placeholder="Titular de la Tarjeta" [(ngModel)]="tarjeta.Titular"
+      (ngModelChange)="validarTitular(tarjeta.Titular)">
+    <span *ngIf="validacionTarjeta.Titular" class="label-error">Titular de la tarjeta no válido</span>
+  </div>
+  <div class="form-group">
+    <div class="labels">Diferidos</div>
+    <div *ngIf="estadoDiferidos" class="alert alert-secondary">
+      <img src="../../../assets/images/states/cargando.gif" width="20" />
+      <b>Obteniendo Diferidos, Espere PorFavor...</b>
+    </div>
+    <select [(ngModel)]="tarjeta.Diferidos">
+      <option *ngFor="let dif of diferidos" value="{{dif.code}}">{{dif.name}}</option>
+    </select>
+    <span *ngIf="validacionTarjeta.Diferidos" class="label-error">No se cargaron los diferidos de la tarjeta</span>
+  </div>
+
+  <div style="float: right">
+    <button *ngIf="botonVerdad" class="button" (click)="validarFormularioTarjeta()">PAGAR</button>
+    <button *ngIf="botonInterfaz" class="button" style="opacity: 0.7">PAGAR</button>
+  </div>
+</div>
+<br><br>
+
+<div class="modal fade" id="AlertErrores" tabindex="-1" role="dialog" aria-labelledby="ModalAlertErrores"
+  aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-body">
+        <span><b>Error al realizar el pago</b></span>
+        <br><br>
+
+        <div style="text-align: justify;">
+          <span><b>Detalles: </b></span>{{ errores.mensaje }}
+        </div><br>
+        <div style="background-color: #fff !important; color: #000 !important;">
+          <table style="width: 100%;" border="1">
+            <thead>
+              <tr>
+                <th><b>Código</b></th>
+                <th><b>Mensaje</b></th>
+                <th><b>Descripción</b></th>
+              </tr>
+            </thead>
+            <tbody>
+              <ng-container *ngFor="let lista of errores.errores">
+                <tr>
+                  <td>{{ lista.errorCode }}</td>
+                  <td>{{ lista.message }}</td>
+                  <td>
+                    <ul *ngFor="let err of lista.errorDescriptions">
+                      <li>{{ err }}</li>
+                    </ul>
+                  </td>
+                </tr>
+              </ng-container>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-dark" data-dismiss="modal">Cerrar</button>
+      </div>
+    </div>
+  </div>
+</div>

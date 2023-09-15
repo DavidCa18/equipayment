@@ -1,0 +1,605 @@
+<ngx-spinner bdColor="rgba(51,51,51,0.8)" size="medium" color="#fff" loadingText="Procesando Datos...">
+</ngx-spinner>
+
+<div class="container-scroller" style="font-size: 14px;">
+
+  <nav class="navbar default-layout-navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
+    <app-navbar></app-navbar>
+  </nav>
+
+  <div class="container-fluid page-body-wrapper">
+
+    <nav class="sidebar sidebar-offcanvas" id="sidebar">
+      <app-sidebar></app-sidebar>
+    </nav>
+
+    <div class="main-panel">
+      <div class="content-wrapper">
+
+        <div class="page-header">
+          <h3 class="page-title"> Listado Pagos </h3>
+          <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item"><a>Pagos</a></li>
+              <li class="breadcrumb-item active" aria-current="page">Listado</li>
+            </ol>
+          </nav>
+        </div>
+
+        <div class="row">
+          <div class="col-12 grid-margin stretch-card">
+            <div class="card">
+              <div class="card-body" style="padding-top: 15px !important; padding-bottom: 15px !important;">
+
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <kendo-daterange>
+                        <div class="row">
+                          <div class="col-md-6">
+                            <label><b>Inicio</b></label>
+                            <div class="espacio-pago"></div>
+                            <kendo-dateinput kendoDateRangeStartInput [(ngModel)]="fecha.inicio"
+                              style="width: 100%; height: 40.5px;">
+                            </kendo-dateinput>
+                          </div>
+                          <div class="col-md-6">
+                            <label><b>Fin</b></label>
+                            <div class="espacio-pago"></div>
+                            <kendo-dateinput kendoDateRangeEndInput [(ngModel)]="fecha.fin"
+                              style="width: 100%; height: 40.5px;">
+                            </kendo-dateinput>
+                          </div>
+                        </div>
+                      </kendo-daterange>
+                    </div>
+                  </div>
+                  <div class="col-md-2">
+                    <br><br>
+                    <a class="card-description text-success" data-toggle="collapse" href="#filtros" role="button"
+                      aria-expanded="false" aria-controls="filtros" style="color: #17A589;">Filtros <i
+                        class="fas fa-sliders-h"></i></a>
+                  </div>
+                  <div class="col-md-2">
+                    <div style="padding-top: 21.5px;"></div>
+                    <button class="btn btn-info btn-sm btn-block height-md" (click)="exportarExcel()">
+                      <i class="fas fa-file-excel"></i> Exportar
+                    </button>
+                    <div id="exportar"></div>
+                  </div>
+                  <div class="col-md-2">
+                    <div style="padding-top: 21.5px;"></div>
+                    <button class="btn btn-success btn-sm btn-block height-md" (click)="listarPagoParametros()">
+                      <i class="mdi mdi-magnify"></i> Buscar &nbsp;&nbsp;
+                    </button>
+                  </div>
+                  <div class="col-md-12">
+                    <div class="collapse" id="filtros">
+                      <br>
+                      <div class="row">
+                        <div class="col-md-4">
+                          <div class="form-group">
+                            <label><b>Identificación</b></label>
+                            <div class="input-group">
+                              <div class="input-group-prepend">
+                                <span class="input-group-text bg-primary text-white seleccion">
+                                  <input type="checkbox" name="parametro" value="1">
+                                </span>
+                              </div>
+                              <input type="text" [(ngModel)]="fmrParametros.Identificacion"
+                                class="form-control form-control-sm" placeholder="Ingresar N° Identificación">
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-md-4">
+                          <div class="form-group">
+                            <label><b>Código Pago</b></label>
+                            <div class="input-group">
+                              <div class="input-group-prepend">
+                                <span class="input-group-text bg-primary text-white seleccion">
+                                  <input type="checkbox" name="parametro" value="2">
+                                </span>
+                              </div>
+                              <input type="number" [(ngModel)]="fmrParametros.IdPago"
+                                class="form-control form-control-sm" placeholder="Ingresar Código Pago">
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-md-4">
+                          <div class="form-group">
+                            <label><b>Plataforma</b></label>
+                            <div class="input-group">
+                              <div class="input-group-prepend">
+                                <span class="input-group-text bg-primary text-white seleccion">
+                                  <input type="checkbox" name="parametro" value="3">
+                                </span>
+                              </div>
+                              <kendo-dropdownlist [data]="lstPlataformas" class="form-control form-control-sm"
+                                [(ngModel)]="fmrParametros.Plataforma"
+                                style="font-size: 13.5px; height: 40px !important;">
+                              </kendo-dropdownlist>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-md-4">
+                          <div class="form-group">
+                            <label><b>Voucher</b></label>
+                            <div class="input-group">
+                              <div class="input-group-prepend">
+                                <span class="input-group-text bg-primary text-white seleccion">
+                                  <input type="checkbox" name="parametro" value="4">
+                                </span>
+                              </div>
+                              <input type="text" [(ngModel)]="fmrParametros.Voucher"
+                                class="form-control form-control-sm" placeholder="Ingresar N° Voucher">
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-md-4">
+                          <div class="form-group">
+                            <label><b>Comercio/Código</b></label>
+                            <div class="input-group">
+                              <div class="input-group-prepend">
+                                <span class="input-group-text bg-primary text-white seleccion">
+                                  <input type="checkbox" name="parametro" value="5">
+                                </span>
+                              </div>
+                              <input type="text" [(ngModel)]="fmrParametros.Comercio"
+                                class="form-control form-control-sm" placeholder="Ingresar Comercio">
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-md-4">
+                          <div class="form-group">
+                            <label><b>Estado</b></label>
+                            <div class="input-group">
+                              <div class="input-group-prepend">
+                                <span class="input-group-text bg-primary text-white seleccion">
+                                  <input type="checkbox" name="parametro" value="6">
+                                </span>
+                              </div>
+                              <kendo-multiselect [data]="lstEstados" [(ngModel)]="fmrParametros.EstadoPago"
+                                [textField]="'text'" [valueField]="'value'" [valuePrimitive]="true"
+                                class="form-control form-control-sm"
+                                style="font-size: 9px !important; height: 40px !important;">
+                                <ng-template kendoMultiSelectItemTemplate let-dataItem>
+                                  <div style="border-bottom: 1px solid #ddd; padding: 5px; width: 100% !important;">
+                                    <span style="font-size: 13.5px;">{{ dataItem.text }}</span>
+                                  </div>
+                                </ng-template>
+                              </kendo-multiselect>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-md-4">
+                          <div class="form-group">
+                            <label><b>Línea de Negocio</b></label>
+                            <div class="input-group">
+                              <div class="input-group-prepend">
+                                <span class="input-group-text bg-primary text-white seleccion">
+                                  <input type="checkbox" name="parametro" value="7">
+                                </span>
+                              </div>
+                              <kendo-multiselect [data]="lstAplicaciones" [(ngModel)]="fmrParametros.Aplicacion"
+                                [textField]="'Nombre'" [valueField]="'IdAplicacion'" [valuePrimitive]="true"
+                                class="form-control form-control-sm"
+                                style="font-size: 13.5px; height: 40px !important;">
+                                <ng-template kendoMultiSelectItemTemplate let-dataItem>
+                                  <div style="border-bottom: 1px solid #ddd; padding: 5px; width: 100% !important;">
+                                    <span style="font-size: 13.5px;">{{ dataItem.Nombre }}</span>
+                                  </div>
+                                </ng-template>
+                              </kendo-multiselect>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+
+          <div class="col-12 grid-margin stretch-card">
+            <div class="card">
+              <div class="card-body">
+                <div class="table-responsive">
+                  <table class="table table-bordered">
+                    <thead>
+                      <tr class="table-success text-white">
+                        <td class="text-center">Fecha</td>
+                        <td>Cliente</td>
+                        <td>Diferidos</td>
+                        <td>Monto</td>
+                        <td class="text-center">Estado</td>
+                        <td class="text-center">Detalle</td>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr *ngIf="lstPagos.length == 0">
+                        <td colspan="6" class="text-center">
+                          No existen elementos.
+                        </td>
+                      </tr>
+                      <tr *ngFor="let pago of lstPagos | paginate: { id: 'pago', itemsPerPage: 8, currentPage: p }">
+                        <td class="text-center">
+                          <span style="font-size: 13.5px !important;">
+                            {{ globales.transformarFecha(pago.FechaTransaccion).dia }} <br>
+                            {{ globales.transformarFecha(pago.FechaTransaccion).mes }}
+                          </span>
+                        </td>
+                        <td>
+                          {{ pago.Factura.Cliente.Identificacion }}<br>
+                          <small>
+                            {{ pago.Factura.Cliente.PrimerNombre }}
+                            {{ pago.Factura.Cliente.SegundoNombre }}
+                            {{ pago.Factura.Cliente.Apellido }}
+                          </small>
+                        </td>
+                        <td>{{ obtenerDiferidos(pago) }}</td>
+                        <td style="line-height: 38px;">
+                          <b style="font-size: 15px !important">$ {{ globales.formatearNumero(pago.Factura.Total,2) }}
+                            (USD)</b>
+                        </td>
+                        <td class="text-center">
+                          <i [ngClass]="verificarEstado(pago.Estado).aviso"></i>
+                        </td>
+                        <td class="text-center">
+                          <button class="btn btn-success btn-sm height-md" (click)="abrirModalDetallePago(pago)">
+                            <i class="mdi mdi-eye"></i>
+                          </button>
+                        </td>
+                      </tr>
+                    </tbody>
+                    <tfoot *ngIf="lstPagos.length > 8">
+                      <tr>
+                        <td colspan="6">
+                          <pagination-controls id="pago" (pageChange)="p = $event" maxSize="8" autoHide="true"
+                            responsive="true" previousLabel="Anterior" nextLabel="Siguiente" class="paginacion">
+                          </pagination-controls>
+                        </td>
+                      </tr>
+                    </tfoot>
+                  </table>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <footer class="footer">
+        <div class="d-sm-flex justify-content-center justify-content-sm-between">
+          <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">Copyright © 2020 <a
+              target="_blank">Innovacloud</a>. Todos los derechos reservados.</span>
+        </div>
+      </footer>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="modalDetallesPago" tabindex="-1" role="dialog" aria-labelledby="modalDetallesPago"
+  aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content" style="font-size: 14px !important;">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Detalles Pago</h5>
+        <div class="text-rigth">{{ pago.IdPago }}</div>
+      </div>
+      <div class="modal-body" style="padding: 0px !important; background-color: #fff !important;">
+        <div class="accordion accordion-multi-colored" id="datosTransaccion" role="tablist">
+          <div class="card">
+            <div class="card-header" role="tab" id="headInformacion">
+              <div data-toggle="collapse" href="#pnlInformacion" aria-expanded="false" aria-controls="pnlInformacion"
+                class="collapsed text-success panel-block">
+                <b>
+                  <i class="mdi mdi-account"></i> Información del Cliente
+                </b>
+              </div>
+            </div>
+            <div id="pnlInformacion" class="collapse show" role="tabpanel" aria-labelledby="headInformacion"
+              data-parent="#datosTransaccion">
+              <div class="panel-body">
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label><b>Identificación:</b></label><br>
+                      <span>
+                        {{ pago.Factura.Cliente.Identificacion }}
+                      </span>
+                    </div>
+                    <div class="form-group">
+                      <label><b>Correo Electrónico:</b></label><br>
+                      <div [innerHTML]="listarEmails(pago.Factura.Cliente.Email)"></div>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label><b>Nombre:</b></label><br>
+                      <span>
+                        {{ pago.Factura.Cliente.PrimerNombre }} {{ pago.Factura.Cliente.SegundoNombre }}
+                        {{ pago.Factura.Cliente.Apellido }}
+                      </span>
+                    </div>
+                    <div class="form-group">
+                      <label><b>Plataforma:</b></label><br>
+                      <span>
+                        {{ pago.Factura.Cliente.Aplicacion.Nombre }}
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div *ngIf="pago.Estado == 2 || pago.Estado == 3 || pago.Estado == 4" class="card">
+            <div class="card-header bg-success" role="tab" id="headTransaccion">
+              <div data-toggle="collapse" href="#pnlTransaccion" aria-expanded="false" aria-controls="pnlTransaccion"
+                class="collapsed text-success panel-block text-light">
+                <b>
+                  <i class="mdi mdi-cash-multiple"></i> Detalles de la Transacción
+                </b>
+              </div>
+            </div>
+            <div id="pnlTransaccion" class="collapse" role="tabpanel" aria-labelledby="headTransaccion"
+              data-parent="#datosTransaccion">
+              <div class="panel-body">
+                <div class="row">
+                  <div class="col-md-4">
+                    <div class="form-group">
+                      <label><b>Código:</b></label><br>
+                      <span>{{ pago.IdPago }} || {{ codificarBase64(pago.IdPago) }}</span>
+                    </div>
+                    <div class="form-group">
+                      <label><b>Código Resultado:</b></label><br>
+                      <span>{{ pago.ResultadoCodigo }}</span>
+                    </div>
+                    <div class="form-group">
+                      <label><b>Dominio:</b></label><br>
+                      <span>{{ pago.Ip }}</span>
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                    <div class="form-group">
+                      <label><b>Plataforma:</b></label><br>
+                      <span>{{ pago.Plataforma }}</span>
+                    </div>
+                    <div class="form-group">
+                      <label><b>Código Transacción:</b></label><br>
+                      <span>{{ pago.Factura.Numero }}</span>
+                    </div>
+                    <div class="form-group">
+                      <label><b>Diferidos:</b></label><br>
+                      <span>{{ obtenerDiferidos(pago) }}</span>
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                    <div class="form-group">
+                      <label><b>Voucher:</b></label><br>
+                      <span>{{ pago.Voucher }}</span>
+                    </div>
+                    <div class="form-group">
+                      <label><b>Código Autenticación:</b></label><br>
+                      <span>{{ pago.CodigoAutenticacion }}</span>
+                    </div>
+                    <div class="form-group">
+                      <label><b>Estado:</b></label><br>
+                      <span>{{ verificarEstado(pago.Estado).mensaje }}</span>
+                    </div>
+                  </div>
+                  <div class="col-md-12">
+                    <div class="form-group">
+                      <label><b>Fecha Transacción:</b></label><br>
+                      <span>{{ pago.FechaTransaccion }}</span>
+                    </div>
+                  </div>
+                  <div class="col-md-12">
+                    <div class="form-group">
+                      <label><b>Resultado:</b></label><br>
+                      <span>{{ pago.ResultadoTexto }}</span>
+                    </div>
+                  </div>
+                  <div *ngIf="pago.ResultadoTrama != ''" class="col-md-12">
+                    <div class="form-group">
+                      <div class="row">
+                        <div class="col-10">
+                          <label><b>Trama:</b></label>
+                          <input type="text" class="trama" id="txtTrama" value="{{ pago.ResultadoTrama }}">
+                        </div>
+                        <div class="col-2">
+                          <button class="btn btn-success btn-sm height-md" (click)="copiar()">
+                            <i class="far fa-copy"></i>
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div *ngIf="pago.Estado == 2 || pago.Estado == 3 || pago.Estado == 4" class="card">
+            <div class="card-header" role="tab" id="headTarjeta">
+              <div data-toggle="collapse" href="#pnlTarjeta" aria-expanded="false" aria-controls="pnlTarjeta"
+                class="collapsed text-success panel-block">
+                <b>
+                  <i class="mdi mdi-credit-card"></i> Tarjeta de Crédito
+                </b>
+              </div>
+            </div>
+            <div id="pnlTarjeta" class="collapse" role="tabpanel" aria-labelledby="headTarjeta"
+              data-parent="#datosTransaccion">
+              <div class="panel-body">
+                <div class="row">
+                  <div class="col-md-12">
+                    <div class="form-group">
+                      <label><b>Marca:</b></label><br>
+                      <span>{{ pago.Marca }}</span>
+                    </div>
+                  </div>
+                  <div class="col-md-12">
+                    <div class="form-group">
+                      <label><b>Número Tarjeta:</b></label><br>
+                      <span
+                        style="letter-spacing: 1.5px">{{marcaTarjeta(pago.Bin, pago.Digitos).card | mask: marcaTarjeta(pago.Bin, pago.Digitos).icon == 'fab fa-cc-diners-club' ? 'AAAA  AAAAAA  AAAA' : marcaTarjeta(pago.Bin, pago.Digitos).icon == 'fab fa-cc-amex' ? 'AAAA  AAAAAA  AAAAA' : 'AAAA  AAAA  AAAA  AAAA' }}</span>
+                    </div>
+                  </div>
+                  <div class="col-md-12">
+                    <div class="form-group">
+                      <label><b>Tarjeta Habiente:</b></label><br>
+                      <span>{{ pago.Apoderado }}</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-header bg-success" role="tab" id="headGestion">
+              <div data-toggle="collapse" href="#pnlGestion" aria-expanded="false" aria-controls="pnlGestion"
+                class="collapsed text-success panel-block text-light">
+                <b>
+                  <i class="mdi mdi-credit-card"></i> Gestión de la Transacción
+                </b>
+              </div>
+            </div>
+            <div id="pnlGestion" class="collapse" role="tabpanel" aria-labelledby="headGestion"
+              data-parent="#datosTransaccion">
+              <div class="panel-body" style="padding-bottom: 15px !important;">
+                <div class="list-wrapper">
+                  <ul class="d-flex flex-column-reverse todo-list">
+                    <li>
+                      <label class="form-check-label" style="font-size: 14px !important;">
+                        Habilitar Cliente<i class="input-helper"></i>
+                      </label>
+                      <button *ngIf="pago.Estado == 3" class="remove btn btn-success btn-sm height-md"
+                        (click)="habilitarPagosFallidos()" style="width: 50px !important;">
+                        <i class="fas fa-check" style="color: #fff !important;"></i>
+                      </button>
+                      <button *ngIf="pago.Estado != 3" class="remove btn btn-secondary btn-sm height-md"
+                        style="width: 50px !important;">
+                        <i class="fas fa-check" style="color: #fff !important;"></i>
+                      </button>
+                    </li>
+                    <li>
+                      <label class="form-check-label">
+                        Descargar Voucher<i class="input-helper"></i>
+                      </label>
+
+                      <a *ngIf="pago.Estado == 2" [href]="descargarRecibo()" download="voucher_{{pago.Voucher}}.pdf"
+                        class="remove btn btn-success btn-sm height-md text-light" style="width: 50px !important;">
+                        <i class="fas fa-file-alt" style="color: #fff !important;"></i>
+                      </a>
+                      <button *ngIf="pago.Estado != 2" class="remove btn btn-secondary btn-sm height-md text-dark"
+                        style="width: 50px !important;">
+                        <i class="fas fa-file-alt" style="color: #fff !important;"></i>
+                      </button>
+                    </li>
+                    <li>
+                      <label class="form-check-label">
+                        Visualizar Link<i class="input-helper"></i>
+                      </label>
+
+                      <popover-content #LinkPago placement="left" [animation]="true" [closeOnClickOutside]="true">
+                        <div style="padding: 20px;">
+                          {{ pago.Link }}
+                        </div>
+                      </popover-content>
+
+                      <button [popover]="LinkPago" class="remove btn btn-success btn-sm height-md"
+                        style="width: 50px !important;">
+                        <i class="fas fa-link" style="color: #fff !important;"></i>
+                      </button>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-header" role="tab" id="headVerificacion">
+              <div data-toggle="collapse" href="#pnlVerificacion" aria-expanded="false" aria-controls="pnlVerificacion"
+                class="collapsed text-success panel-block">
+                <b>
+                  <i class="mdi mdi-credit-card"></i> Verificación de la Transacción
+                </b>
+              </div>
+            </div>
+            <div id="pnlVerificacion" class="collapse" role="tabpanel" aria-labelledby="headVerificacion"
+              data-parent="#datosTransaccion">
+              <div class="panel-body" style="padding-bottom: 15px !important;">
+                <div class="row">
+                  <div class="col-md-12">
+                    <div class="form-group">
+                      <button class="btn btn-warning btn-sm height-md" (click)="verificarPagoPayphone()">
+                        MEDIANET
+                      </button>
+                      <button class="btn btn-success btn-sm height-md" (click)="verificarPagoDatafast()">
+                        DATAFAST
+                      </button>
+                    </div>
+                    <div class="table-responsive">
+                      <table class="table">
+                        <thead class="bg-success text-light">
+                          <tr>
+                            <th>Descripción</th>
+                            <th></th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr *ngIf="lstVerificacionPago.length == 0">
+                            <td colspan="2">
+                              No existen registros
+                            </td>
+                          </tr>
+                          <tr
+                            *ngFor="let repa of lstVerificacionPago | paginate: { id: 'externo', itemsPerPage: 2, currentPage: q }">
+                            <td>
+                              <div class="row">
+                                <div class="col-md-12">
+                                  <div>
+                                    <b><u>Fecha: </u></b> <span>{{ repa.Fecha }}</span>
+                                  </div>
+                                  <div>
+                                    <b><u>Cliente: </u></b> <span>{{ repa.Cliente }}</span>
+                                  </div>
+                                  <div>
+                                    <b><u>Estado:
+                                      </u></b><span>{{ verificarEstado(obtenerEstado(repa.Plataforma, repa.EstadoCodigo)).mensaje }}</span><br>
+                                    <b>Codigo: </b><span>{{ repa.EstadoCodigo }}</span><br>
+                                    <b>Descripción: </b><span>{{ repa.EstadoDescripcion }}</span>
+                                  </div>
+                                </div>
+                              </div>
+                            </td>
+                            <td>
+                              <button class="btn btn-success btn-sm btn-block height-md" (click)="actualizarPago(repa)">
+                                <i class="fas fa-save"></i>
+                              </button>
+                            </td>
+                          </tr>
+                          <tr *ngIf="lstVerificacionPago.length > 0">
+                            <td colspan="2">
+                              <pagination-controls id="externo" (pageChange)="q = $event" maxSize="2" responsive="true"
+                                previousLabel="Anterior" nextLabel="Siguiente" class="paginacion">
+                              </pagination-controls>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-success btn-sm height-md" data-dismiss="modal">Aceptar</button>
+      </div>
+    </div>
+  </div>
+</div>

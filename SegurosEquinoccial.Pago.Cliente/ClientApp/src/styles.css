@@ -1,0 +1,58 @@
+/*NUEVOS ESTILOS*/
+
+hr {
+  margin: 0px !important;
+}
+
+input {
+  font-size: 14px !important;
+}
+/*
+button {
+  font-size: 13.5px !important;
+}*/
+/*
+.btn-ep {
+  color: #fff;
+  background-color: rgba(23, 165, 137, 1);
+}*/
+/*
+.btn-ep:hover {
+  color: #fff !important;
+  background-color: rgba(23, 173, 151, 1);
+}*/
+
+.container-modal-left {
+  border-radius: 7px 0px 0px 7px;
+  -moz-border-radius: 7px 0px 0px 7px;
+  -webkit-border-radius: 7px 0px 0px 7px;
+  background-color: rgba(23, 165, 137, 0.8);
+  text-align: center;
+  color: #ffffff !important;
+  padding: 10px;
+}
+
+.container-modal-rigth {
+  background-color: #ffffff;
+  color: #000000;
+  padding: 10px;
+  text-align: justify !important;
+  border-radius: 0px 7px 7px 0px;
+  -moz-border-radius: 0px 7px 7px 0px;
+  -webkit-border-radius: 0px 7px 7px 0px;
+}
+
+@media screen and (max-width: 768px) {
+  .container-modal-rigth {
+    border-radius: 0px 0px 7px 7px;
+    -moz-border-radius: 0px 0px 7px 7px;
+    -webkit-border-radius: 0px 0px 7px 7px;
+  }
+  .container-modal-left {
+    border-radius: 7px 7px 0px 0px;
+    -moz-border-radius: 7px 7px 0px 0px;
+    -webkit-border-radius: 7px 7px 0px 0px;
+  }
+}
+
+

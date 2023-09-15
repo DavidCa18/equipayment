@@ -1,0 +1,318 @@
+<ngx-spinner bdColor="rgba(51,51,51,0.8)" size="medium" color="#fff" loadingText="Procesando Datos...">
+</ngx-spinner>
+
+
+<div class="container-scroller" style="font-size: 14px;">
+
+
+  <nav class="navbar default-layout-navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
+    <app-navbar></app-navbar>
+  </nav>
+
+  <div class="container-fluid page-body-wrapper">
+
+    <nav class="sidebar sidebar-offcanvas" id="sidebar">
+      <app-sidebar></app-sidebar>
+    </nav>
+
+    <div class="main-panel">
+      <div class="content-wrapper">
+
+        <div class="page-header">
+          <h3 class="page-title"> Lista de Links </h3>
+          <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item"><a>Masivos</a></li>
+              <li class="breadcrumb-item active" aria-current="page">Lista Links</li>
+            </ol>
+          </nav>
+        </div>
+
+        <div class="row">
+          <div class="col-12 grid-margin stretch-card">
+            <div class="card">
+              <div class="card-body" style="padding-top: 15px !important; padding-bottom: 15px !important;">
+                <a class="card-description text-success" data-toggle="collapse" href="#filtros" role="button"
+                  aria-expanded="false" aria-controls="filtros" style="color: #17A589;">Filtros <i
+                    class="fas fa-sliders-h"></i></a>
+
+                <div class="collapse" id="filtros">
+                  <br>
+                  <div class="row">
+                    <div class="col-md-4">
+                      <div class="form-group">
+                        <kendo-daterange>
+                          <label>
+                            <span><b>Inicio</b></span>
+                            <div class="espacio"></div>
+                            <kendo-dateinput kendoDateRangeStartInput [(ngModel)]="filtros.inicio"
+                              style="width: 115px; height: 41.19px;">
+                            </kendo-dateinput>
+                          </label>
+                          <label>
+                            <span><b>Fin</b></span>
+                            <div class="espacio"></div>
+                            <kendo-dateinput kendoDateRangeEndInput [(ngModel)]="filtros.fin"
+                              style="width: 115px; height: 41.19px;">
+                            </kendo-dateinput>
+                          </label>
+                        </kendo-daterange>
+                      </div>
+                    </div>
+                    <div class="col-md-5">
+                      <div class="form-group">
+                        <label><b>N° Identificación</b></label>
+                        <input type="text" class="form-control form-control-sm" [(ngModel)]="filtros.identificacion"
+                          placeholder="Ingresar N° Identificación">
+                      </div>
+                    </div>
+                    <div class="col-md-3">
+                      <div class="form-group text-right">
+                        <div style="padding-top: 22px;"></div>
+                        <button class="btn btn-success btn-sm btn-block height-md" (click)="listarPagos()">
+                          <i class="mdi mdi-magnify"></i> Buscar &nbsp;&nbsp;
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+
+          <div class="col-12 grid-margin stretch-card">
+            <div class="card">
+              <div class="card-body">
+
+                <ul class="nav nav-tabs" id="myTab" role="tablist">
+                  <li class="nav-item">
+                    <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab"
+                      aria-controls="home" aria-selected="true">
+                      <i class="fas fa-check-circle text-success"></i> Exitosos
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab"
+                      aria-controls="profile" aria-selected="false">
+                      <i class="fas fa-times-circle text-danger"></i> No Exitosos
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab"
+                      aria-controls="contact" aria-selected="false">
+                      <i class="fas fa-adjust text-info"></i> No Realizados
+                    </a>
+                  </li>
+                </ul>
+                <div class="tab-content" id="myTabContent">
+                  <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                    <div class="table-responsive">
+                      <table class="table table-bordered">
+                        <thead>
+                          <tr class="table-success text-white">
+                            <td>Fecha</td>
+                            <td>Cliente</td>
+                            <td>Monto</td>
+                            <td style="text-align: center;">Voucher</td>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr *ngIf="lstPagosExitosos.length == 0">
+                            <td colspan="5" class="text-center">
+                              No existen elementos.
+                            </td>
+                          </tr>
+                          <tr
+                            *ngFor="let pago of lstPagosExitosos | paginate: { id: 'pago', itemsPerPage: 8, currentPage: p }">
+                            <td style="text-align: center">
+                              {{ globales.transformarFecha(pago.FechaTransaccion).dia }} <br>
+                              {{ globales.transformarFecha(pago.FechaTransaccion).mes }}
+                            </td>
+                            <td>
+                              {{ pago.Factura.Cliente.Identificacion }}<br>
+                              <small>
+                                {{ pago.Factura.Cliente.PrimerNombre }}
+                                {{ pago.Factura.Cliente.SegundoNombre }}
+                                {{ pago.Factura.Cliente.Apellido }}
+                              </small>
+                            </td>
+                            <td style="line-height: 38px;">
+                              <b style="font-size: 15px !important">$
+                                {{ globales.formatearNumero(pago.Factura.Total,2) }}
+                                (USD)</b>
+                            </td>
+                            <td style="text-align: center;">
+                              <button type="button" class="btn btn-success btn-sm height-md text-light"
+                                (click)="buscarVoucher(pago)" data-toggle="modal" data-target="#exampleModalCenter">
+                                <i class="fas fa-search"></i>
+                              </button>
+                            </td>
+                          </tr>
+                        </tbody>
+                        <tfoot *ngIf="lstPagosExitosos.length > 8">
+                          <tr>
+                            <td colspan="5">
+                              <pagination-controls id="pago" (pageChange)="p = $event" maxSize="8" autoHide="true"
+                                responsive="true" previousLabel="Anterior" nextLabel="Siguiente" class="paginacion">
+                              </pagination-controls>
+                            </td>
+                          </tr>
+                        </tfoot>
+                      </table>
+                    </div>
+                  </div>
+                  <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                    <br>
+                    <div class="text-right">
+                      <button class="btn btn-success btn-sm height-md" (click)="enviarLinks(lstPagosErroneos)">
+                        <i class="mdi mdi-send"></i> Enviar Links &nbsp;
+                      </button>
+                    </div>
+                    <br>
+                    <div class="table-responsive">
+                      <table class="table table-bordered">
+                        <thead>
+                          <tr class="table-success text-white">
+                            <td>Fecha</td>
+                            <td>Cliente</td>
+                            <td>Monto</td>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr *ngIf="lstPagosErroneos.length == 0">
+                            <td colspan="5" class="text-center">
+                              No existen elementos.
+                            </td>
+                          </tr>
+                          <tr
+                            *ngFor="let pago of lstPagosErroneos | paginate: { id: 'fallidos', itemsPerPage: 8, currentPage: q }">
+                            <td style="text-align: center">
+                              {{ globales.transformarFecha(pago.FechaTransaccion).dia }} <br>
+                              {{ globales.transformarFecha(pago.FechaTransaccion).mes }}
+                            </td>
+                            <td>
+                              {{ pago.Factura.Cliente.Identificacion }}<br>
+                              <small>
+                                {{ pago.Factura.Cliente.PrimerNombre }}
+                                {{ pago.Factura.Cliente.SegundoNombre }}
+                                {{ pago.Factura.Cliente.Apellido }}
+                              </small>
+                            </td>
+                            <td style="line-height: 38px;">
+                              <b style="font-size: 15px !important">$
+                                {{ globales.formatearNumero(pago.Factura.Total,2) }}
+                                (USD)</b>
+                            </td>
+                          </tr>
+                        </tbody>
+                        <tfoot *ngIf="lstPagosErroneos.length > 8">
+                          <tr>
+                            <td colspan="5">
+                              <pagination-controls id="fallidos" (pageChange)="q = $event" maxSize="8" autoHide="true"
+                                responsive="true" previousLabel="Anterior" nextLabel="Siguiente" class="paginacion">
+                              </pagination-controls>
+                            </td>
+                          </tr>
+                        </tfoot>
+                      </table>
+                    </div>
+                  </div>
+                  <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
+                    <br>
+                    <div class="text-right">
+                      <button class="btn btn-success btn-sm height-md" (click)="enviarLinks(lstPagosOtros)">
+                        <i class="mdi mdi-send"></i> Enviar Links &nbsp;
+                      </button>
+                    </div>
+                    <br>
+                    <div class="table-responsive">
+                      <table class="table table-bordered">
+                        <thead>
+                          <tr class="table-success text-white">
+                            <td>Fecha</td>
+                            <td>Cliente</td>
+                            <td>Monto</td>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr *ngIf="lstPagosOtros.length == 0">
+                            <td colspan="5" class="text-center">
+                              No existen elementos.
+                            </td>
+                          </tr>
+                          <tr
+                            *ngFor="let pago of lstPagosOtros | paginate: { id: 'otros', itemsPerPage: 8, currentPage: r }">
+                            <td style="text-align: center">
+                              {{ globales.transformarFecha(pago.FechaTransaccion).dia }} <br>
+                              {{ globales.transformarFecha(pago.FechaTransaccion).mes }}
+                            </td>
+                            <td>
+                              {{ pago.Factura.Cliente.Identificacion }}<br>
+                              <small>
+                                {{ pago.Factura.Cliente.PrimerNombre }}
+                                {{ pago.Factura.Cliente.SegundoNombre }}
+                                {{ pago.Factura.Cliente.Apellido }}
+                              </small>
+                            </td>
+                            <td style="line-height: 38px;">
+                              <b style="font-size: 15px !important">$
+                                {{ globales.formatearNumero(pago.Factura.Total,2) }}
+                                (USD)</b>
+                            </td>
+                          </tr>
+                        </tbody>
+                        <tfoot *ngIf="lstPagosOtros.length > 8">
+                          <tr>
+                            <td colspan="5">
+                              <pagination-controls id="otros" (pageChange)="r = $event" maxSize="8" autoHide="true"
+                                responsive="true" previousLabel="Anterior" nextLabel="Siguiente" class="paginacion">
+                              </pagination-controls>
+                            </td>
+                          </tr>
+                        </tfoot>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+
+
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <footer class="footer">
+        <div class="d-sm-flex justify-content-center justify-content-sm-between">
+          <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">Copyright © 2020 <a
+              target="_blank">Innovacloud</a>. Todos los derechos reservados.</span>
+        </div>
+      </footer>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+  aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Voucher</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body" style="padding: 50px !important">
+        Vista previa no disponible, descargue el voucher para visualizarlo.
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary btn-sm height-md text-light"
+          data-dismiss="modal">Cancelar</button>
+        <a [href]="descargarRecibo()" download="voucher.pdf" class="btn btn-success btn-sm height-md text-light">
+          Descargar
+        </a>
+      </div>
+    </div>
+  </div>
+</div>

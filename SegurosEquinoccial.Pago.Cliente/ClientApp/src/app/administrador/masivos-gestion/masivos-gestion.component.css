@@ -1,0 +1,8 @@
+.paginacion /deep/ .ngx-pagination .current {
+    background: #17a589;
+}
+
+.links tr td {
+    padding: 10px;
+    border: 1px solid #ddd;
+}

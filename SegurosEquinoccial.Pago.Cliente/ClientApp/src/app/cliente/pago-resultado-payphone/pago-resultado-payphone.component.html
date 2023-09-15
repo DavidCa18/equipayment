@@ -1,0 +1,121 @@
+<ngx-spinner bdColor="rgba(51,51,51,0.8)" size="medium" color="#fff" loadingText="Verificando Pago..." type="ball-atom">
+</ngx-spinner>
+
+<template #header>
+</template>
+<br>
+<div class="container">
+  <div class="contenedor">
+    <div class="row">
+      <div class="col-md-6 derecha">
+        <div class="contenedor-transaccion-header"
+          [ngStyle]="{'background-color': aplicacion.FondoPrimario, 'color': aplicacion.ColorPrimario}">
+          <div class="form-group">
+            <b>Estado Pago</b>
+            <br>
+            <div class="row" style="padding-top: 10px !important">
+              <div class="col-md-2" style="text-align: center !important">
+                <img src="{{estadoPago.Imagen}}" alt="" width="57">
+              </div>
+              <div class="col-md-10">
+                <div style="padding-top: 8px !important; text-align: justify !important">
+                  {{estadoPago.Texto}}
+                  <span *ngIf="estadoPagoVista == 3"> {{ lstResultadoPago.message }}</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div [ngStyle]="{'background-color': aplicacion.FondoPrimario, 'color': aplicacion.ColorPrimario}">
+          <div class="contenedor-transaccion">
+            &nbsp;
+          </div>
+        </div>
+
+        <div class="contenedor-transaccion-footer"
+          [ngStyle]="{'background-color': aplicacion.FondoPrimario, 'color': aplicacion.ColorPrimario}">
+          <div class="form-group">
+            <b>Tarjeta de Crédito</b><br>
+            <div>
+              <b>Marca</b><br>
+              <span>{{ lstResultadoPago.cardBrand }}</span>
+              <br>
+              <b>Tarjeta</b><br>
+              <span>{{ lstResultadoPago.bin }}** **** {{ lstResultadoPago.lastDigits }}</span>
+            </div>
+          </div>
+          <div class="form-group">
+            <b>Diferido</b><br>
+            <span *ngIf="lstResultadoPago.deferredMessage != undefined">{{ lstResultadoPago.deferredMessage }}</span>
+            <span *ngIf="lstResultadoPago.deferredMessage == undefined">Corriente</span>
+          </div>
+          <div class="form-group">
+            <b>Fecha Transacción</b><br>
+            <span>{{ obtenerFecha('-') }}</span>
+          </div>
+          <div class="espacio2">
+            <div style="padding: 18.5px">
+              &nbsp;
+            </div>
+          </div>
+        </div>
+        <br>
+      </div>
+      <div class="col-md-6 derecha">
+        <div class="contenedor-informacion">
+          <b *ngIf="estadoPagoVista == 2">Total Cobrado</b>
+          <b *ngIf="estadoPagoVista != 2">Total a Cobrar</b>
+          <br>
+          <div style="padding-top: 5px !important; font-size: 17px !important">
+            <b>USD $ {{ dtsClienteFactura.Total }}</b>
+          </div>
+        </div>
+        <br>
+        <div class="contenedor-informacion">
+          <div class="form-group">
+            <b>N° Identificacion</b><br>
+            <span>{{ dtsClienteFactura.Cliente.Identificacion }}</span>
+          </div>
+          <div class="form-group">
+            <b>Nombre</b><br>
+            <span>
+              {{ dtsClienteFactura.Cliente.PrimerNombre }}
+              {{ dtsClienteFactura.Cliente.SegundoNombre }}
+              {{ dtsClienteFactura.Cliente.Apellido }}
+            </span>
+          </div>
+          <div class="form-group">
+            <b>Correo Electrónico</b><br>
+            <span>{{ globales.gestionEmail(dtsClienteFactura.Cliente.Email)[0] }}</span>
+          </div>
+          <div class="form-group">
+            <b>Código</b><br>
+            <span>{{ dtsClienteFactura.Cliente.Numero }}</span>
+          </div>
+        </div>
+        <br>
+        <div class="contenedor-informacion" style="text-align: center !important">
+          <div class="row">
+            <div class="col-md-6">
+              <a *ngIf="false" (click)="verificarIntentos()" class="btn"
+                [ngStyle]="{'background-color': '#27AE60', 'color': '#FFFFFF', 'font-size': '15px'}">
+                Reintentar
+              </a>
+              <div class="espacio">
+                <br><br>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <a href="{{ urlPago.Url }}" class="btn"
+                [ngStyle]="{'background-color': aplicacion.FondoPrimario, 'color': aplicacion.ColorPrimario, 'font-size': '15px'}">
+                {{ urlPago.Texto }}
+              </a>
+            </div>
+          </div>
+        </div>
+        <br>
+      </div>
+    </div>
+  </div>
+</div>

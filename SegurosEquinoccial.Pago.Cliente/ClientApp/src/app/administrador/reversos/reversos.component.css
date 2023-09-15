@@ -1,0 +1,10 @@
+.seleccion {
+  height: 41.19px !important;
+  border-radius: 4px 0px 0px 4px !important;
+  -moz-border-radius: 4px 0px 0px 4px !important;
+  -webkit-border-radius: 4px 0px 0px 4px !important;
+}
+
+.paginacion /deep/ .ngx-pagination .current {
+  background: #17A589;
+}

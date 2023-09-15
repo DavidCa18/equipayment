@@ -1,0 +1,273 @@
+<ngx-spinner bdColor="rgba(51,51,51,0.8)" size="medium" color="#fff" loadingText="Procesando Datos...">
+</ngx-spinner>
+
+<div class="container-scroller" style="font-size: 14px;">
+
+  <nav class="navbar default-layout-navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
+    <app-navbar></app-navbar>
+  </nav>
+
+  <div class="container-fluid page-body-wrapper">
+
+    <nav class="sidebar sidebar-offcanvas" id="sidebar">
+      <app-sidebar></app-sidebar>
+    </nav>
+
+    <div class="main-panel">
+      <div class="content-wrapper">
+
+        <div class="page-header">
+          <h3 class="page-title"> Reversar Pagos </h3>
+          <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item"><a>Pagos</a></li>
+              <li class="breadcrumb-item active" aria-current="page">Reversar</li>
+            </ol>
+          </nav>
+        </div>
+
+        <div class="row">
+          <div class="col-12 grid-margin stretch-card">
+            <div class="card">
+              <div class="card-body" style="padding-top: 15px !important; padding-bottom: 15px !important;">
+                <a class="card-description text-success" data-toggle="collapse" href="#filtros" role="button"
+                  aria-expanded="false" aria-controls="filtros" style="color: #17A589;">Filtros <i
+                    class="fas fa-sliders-h"></i></a>
+
+                <div class="collapse" id="filtros">
+                  <br>
+                  <div class="row">
+                    <div class="col-md-5">
+                      <div class="form-group">
+                        <label><b>Identificación</b></label>
+                        <div class="input-group">
+                          <div class="input-group-prepend">
+                            <span class="input-group-text bg-primary text-white seleccion">
+                              <input type="checkbox" name="parametro" value="1">
+                            </span>
+                          </div>
+                          <input type="text" [(ngModel)]="fmrParametros.Identificacion"
+                            class="form-control form-control-sm" placeholder="Ingresar N° Identificación">
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label><b>Segundo Nombre</b></label>
+                        <div class="input-group">
+                          <div class="input-group-prepend">
+                            <span class="input-group-text bg-primary text-white seleccion">
+                              <input type="checkbox" name="parametro" value="1">
+                            </span>
+                          </div>
+                          <input type="text" [(ngModel)]="fmrParametros.SegundoNombre"
+                            class="form-control form-control-sm" placeholder="Ingresar Segundo Nombre Cliente">
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-md-5">
+                      <div class="form-group">
+                        <label><b>Primer Nombre</b></label>
+                        <div class="input-group">
+                          <div class="input-group-prepend">
+                            <span class="input-group-text bg-primary text-white seleccion">
+                              <input type="checkbox" name="parametro" value="1">
+                            </span>
+                          </div>
+                          <input type="text" [(ngModel)]="fmrParametros.PrimerNombre"
+                            class="form-control form-control-sm" placeholder="Ingresar Primer Nombre Cliente">
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label><b>Apellido</b></label>
+                        <div class="input-group">
+                          <div class="input-group-prepend">
+                            <span class="input-group-text bg-primary text-white seleccion">
+                              <input type="checkbox" name="parametro" value="1">
+                            </span>
+                          </div>
+                          <input type="text" [(ngModel)]="fmrParametros.Apellido" class="form-control form-control-sm"
+                            placeholder="Ingresar Apellido Nombre Cliente">
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-md-2">
+                      <div class="form-group text-right">
+                        <div style="padding-top: 22px;"></div>
+                        <button class="btn btn-success btn-sm btn-block height-md" (click)="listarPagoParametros()">
+                          <i class="mdi mdi-magnify"></i> Buscar &nbsp;&nbsp;
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+
+          <div class="col-12 grid-margin stretch-card">
+            <div class="card">
+              <div class="card-body">
+
+                <div class="table-responsive">
+                  <table class="table table-bordered">
+                    <thead>
+                      <tr class="table-success text-white">
+                        <td>Fecha</td>
+                        <td>Cliente</td>
+                        <td>Diferidos</td>
+                        <td>Monto</td>
+                        <td>Estado</td>
+                        <td>Reversar</td>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr *ngIf="lstPagos.length == 0">
+                        <td colspan="6" class="text-center">
+                          No existen elementos.
+                        </td>
+                      </tr>
+                      <tr *ngFor="let pago of lstPagos | paginate: { id: 'pago', itemsPerPage: 8, currentPage: p }">
+                        <td style="text-align: center">
+                          {{ globales.transformarFecha(pago.FechaTransaccion).dia }} <br>
+                          {{ globales.transformarFecha(pago.FechaTransaccion).mes }}
+                        </td>
+                        <td>
+                          {{ pago.Factura.Cliente.Identificacion }}<br>
+                          <small>
+                            {{ pago.Factura.Cliente.PrimerNombre }}
+                            {{ pago.Factura.Cliente.SegundoNombre }}
+                            {{ pago.Factura.Cliente.Apellido }}
+                          </small>
+                        </td>
+                        <td>{{ obtenerDiferidos(pago) }}</td>
+                        <td style="line-height: 38px;">
+                          <b style="font-size: 15px !important">$ {{ globales.formatearNumero(pago.Factura.Total,2) }}
+                            (USD)</b>
+                        </td>
+                        <td style="text-align: center">
+                          <i class="mdi mdi-check-circle" style="color: #17A589; font-size: 25px;"></i>
+                        </td>
+                        <td>
+                          <button *ngIf="pago.Plataforma == 'DATAFAST'" class="btn btn-success btn-sm"
+                            (click)="abrirModalReverso(pago)">
+                            <i class="mdi mdi-reload"></i>
+                          </button>
+
+                          <button *ngIf="pago.Plataforma == 'PAYPHONE'" class="btn btn-warning btn-sm"
+                            (click)="reversarPagoPayphone(pago)">
+                            <i class="mdi mdi-reload"></i>
+                          </button>
+                        </td>
+                      </tr>
+                    </tbody>
+                    <tfoot *ngIf="lstPagos.length > 8">
+                      <tr>
+                        <td colspan="6">
+                          <pagination-controls id="pago" (pageChange)="p = $event" maxSize="8" autoHide="true"
+                            responsive="true" previousLabel="Anterior" nextLabel="Siguiente" class="paginacion">
+                          </pagination-controls>
+                        </td>
+                      </tr>
+                    </tfoot>
+                  </table>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <footer class="footer">
+        <div class="d-sm-flex justify-content-center justify-content-sm-between">
+          <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">Copyright © 2020 <a
+              target="_blank">Innovacloud</a>. Todos los derechos reservados.</span>
+        </div>
+      </footer>
+    </div>
+  </div>
+</div>
+
+
+<div class="modal fade" id="modalDetallesPago" tabindex="-1" role="dialog" aria-labelledby="ModalDetallesPago"
+  aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content"
+      style="border: 0px !important; background-color: rgb(0,0,0,0); font-size: 13.5px !important">
+
+      <div class="row" style="height: 400px !important">
+        <div class="col-md-4 col-sm-12 container-modal-left container-modal-left-adc">
+          <div>
+            <br><br><br><br>
+          </div>
+          <div class="form-group">
+            <div>
+              <img src="../../../assets/images/items/{{ imgDetalles }}" alt="IMG" width="80">
+            </div>
+            <div style="padding-top: 10px">
+              <b>
+                {{ pago.Factura.Cliente.PrimerNombre }} {{ pago.Factura.Cliente.SegundoNombre }}
+                {{ pago.Factura.Cliente.Apellido }}
+              </b>
+            </div>
+            <div style="font-size: 18px; letter-spacing: 1px; padding-top: 12px">
+              <b>$ {{ globales.formatearNumero(pago.Factura.Total,2) }}</b>
+            </div>
+            <div>
+              <small><b>{{ pago.FechaTransaccion }}</b></small>
+            </div>
+            <br>
+            <div>
+              <small><b>{{ pago.Factura.Cliente.Aplicacion.Nombre }}</b></small>
+            </div>
+
+          </div>
+        </div>
+        <div class="col-md-8 col-sm-12 container-modal-rigth">
+          <div class="row" style="padding: 25px !important;">
+            <div class="col-md-12">
+              <div class="form-group">
+                <label>Número Tarjeta</label>
+                <input type="text" mask='0000 0000 0000 0000' class="form-control form-control-sm"
+                  [(ngModel)]="fmrReverso.NumeroTarjeta" placeholder="0000 0000 0000 0000'">
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+                <label>Mes Expiración</label>
+                <input type="text" mask='00' class="form-control form-control-sm"
+                  [(ngModel)]="fmrReverso.MesExpiracionTarjeta" placeholder="MM">
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+                <label>Año Expiración</label>
+                <input type="text" mask='0000' class="form-control form-control-sm"
+                  [(ngModel)]="fmrReverso.AnioExpiracionTarjeta" placeholder="YYYY">
+              </div>
+            </div>
+            <div class="col-md-12">
+              <div class="form-group">
+                <label>Nombre del Titular</label><br>
+                <input type="text" class="form-control form-control-sm" placeholder="Tarjeta Habiente">
+              </div>
+            </div>
+            <div class="col-md-12">
+              <br>
+              <div class="row">
+                <div class="col-md-6">
+                  <button type="button"class="btn btn-dark btn-sm btn-block height-md" data-dismiss="modal">Cancelar</button>
+                </div>
+                <div class="col-md-6">
+                  <button type="button" class="btn btn-success btn-sm btn-block height-md" (click)="reversarPagoDatafast()">
+                    Reversar
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
